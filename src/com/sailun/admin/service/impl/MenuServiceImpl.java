@@ -4,6 +4,8 @@ package com.sailun.admin.service.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -272,6 +274,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		menu.setCreateDate(menuVo.getCreateDate());
 		menu.setUpdateDate(menuVo.getUpdateDate());
 		menu.setParentId(menuVo.getParentId());
+		menu.setIcon(menuVo.getIcon());
 		return menu;
 	}
 
@@ -295,6 +298,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		dto.setCreateDate(menu.getCreateDate());
 		dto.setUpdateDate(menu.getUpdateDate());
 		dto.setParentId(menu.getParentId());
+		dto.setIcon(menu.getIcon());
 		return dto;
 	}
 
@@ -472,6 +476,53 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		}
 		return StringUtils.strip(Arrays.asList(list).toString(), "[]").replaceAll("\\s*", "");
 
+	}
+
+	
+	/**
+	* @Title: getMenuByIndex
+	* @Description: 获取菜单列表
+	* @author zhuzq
+	* @date  2021年4月5日 下午3:27:07
+	* @return
+	*/
+	@Override
+	public Map<String,MenuDto> getMenuByIndex() {
+		Map<String,Object> paramMap = null;
+		List<Menu> list = menuDao.select(paramMap);
+		Map<String,MenuDto> memuMap = new LinkedHashMap<String, MenuDto>();
+		if(null != list){
+			for (Menu menu : list) {
+				MenuDto menuDto = convertMenuDto(menu);
+				memuMap.put(String.valueOf(menuDto.getMenuId()), menuDto);
+			}
+		}
+		
+		
+		for (Map.Entry<String, MenuDto> map : memuMap.entrySet()) {
+			MenuDto value = map.getValue();
+			
+			if("0".equals(value.getParentId())){
+				continue;
+			}
+			
+			MenuDto menuDto = memuMap.get(value.getParentId());
+			
+			if(null != menuDto){
+				List<MenuDto> childList = menuDto.getChildList();
+				if(null == childList){
+					childList = new LinkedList<MenuDto>();
+				}
+				childList.add(value);
+				menuDto.setChildList(childList);
+			}
+			
+			if(null != menuDto){
+				memuMap.put(String.valueOf(menuDto.getMenuId()), menuDto);
+			}
+		}
+		
+		return memuMap;
 	}
 
 }

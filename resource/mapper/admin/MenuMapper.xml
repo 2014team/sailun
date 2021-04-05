@@ -13,6 +13,7 @@
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
 		<result property="parentId" column="parent_id" />
+		<result property="icon" column="icon" />
 	</resultMap>
 
 	<!-- 保存 -->
@@ -26,6 +27,7 @@
 			,create_date
 			,update_date
 			,parent_id
+			,icon
 		)
 		 values
 		 (
@@ -37,6 +39,7 @@
 				,#{createDate}
 				,#{updateDate}
 				,#{parentId}
+				,#{icon}
 		)
 	</insert>
 	
@@ -67,6 +70,7 @@
 				,create_date = #{createDate}
 				,update_date = #{updateDate}
 				,parent_id = #{parentId}
+				,icon = #{icon}
 		where menu_id = #{menuId}
 	</update>
 	
@@ -82,6 +86,7 @@
 				,create_date
 				,update_date
 				,parent_id
+				,icon
 		 from t_admin_menu where menu_id = #{menuId} 
 		 order by sort_id ,create_date desc limit 1;
  	</select>
@@ -98,6 +103,7 @@
 				,create_date
 				,update_date
 				,parent_id
+				,icon
 		 from t_admin_menu  
 		 <where>
 		 	<if test="null != menuIdlist">
@@ -128,6 +134,7 @@
 				,create_date
 				,update_date
 				,parent_id
+				,icon
 		 from
 		t_admin_menu
 		<where>
@@ -155,6 +162,9 @@
 			<if test="null != parentId ">
 			and parent_id = #{parentId}
 			</if> 
+			<if test="null != icon ">
+			and icon = #{icon}
+			</if> 
 		</where>
 		order by sort_id ,create_date desc limit 1;
 	</select>
@@ -171,6 +181,7 @@
 				,create_date
 				,update_date
 				,parent_id
+				,icon
  		 from t_admin_menu
  		<where>
  			<if test="null != menuId and ''!= menuId">
@@ -200,6 +211,9 @@
 			<if test="null != parentId ">
 			and parent_id = #{parentId}
 			</if> 
+			<if test="null != icon ">
+			and icon = #{icon}
+			</if> 
  		</where>
  		order by sort_id ,create_date desc;
  	</select>
@@ -216,6 +230,7 @@
 				,create_date
 				,update_date
 				,parent_id
+				,icon
  		 from t_admin_menu
  		<where>
  			<if test="null != menuVo.menuId ">
@@ -244,6 +259,9 @@
 			</if> 
 			<if test="null != menuVo.parentId ">
 			and parent_id = #{menuVo.parentId}
+			</if> 
+			<if test="null != menuVo.icon ">
+			and icon = #{menuVo.icon}
 			</if> 
  		</where>
  		order by sort_id ,create_date desc   
@@ -282,6 +300,9 @@
 			</if> 
 			<if test="null != menuVo.parentId ">
 			and parent_id = #{menuVo.parentId}
+			</if> 
+			<if test="null != menuVo.icon">
+			and icon = #{menuVo.icon}
 			</if> 
  		</where>
  		order by sort_id ,create_date desc ;

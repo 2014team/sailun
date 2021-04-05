@@ -1,5 +1,8 @@
 package com.sailun.admin.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
@@ -10,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sailun.admin.annotation.AdminControllerAfterLog;
+import com.sailun.admin.domain.dto.MenuDto;
 import com.sailun.admin.domain.dto.UserDto;
 import com.sailun.admin.domain.vo.UserVo;
+import com.sailun.admin.service.MenuService;
 import com.sailun.admin.service.RightService;
 import com.sailun.admin.service.UserService;
 import com.sailun.admin.util.SessionUtil;
@@ -30,12 +35,24 @@ public class IndexController {
 	private UserService userService;
 	@Autowired
 	private RightService rightService;
+	
+	@Autowired
+	private MenuService menuService;
 
 	
 	@RequestMapping(value = "/admin/index", method = { RequestMethod.GET, RequestMethod.POST })
 	public String index(HttpServletRequest request) {
 		UserDto userDto = SessionUtil.getSessionUser(request);
 		request.setAttribute("userDto", userDto);
+		
+		Map<String,MenuDto>  menuMap = menuService.getMenuByIndex();
+		request.setAttribute("menuMap", menuMap);
+		
+//		for (Map.Entry<String,MenuDto> iterable_element : menuMap.entrySet()) {
+//			if(iterable_element.getValue().getParentId().){
+//				
+//			}
+//		}
 		return "/admin/index";
 	}
 

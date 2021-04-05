@@ -113,4 +113,13 @@ public interface MenuService extends BaseService<Menu,Integer>{
 
 	public String getMenuIds(Integer roleId);
 
+	/**
+	* @Title: getMenuByIndex
+	* @Description: 获取菜单列表
+	* @author zhuzq
+	* @date  2021年4月5日 下午3:27:07
+	* @return
+	*/
+	public Map<String,MenuDto> getMenuByIndex();
+
 }

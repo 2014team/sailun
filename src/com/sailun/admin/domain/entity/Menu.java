@@ -38,6 +38,11 @@ public class Menu extends BaseEntity{
 	 * 父类ID
 	 */
 	private String parentId;
+	
+	/**
+	 * 图标
+	 */
+	private String icon;
  
 	public Integer getMenuId(){
 		return this.menuId;
@@ -89,5 +94,16 @@ public class Menu extends BaseEntity{
 	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
+
+	
+	public String getIcon() {
+		return icon;
+	}
+
+	
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+	
 	
 }

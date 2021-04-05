@@ -17,7 +17,7 @@
   </attribute>
   <attribute>
    <name>menuUrl</name>
-   <rtexprvalue>false</rtexprvalue>
+   <rtexprvalue>true</rtexprvalue>
   </attribute>
  </tag>
 </taglib>

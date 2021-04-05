@@ -18,6 +18,7 @@ import ${serviceImplCommonPackageName}.BaseServiceImpl;
 import ${voPackageName}.${table.className?cap_first}Vo;
 import ${dtoPackageName}.${table.className?cap_first}Dto;
 import ${entityCommonPackage}.AdminResultByPage;
+import com.sailun.admin.annotation.AdminServiceLog;
 
 /**
  * @ClassName: ${table.className?cap_first}ServiceImpl
@@ -40,6 +41,7 @@ public class ${table.className?cap_first}ServiceImpl extends BaseServiceImpl<${t
 	 * @param ${table.className?uncap_first}Vo
 	 * @return
 	 */
+	@AdminServiceLog(description="${description}保存")
 	@Override
 	public boolean save${table.className?cap_first}(${table.className?cap_first}Vo ${table.className?uncap_first}Vo) {
 		// ${table.className?cap_first}Vo转${table.className?cap_first}
@@ -59,6 +61,7 @@ public class ${table.className?cap_first}ServiceImpl extends BaseServiceImpl<${t
 	 * @param ${table.className?uncap_first}Id
 	 * @return
 	 */
+	@AdminServiceLog(description="${description} 删除")
 	@Override
 	public boolean delete${table.className?cap_first}(Integer ${table.key_fields[0].java_field_Name}) {
 		Integer result = ${table.className?uncap_first}Dao.delete(${table.key_fields[0].java_field_Name});
@@ -76,6 +79,7 @@ public class ${table.className?cap_first}ServiceImpl extends BaseServiceImpl<${t
 	 * @param ${table.className?uncap_first}IdArr
 	 * @return
 	 */
+	@AdminServiceLog(description="${description} 批量删除")
 	@Override
 	public int deleteByBatch(Integer[] ${table.key_fields[0].java_field_Name}Arr) {
 		List<Integer> ${table.key_fields[0].java_field_Name}List = Arrays.asList(${table.key_fields[0].java_field_Name}Arr);
@@ -90,6 +94,7 @@ public class ${table.className?cap_first}ServiceImpl extends BaseServiceImpl<${t
 	 * @param ${table.className?uncap_first}Vo
 	 * @return
 	 */
+	@AdminServiceLog(description="${description} 批量修改")
 	@Override
 	public boolean update${table.className?cap_first}(${table.className?cap_first}Vo ${table.className?uncap_first}Vo) {
 		// ${table.className?cap_first}Vo转${table.className?cap_first}
@@ -109,6 +114,7 @@ public class ${table.className?cap_first}ServiceImpl extends BaseServiceImpl<${t
 	 * @param ${table.className?uncap_first}Id
 	 * @return
 	 */
+	 @AdminServiceLog(description="${description}根据${table.className?uncap_first}Id获取${description}")
 	@Override
 	public ${table.className?cap_first}Dto get${table.className?cap_first}(Integer ${table.className?uncap_first}Id) {
 		${table.className?cap_first}Dto ${table.className?uncap_first}DTO = null;
@@ -128,6 +134,7 @@ public class ${table.className?cap_first}ServiceImpl extends BaseServiceImpl<${t
 	 * @param jsonResult
 	 * @return
 	 */
+	@AdminServiceLog(description="${description}分页查找")
 	@Override
 	public AdminResultByPage findByPage(${table.className?cap_first}Vo ${table.className?uncap_first}Vo, AdminResultByPage jsonResult) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();

@@ -53,6 +53,7 @@ public abstract class GeneratorCode {
 		String commonPackage = (String)paramMap.get("commonPackage");
 		String tableName = (String)paramMap.get("tableName");
 		String basePackageName = (String)paramMap.get("basePackageName");
+		String controllerApiPrefix = (String)paramMap.get("controllerApiPrefix");
 		
 		String className = DataBaseUtil.getClassName(tableName);
 		
@@ -106,10 +107,14 @@ public abstract class GeneratorCode {
 					target_file_dir.mkdirs();
 				target_file_name = DataBaseUtil.capitalFirstChar(className) + "Dao.java";				
 			} else if(template_name.equalsIgnoreCase("mapper")){
-				//如果是mapper.ftl，则生成mapper.xml
-				target_file_dir = new File(file , "mapper");
+				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
+				File config_source_folder = new File(projectPath);
+				config_source_folder = new File(config_source_folder , "resource");
+				if(!config_source_folder.exists())
+					config_source_folder.mkdirs();
+				target_file_dir = new File(config_source_folder , "mapper");
 				if(!target_file_dir.exists())
-					target_file_dir.mkdirs();
+				target_file_dir.mkdirs();
 				target_file_name = DataBaseUtil.capitalFirstChar(className) + "Mapper.xml";
 			} else if(template_name.equalsIgnoreCase("service")){
 				//如果是service.ftl，则生成service接口
@@ -161,6 +166,56 @@ public abstract class GeneratorCode {
 				if(!target_file_dir.exists())
 					target_file_dir.mkdirs();
 				target_file_name = "spring.xml";
+			}else if(template_name.equalsIgnoreCase("list")){
+				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
+				File config_source_folder = new File(projectPath);
+				config_source_folder = new File(config_source_folder , "/WebRoot/WEB-INF/page/"+controllerApiPrefix+"/center");
+				if(!config_source_folder.exists())
+					config_source_folder.mkdirs();
+				target_file_dir = new File(config_source_folder , DataBaseUtil.lowerFirstCapse(className));
+				if(!target_file_dir.exists())
+				target_file_dir.mkdirs();
+				target_file_name =  DataBaseUtil.lowerFirstCapse(className)+"_"+template_name + ".jsp";
+				
+				
+			}else if(template_name.equalsIgnoreCase("edit")){
+				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
+				File config_source_folder = new File(projectPath);
+				config_source_folder = new File(config_source_folder , "/WebRoot/WEB-INF/page/"+controllerApiPrefix+"/center");
+				if(!config_source_folder.exists())
+					config_source_folder.mkdirs();
+				target_file_dir = new File(config_source_folder ,DataBaseUtil.lowerFirstCapse(className));
+				if(!target_file_dir.exists())
+				target_file_dir.mkdirs();
+				target_file_name = DataBaseUtil.lowerFirstCapse(className)+"_" +template_name + ".jsp";
+				
+				
+			}else if(template_name.equalsIgnoreCase("list_js")){
+				
+				template_name = template_name.split("_")[0];
+				
+				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
+				File config_source_folder = new File(projectPath);
+				config_source_folder = new File(config_source_folder , "/WebRoot/"+controllerApiPrefix+"/js");
+				if(!config_source_folder.exists())
+					config_source_folder.mkdirs();
+				target_file_dir = new File(config_source_folder ,"");
+				if(!target_file_dir.exists())
+				target_file_dir.mkdirs();
+				target_file_name = DataBaseUtil.lowerFirstCapse(className)+"_" +template_name + ".js";
+			}else if(template_name.equalsIgnoreCase("edit_js")){
+				
+				template_name = template_name.split("_")[0];
+				
+				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
+				File config_source_folder = new File(projectPath);
+				config_source_folder = new File(config_source_folder , "/WebRoot/"+controllerApiPrefix+"/js");
+				if(!config_source_folder.exists())
+					config_source_folder.mkdirs();
+				target_file_dir = new File(config_source_folder , "");
+				if(!target_file_dir.exists())
+				target_file_dir.mkdirs();
+				target_file_name = DataBaseUtil.lowerFirstCapse(className)+"_" +template_name + ".js";
 			}
 			target_file = new File(target_file_dir , target_file_name);
 			if(target_file.exists())

@@ -68,7 +68,6 @@ public class LogController {
 	 * @param request
 	 * @return
 	 */
-	@AdminControllerLog(description="日志分页查找")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/log/list", method = { RequestMethod.POST })
 	public AdminResultByPage list(LogVo logVo, HttpServletRequest request) {
@@ -105,7 +104,6 @@ public class LogController {
 	* @param request
 	* @return
 	*/
-	@AdminControllerLog(description="日志获取详情")
 	@RequestMapping(value = "/admin/center/log/detail", method = { RequestMethod.GET, RequestMethod.POST })
 	public String detail(Integer logId, HttpServletRequest request) {
 		LogDto logDto = null;

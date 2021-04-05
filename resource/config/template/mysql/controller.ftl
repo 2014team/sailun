@@ -15,6 +15,7 @@ import ${voPackageName}.${table.className?cap_first}Vo;
 import ${servicePackageName}.${table.className?cap_first}Service;
 import ${entityCommonPackage}.JsonResult;
 import ${entityCommonPackage}.AdminResultByPage;
+import com.sailun.admin.annotation.AdminControllerLog;
 
 /**
  * @ClassName: ${table.className?cap_first}Controller
@@ -36,8 +37,9 @@ public class ${table.className?cap_first}Controller {
 	 * @param ${table.className?uncap_first}Vo
 	 * @return
 	 */
+	@AdminControllerLog(description="${description}保存")
 	@ResponseBody
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/save", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/save", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult save(${table.className?cap_first}Vo ${table.className?uncap_first}Vo) {
 		JsonResult result = new JsonResult();
 
@@ -49,11 +51,11 @@ public class ${table.className?cap_first}Controller {
 		}
 
 		// 唯一性验证
-		errMsg = ${table.className?uncap_first}Service.checkUnique(${table.className?uncap_first}Vo);
-		if (StringUtils.isNotBlank(errMsg)) {
-			result.failure(errMsg);
-			return result;
-		}
+		//errMsg = ${table.className?uncap_first}Service.checkUnique(${table.className?uncap_first}Vo);
+		//if (StringUtils.isNotBlank(errMsg)) {
+		//	result.failure(errMsg);
+		//	return result;
+		//}
 		// 保存
 		boolean save = ${table.className?uncap_first}Service.save${table.className?cap_first}(${table.className?uncap_first}Vo);
 		if (save) {
@@ -73,8 +75,9 @@ public class ${table.className?cap_first}Controller {
 	 * @param ${table.className?uncap_first}Id
 	 * @return
 	 */
+	@AdminControllerLog(description="${description}删除")
 	@ResponseBody
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/delete", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult delete(Integer ${table.key_fields[0].java_field_Name}) {
 		JsonResult result = new JsonResult();
 
@@ -102,8 +105,9 @@ public class ${table.className?cap_first}Controller {
 	 * @param ${table.className?uncap_first}IdArr
 	 * @return
 	 */
+	@AdminControllerLog(description="${description}批量删除")
 	@ResponseBody
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/batch/delete", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/batch/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult deleteByIdArr(@RequestParam("${table.key_fields[0].java_field_Name}Arr[]") Integer[] ${table.key_fields[0].java_field_Name}Arr) {
 		JsonResult result = new JsonResult();
 		// 验证参数
@@ -130,8 +134,9 @@ public class ${table.className?cap_first}Controller {
 	 * @param ${table.className?uncap_first}Vo
 	 * @return
 	 */
+	@AdminControllerLog(description="${description}修改")
 	@ResponseBody
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/update", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/update", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult update(${table.className?cap_first}Vo ${table.className?uncap_first}Vo) {
 		JsonResult result = new JsonResult();
 
@@ -148,11 +153,11 @@ public class ${table.className?cap_first}Controller {
 		}
 
 		// 唯一性验证
-		errMsg = ${table.className?uncap_first}Service.checkUnique(${table.className?uncap_first}Vo);
-		if (StringUtils.isNotBlank(errMsg)) {
-			result.failure(errMsg);
-			return result;
-		}
+		//errMsg = ${table.className?uncap_first}Service.checkUnique(${table.className?uncap_first}Vo);
+		//if (StringUtils.isNotBlank(errMsg)) {
+		//	result.failure(errMsg);
+		//	return result;
+		//}
 		// 修改
 		boolean update = ${table.className?uncap_first}Service.update${table.className?cap_first}(${table.className?uncap_first}Vo);
 		if (update) {
@@ -174,7 +179,7 @@ public class ${table.className?cap_first}Controller {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/list", method = { RequestMethod.POST })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/list", method = { RequestMethod.POST })
 	public AdminResultByPage list(${table.className?cap_first}Vo ${table.className?uncap_first}Vo, HttpServletRequest request) {
 
 		Integer page = Integer.valueOf(request.getParameter("page"));
@@ -194,9 +199,9 @@ public class ${table.className?cap_first}Controller {
 	 * @date ${dateTime}
 	 * @return
 	 */
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/list/ui", method = { RequestMethod.GET })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/list/ui", method = { RequestMethod.GET })
 	public String toList() {
-		return "/admin/${table.className?uncap_first}/${table.className?uncap_first}_list";
+		return "/${controllerApiPrefix}/center/${table.className?uncap_first}/${table.className?uncap_first}_list";
 	}
 
 	/**
@@ -208,14 +213,37 @@ public class ${table.className?cap_first}Controller {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/admin/${table.className?uncap_first}/edit", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/edit", method = { RequestMethod.GET, RequestMethod.POST })
 	public String edit(Integer ${table.key_fields[0].java_field_Name}, HttpServletRequest request) {
 		// 编辑,为空新增
 		if (null != ${table.key_fields[0].java_field_Name}) {
-			${table.className?cap_first}Dto ${table.className?uncap_first}Dto = ${table.className?uncap_first}Service.get${table.className?cap_first}(${table.key_fields[0].java_field_Name});
-			request.setAttribute("${table.className?uncap_first}Dto", ${table.className?uncap_first}Dto);
+			${table.className?cap_first}Dto entity = ${table.className?uncap_first}Service.get${table.className?cap_first}(${table.key_fields[0].java_field_Name});
+			request.setAttribute("entity", entity);
 		}
-		return "/admin/${table.className?uncap_first}/${table.className?uncap_first}_edit";
+		return "/${controllerApiPrefix}/center/${table.className?uncap_first}/${table.className?uncap_first}_edit";
+	}
+	
+	/**
+	 * @Title: get
+	 * @Description: 查找
+	 * @author ${author}
+	 * @date ${dateTime}
+	 * @param ${table.className?uncap_first}Id
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/get", method = { RequestMethod.GET, RequestMethod.POST })
+	public JsonResult get(Integer ${table.key_fields[0].java_field_Name}) {
+
+		JsonResult result = new JsonResult();
+		// 验证参数
+		if (null == ${table.key_fields[0].java_field_Name} || ${table.key_fields[0].java_field_Name} < 1) {
+			result.failure("用户ID不能为空");
+			return result;
+		}
+		${table.className?cap_first}Dto entity = ${table.className?uncap_first}Service.get${table.className?cap_first}(${table.className?uncap_first}Id);
+		result.success("entity", entity);
+		return result;
 	}
 
 }

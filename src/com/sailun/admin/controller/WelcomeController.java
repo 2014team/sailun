@@ -12,7 +12,6 @@ import com.sailun.admin.util.SessionUtil;
 @Controller
 @RequestMapping("/admin/center/")
 public class WelcomeController {
-
 	
 	@RequestMapping(value = "/welcome")
 	public String toList(HttpServletRequest request) {

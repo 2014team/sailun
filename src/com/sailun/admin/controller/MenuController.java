@@ -155,7 +155,6 @@ public class MenuController {
 	 * @return
 	 */
 	//此处为记录AOP拦截Controller记录用户操作  
-	@AdminControllerLog(description="菜单分页查询")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/menu/list", method = { RequestMethod.POST,RequestMethod.GET })
 	public AdminResultByPage list(MenuVo menuVo, HttpServletRequest request) {

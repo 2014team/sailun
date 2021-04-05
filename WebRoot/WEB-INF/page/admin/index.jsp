@@ -31,81 +31,38 @@
     <div class="left-nav">
       <div id="side-nav">
         <ul id="nav">
-             <li >
-                <a href="javascript:;">
-                    <i class="iconfont" style="font-size: 20px;">&#xe68e;</i>
-                    <cite>主页</cite>
-                    <i class="iconfont nav_right">&#xe602;</i>
-                </a>
-                <ul class="sub-menu">
-                   <li><a _href="/admin/center/welcome.do"><i class="iconfont">&#xe6a7;</i><cite>控制台</cite></a></li >
-                </ul>
-            </li>
-
-              <r:auth menuName="管理员管理"> 
-	            <li>
-	                <a href="javascript:;">
-	                    <i class="iconfont" style="font-size: 20px;">&#xe770;</i>
-	                    <cite>管理员管理</cite>
-	                    <i class="iconfont nav_right">&#xe602;</i>
-	                </a>
-	                
-	                <ul class="sub-menu">
-	               
-	                <r:auth menuName="管理员列表" menuUrl="/admin/center/user/list/ui"> 	
-	                    <li>
-	                        <a _href="/admin/center/user/list/ui">
-	                            <i class="iconfont">&#xe602;</i>
-	                            <cite>管理员列表</cite>
-	                        </a>
-	                    </li >
-	                 </r:auth>
-	                 
-	                  <r:auth menuName="角色管理" menuUrl="/admin/center/role/list/ui"> 	
-	                    <li>
-	                        <a _href="/admin/center/role/list/ui">
-	                            <i class="iconfont">&#xe602;</i>
-	                            <cite>角色管理</cite>
-	                        </a>
-	                    </li >
-	                    </r:auth>
-	                    
-	                    <r:auth menuName="菜单管理" menuUrl="/admin/center/menu/list/ui"> 	
-	                    <li>
-	                        <a _href="/admin/center/menu/list/ui">
-	                            <i class="iconfont">&#xe602;</i>
-	                            <cite>菜单管理</cite>
-	                        </a>
-	                    </li >
-	                    </r:auth>
+            
+            <c:forEach var="item" items="${menuMap}">
+            
+             <c:if test="${item.value.parentId eq 0 }">
+             	 <r:auth menuName="${item.value.menuName}"> 
+		         <li>
+		                <a href="javascript:;">
+		                    <i class="iconfont" style="font-size: 20px;">${item.value.icon}</i>
+		                    <cite>${item.value.menuName}</cite>
+		                    <i class="iconfont nav_right">&#xe602;</i>
+		                </a>
+		                
+		                <ul class="sub-menu">
+		                
+		                <c:if test="${not empty item.value.childList}">
+			               <c:forEach var="itemChild" items="${item.value.childList}">
+			                		 <r:auth menuName="${itemChild.menuName}" menuUrl="${itemChild.menuUrl}"> 	
+					                    <li>
+					                        <a _href="${itemChild.menuUrl}">
+					                            <i class="iconfont">&#xe602;</i>
+					                            <cite>${itemChild.menuName }</cite>
+					                        </a>
+					                    </li > 
+					                 </r:auth>
+			                </c:forEach> 
+		                </c:if>
 	                </ul>
 	            </li>  
              </r:auth> 
              
-             
-              <r:auth menuName="日志管理"> 
-	            <li>
-	                <a href="javascript:;">
-	                    <i class="iconfont" style="font-size: 20px;">&#xe60e;</i>
-	                    <cite>日志管理</cite>
-	                    <i class="iconfont nav_right">&#xe602;</i>
-	                </a>
-	                
-	                <ul class="sub-menu">
-	               
-	                <r:auth menuName="日志列表" menuUrl="/admin/center/log/list/ui"> 	
-	                    <li>
-	                        <a _href="/admin/center/log/list/ui">
-	                            <i class="iconfont">&#xe602;</i>
-	                            <cite>日志列表</cite>
-	                        </a>
-	                    </li >
-	                 </r:auth>
-	                 
-	                </ul>
-	            </li>  
-             </r:auth> 
-             
+             </c:if>
+            </c:forEach>
             </ul>
       </div>
     </div>

@@ -40,6 +40,16 @@
                 
                 <div class="layui-form-item">
                     <label for="name" class="layui-form-label">
+                操作IP
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" readonly="readonly"
+                        autocomplete="off" class="layui-input" maxlength="10" value="${logDto.requestIp}">
+                    </div>
+                </div>
+                
+                <div class="layui-form-item">
+                    <label for="name" class="layui-form-label">
               请求方法名
                     </label>
                     <div class="layui-input-block">

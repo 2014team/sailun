@@ -243,7 +243,6 @@ public class RoleController {
 	 * @param request
 	 * @return
 	 */
-	@AdminControllerLog(description="角色分页查找")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/role/list", method = { RequestMethod.POST })
 	public AdminResultByPage list(RoleVo roleVo, HttpServletRequest request) {

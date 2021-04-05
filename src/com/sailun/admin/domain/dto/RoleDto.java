@@ -1,5 +1,5 @@
 package com.sailun.admin.domain.dto;
-import com.sailun.common.entity.BaseEntity;
+import com.sailun.admin.domain.entity.Role;
  
 /**
  * @ClassName: RoleDto
@@ -7,118 +7,8 @@ import com.sailun.common.entity.BaseEntity;
  * @author zhuzq
  * @date 2020年04月30日 14:04:25
  */ 
-public class RoleDto extends BaseEntity{
+public class RoleDto extends Role{
 
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 角色ID
-	 */
-	private Integer roleId;
-	/**
-	 * 角色名称
-	 */
-	private String roleName;
-	/**
-	 * 描述
-	 */
-	private String description;
-	/**
-	 * 权限类别ID
-	 */
-	private String categoryId;
-	private String categoryName;
-	/**
-	 * 权限ID
-	 */
-	private String rightId;
-	private String rightName;
-	/**
-	 * 有效标识 0:启用1：停用
-	 */
-	private Integer validFlag;
-	/**
-	 * 排序
-	 */
-	private Integer sortId;
-	
- 
-	public Integer getRoleId(){
-		return this.roleId;
-	}
-	
-	public void setRoleId(Integer roleId){
-		this.roleId = roleId;
-	}
-	public String getRoleName(){
-		return this.roleName;
-	}
-	
-	public void setRoleName(String roleName){
-		this.roleName = roleName;
-	}
-	public String getDescription(){
-		return this.description;
-	}
-	
-	public void setDescription(String description){
-		this.description = description;
-	}
-	public String getCategoryId(){
-		return this.categoryId;
-	}
-	
-	public void setCategoryId(String categoryId){
-		this.categoryId = categoryId;
-	}
-	public String getRightId(){
-		return this.rightId;
-	}
-	
-	public void setRightId(String rightId){
-		this.rightId = rightId;
-	}
-	
-	
-	public Integer getValidFlag() {
-	
-		return validFlag;
-	}
-
-	
-	public void setValidFlag(Integer validFlag) {
-	
-		this.validFlag = validFlag;
-	}
-
-	public Integer getSortId(){
-		return this.sortId;
-	}
-	
-	public void setSortId(Integer sortId){
-		this.sortId = sortId;
-	}
-
-	
-	public String getCategoryName() {
-	
-		return categoryName;
-	}
-
-	
-	public void setCategoryName(String categoryName) {
-	
-		this.categoryName = categoryName;
-	}
-
-	
-	public String getRightName() {
-	
-		return rightName;
-	}
-
-	public void setRightName(String rightName) {
-	
-		this.rightName = rightName;
-	}
 	
 }

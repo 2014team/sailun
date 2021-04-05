@@ -8,7 +8,7 @@ import java.util.Date;
 <#if table.math_flag>
 import java.math.BigDecimal;
 </#if>
-import ${entityCommonPackage}.BaseEntity;
+import ${entityPackageName}.${table.className?cap_first};
  
 /**
  * @ClassName: ${table.className?cap_first}Dto

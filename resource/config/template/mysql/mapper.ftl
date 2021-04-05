@@ -77,7 +77,7 @@
 			</#if>
 		</#list>
 		 from ${table.tableName} where ${table.key_fields[0].field_name} = ${"#"}{${table.key_fields[0].java_field_Name}} 
-		 order by sort_id ,create_date desc limit 1;
+		 order by ${table.key_fields[0].field_name} ,create_date desc limit 1;
  	</select>
  	
  	<!-- 通过Map单个查找-->
@@ -105,7 +105,7 @@
 			</#if>
  		</#list>
 		</where>
-		order by sort_id ,create_date desc limit 1;
+		order by ${table.key_fields[0].field_name} ,create_date desc limit 1;
 	</select>
 	
 	<!-- 列表查询 -->
@@ -132,7 +132,7 @@
 			</#if>
  		</#list>
  		</where>
- 		order by sort_id ,create_date desc;
+ 		order by ${table.key_fields[0].field_name} ,create_date desc;
  	</select>
  	
  	<!-- 分页查找 -->
@@ -159,7 +159,7 @@
 			</#if>
  		</#list>
  		</where>
- 		order by sort_id ,create_date desc   
+ 		order by ${table.key_fields[0].field_name} ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${"$"}{page.begin} , ${"$"}{page.limit};
  		 </if>
@@ -181,7 +181,7 @@
 			</#if>
  		</#list>
  		</where>
- 		order by sort_id ,create_date desc ;
+ 		order by ${table.key_fields[0].field_name} ,create_date desc ;
 	</select>
 
 </mapper>
