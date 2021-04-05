@@ -70,7 +70,7 @@
 	</tx:advice>
 
 	<aop:config>                                                  
-		<aop:pointcut id="servicePointcut" expression="execution(* com.zq.*.service.*.*(..))" />
+		<aop:pointcut id="servicePointcut" expression="execution(* com.sailun.*.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointcut" />
 	</aop:config>
 
