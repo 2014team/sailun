@@ -222,7 +222,6 @@ public class UserController {
 	 * @param request
 	 * @return
 	 */
-	@AdminControllerLog(description="用户分页查找")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/user/list", method = { RequestMethod.POST })
 	public AdminResultByPage list(UserVo userVo, HttpServletRequest request) {
@@ -244,7 +243,6 @@ public class UserController {
 	 * @date 2020年4月23日 下午1:41:16
 	 * @return
 	 */
-	@AdminControllerLog(description="用户列表")
 	@RequestMapping(value = "/admin/center/user/list/ui", method = { RequestMethod.GET })
 	public String toList(HttpServletRequest request) {
 		Map<String, Object> paramMap = null;
@@ -287,7 +285,6 @@ public class UserController {
 	 * @param userId
 	 * @return
 	 */
-	@AdminControllerLog(description="用户查找")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/user/get", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult get(Integer userId) {
