@@ -17,7 +17,6 @@ public class Start {
 			Map<String , Object> paramMap = new HashMap<String , Object>();
 			paramMap.put("author", "zhuzq");//作者
 			
-			
 			//mysql
 			DataBaseUtil.jdbc_driver = "com.mysql.jdbc.Driver";
 			DataBaseUtil.jdbc_url = "jdbc:mysql://127.0.0.1:3306/sailun?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
