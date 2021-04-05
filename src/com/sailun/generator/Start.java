@@ -20,9 +20,9 @@ public class Start {
 			
 			//mysql
 			DataBaseUtil.jdbc_driver = "com.mysql.jdbc.Driver";
-			DataBaseUtil.jdbc_url = "jdbc:mysql://112.74.216.57:3306/zzq_web?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
-			DataBaseUtil.jdbc_user = "root";
-			DataBaseUtil.jdbc_password = "artcweb_dz";
+			DataBaseUtil.jdbc_url = "jdbc:mysql://127.0.0.1:3306/sailun?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
+			DataBaseUtil.jdbc_user = "*";
+			DataBaseUtil.jdbc_password = "*";
 			
 			
 			//sqlserver
