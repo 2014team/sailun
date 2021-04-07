@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sailun.admin.annotation.AdminControllerLog;
 import com.sailun.admin.domain.dto.ContactDto;
 import com.sailun.admin.domain.vo.ContactVo;
 import com.sailun.admin.service.ContactService;
 import com.sailun.common.entity.JsonResult;
 import com.sailun.common.entity.AdminResultByPage;
+import com.sailun.admin.annotation.AdminControllerLog;
 
 /**
  * @ClassName: ContactController
- * @Description: 联系信息
+ * @Description: 联系我们
  * @author zhuzq
- * @date 2021年04月05日 16:58:38
+ * @date 2021年04月07日 23:01:41
  */
 @Controller
 public class ContactController {
@@ -33,11 +33,11 @@ public class ContactController {
 	 * @Title: save
 	 * @Description: 保存
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactVo
 	 * @return
 	 */
-	@AdminControllerLog(description="联系信息保存")
+	@AdminControllerLog(description="联系我们保存")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/contact/save", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult save(ContactVo contactVo) {
@@ -71,11 +71,11 @@ public class ContactController {
 	 * @Title: delete
 	 * @Description: 删除
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactId
 	 * @return
 	 */
-	@AdminControllerLog(description="联系信息删除")
+	@AdminControllerLog(description="联系我们删除")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/contact/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult delete(Integer contactId) {
@@ -101,11 +101,11 @@ public class ContactController {
 	 * @Title: batchDelete
 	 * @Description: 批量删除
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactIdArr
 	 * @return
 	 */
-	@AdminControllerLog(description="联系信息批量删除")
+	@AdminControllerLog(description="联系我们批量删除")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/contact/batch/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult deleteByIdArr(@RequestParam("contactIdArr[]") Integer[] contactIdArr) {
@@ -130,11 +130,11 @@ public class ContactController {
 	 * @Title: update
 	 * @Description: 修改
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactVo
 	 * @return
 	 */
-	@AdminControllerLog(description="联系信息修改")
+	@AdminControllerLog(description="联系我们修改")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/contact/update", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult update(ContactVo contactVo) {
@@ -173,7 +173,7 @@ public class ContactController {
 	 * @Title: list
 	 * @Description: 分页查找
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactVo
 	 * @param request
 	 * @return
@@ -196,7 +196,7 @@ public class ContactController {
 	 * @Title: toList
 	 * @Description: 列表UI
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @return
 	 */
 	@RequestMapping(value = "/admin/center/contact/list/ui", method = { RequestMethod.GET })
@@ -208,7 +208,7 @@ public class ContactController {
 	 * @Title: edit
 	 * @Description: 编辑
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactId
 	 * @param request
 	 * @return
@@ -227,7 +227,7 @@ public class ContactController {
 	 * @Title: get
 	 * @Description: 查找
 	 * @author zhuzq
-	 * @date 2021年04月05日 16:58:38
+	 * @date 2021年04月07日 23:01:41
 	 * @param contactId
 	 * @return
 	 */

@@ -22,9 +22,9 @@ import com.sailun.admin.annotation.AdminServiceLog;
 
 /**
  * @ClassName: ContactServiceImpl
- * @Description: 联系信息
+ * @Description: 联系我们
  * @author zhuzq
- * @date 2021年04月05日 17:02:29
+ * @date 2021年04月07日 23:01:45
  */
 @Service
 public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implements ContactService {
@@ -37,11 +37,11 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: saveContact
 	 * @Description: 保存
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
-	@AdminServiceLog(description="联系信息保存")
+	@AdminServiceLog(description="联系我们保存")
 	@Override
 	public boolean saveContact(ContactVo contactVo) {
 		// ContactVo转Contact
@@ -57,11 +57,11 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: deleteContact
 	 * @Description: 删除
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactId
 	 * @return
 	 */
-	@AdminServiceLog(description="联系信息 删除")
+	@AdminServiceLog(description="联系我们 删除")
 	@Override
 	public boolean deleteContact(Integer contactId) {
 		Integer result = contactDao.delete(contactId);
@@ -75,11 +75,11 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: deleteByBatch
 	 * @Description: 批量删除
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactIdArr
 	 * @return
 	 */
-	@AdminServiceLog(description="联系信息 批量删除")
+	@AdminServiceLog(description="联系我们 批量删除")
 	@Override
 	public int deleteByBatch(Integer[] contactIdArr) {
 		List<Integer> contactIdList = Arrays.asList(contactIdArr);
@@ -90,11 +90,11 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: updateContact
 	 * @Description: 修改
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
-	@AdminServiceLog(description="联系信息 批量修改")
+	@AdminServiceLog(description="联系我们 批量修改")
 	@Override
 	public boolean updateContact(ContactVo contactVo) {
 		// ContactVo转Contact
@@ -108,13 +108,13 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 
 	/**
 	 * @Title: getContact
-	 * @Description: 根据contactId获取联系信息
+	 * @Description: 根据contactId获取联系我们
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactId
 	 * @return
 	 */
-	 @AdminServiceLog(description="联系信息根据contactId获取联系信息")
+	 @AdminServiceLog(description="联系我们根据contactId获取联系我们")
 	@Override
 	public ContactDto getContact(Integer contactId) {
 		ContactDto contactDTO = null;
@@ -129,12 +129,12 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: findByPage
 	 * @Description: 分页查找
 	 * @author zhuzq
-	 * * @date 2021年04月05日 17:02:29
+	 * * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @param jsonResult
 	 * @return
 	 */
-	@AdminServiceLog(description="联系信息分页查找")
+	@AdminServiceLog(description="联系我们分页查找")
 	@Override
 	public AdminResultByPage findByPage(ContactVo contactVo, AdminResultByPage jsonResult) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -164,15 +164,35 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: checkParam
 	 * @Description: 参数验证
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
 	@Override
 	public String checkParam(ContactVo contactVo) {
+	    String username = contactVo.getUsername();
+		if (StringUtils.isBlank(username)) {
+			return "姓名不能为空";
+		}
 	    String mobileNum = contactVo.getMobileNum();
 		if (StringUtils.isBlank(mobileNum)) {
 			return "电话不能为空";
+		}
+	    String email = contactVo.getEmail();
+		if (StringUtils.isBlank(email)) {
+			return "邮箱不能为空";
+		}
+	    String vehicleBrand = contactVo.getVehicleBrand();
+		if (StringUtils.isBlank(vehicleBrand)) {
+			return "车辆品牌不能为空";
+		}
+	    String type = contactVo.getType();
+		if (StringUtils.isBlank(type)) {
+			return "型号不能为空";
+		}
+	    String contents = contactVo.getContents();
+		if (StringUtils.isBlank(contents)) {
+			return "内容不能为空";
 		}
 		return null;
 	}
@@ -182,14 +202,14 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: checkUnique
 	 * @Description: 唯一性验证
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
 	@Override
 	public String checkUnique(ContactVo ContactVo) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("mobileNum", ContactVo.getMobileNum());
+		paramMap.put("username", ContactVo.getUsername());
 		List<Contact> contactList = contactDao.select(paramMap);
 		if (null == contactList || contactList.size() < 1) {
 			return null;
@@ -198,12 +218,12 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 		Integer contactId = ContactVo.getContactId();
 		if (null != contactId) {
 			for (Contact entity : contactList) {
-				if (!entity.getContactId().equals(contactId) && entity.getMobileNum().equals(ContactVo.getMobileNum())) {
-					return "电话已经存在";
+				if (!entity.getContactId().equals(contactId) && entity.getUsername().equals(ContactVo.getUsername())) {
+					return "姓名已经存在";
 				}
 			}
 		} else {
-			return "电话已经存在";
+			return "姓名已经存在";
 		}
 		return null;
 
@@ -213,14 +233,19 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: convertContact
 	 * @Description: ContactVo转Contact
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
 	private Contact convertContact(ContactVo contactVo) {
 		Contact contact = new Contact();
 		contact.setContactId(contactVo.getContactId());
+		contact.setUsername(contactVo.getUsername());
 		contact.setMobileNum(contactVo.getMobileNum());
+		contact.setEmail(contactVo.getEmail());
+		contact.setVehicleBrand(contactVo.getVehicleBrand());
+		contact.setType(contactVo.getType());
+		contact.setContents(contactVo.getContents());
 		contact.setCreateDate(contactVo.getCreateDate());
 		contact.setUpdateDate(contactVo.getUpdateDate());
 		return contact;
@@ -230,14 +255,19 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	 * @Title: convertContactDto
 	 * @Description: Contact转ContactDto
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:29
+	 * @date 2021年04月07日 23:01:45
 	 * @param contact
 	 * @return
 	 */
 	private ContactDto convertContactDto(Contact contact) {
 		ContactDto dto = new ContactDto();
 		dto.setContactId(contact.getContactId());
+		dto.setUsername(contact.getUsername());
 		dto.setMobileNum(contact.getMobileNum());
+		dto.setEmail(contact.getEmail());
+		dto.setVehicleBrand(contact.getVehicleBrand());
+		dto.setType(contact.getType());
+		dto.setContents(contact.getContents());
 		dto.setCreateDate(contact.getCreateDate());
 		dto.setUpdateDate(contact.getUpdateDate());
 		return dto;

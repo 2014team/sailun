@@ -58,8 +58,28 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 			}
 			
 				,{
+					field : 'username' ,
+					title : '姓名' ,
+				}
+				,{
 					field : 'mobileNum' ,
 					title : '电话' ,
+				}
+				,{
+					field : 'email' ,
+					title : '邮箱' ,
+				}
+				,{
+					field : 'vehicleBrand' ,
+					title : '车辆品牌' ,
+				}
+				,{
+					field : 'type' ,
+					title : '型号' ,
+				}
+				,{
+					field : 'contents' ,
+					title : '内容' ,
 				}
 				, {
 					field : 'createDate' ,
@@ -148,11 +168,11 @@ function del(obj) {
 function edit(obj) {
 	 
 	var url = EDIT;
-	var title = '联系信息';
+	var title = '联系我们';
 	if(obj){
 		var contactId = obj.data.contactId;
 		url = EDIT + "?contactId=" + contactId;
-		 title = '联系信息';
+		 title = '联系我们';
 	}	
 	x_admin_show(title, url);
 };
@@ -195,7 +215,12 @@ function updateRowData(obj){
 	 reqPostHasParameter(GET, {"contactId":reqData.contactId}, function(result) {
 		 reqData = result.data.userDto;
 		 rowObj.update({
+				 username: obj.field.username,
 				 mobileNum: obj.field.mobileNum,
+				 email: obj.field.email,
+				 vehicleBrand: obj.field.vehicleBrand,
+				 type: obj.field.type,
+				 contents: obj.field.contents,
 				 createDate: obj.field.createDate,
 				 updateDate: obj.field.updateDate,
 			});	

@@ -8,9 +8,9 @@ import com.sailun.common.entity.AdminResultByPage;
 
 /**
  * @ClassName: ContactDao
- * @Description: 联系信息
+ * @Description: 联系我们
  * @author zhuzq
- * @date 2021年04月05日 17:02:26
+ * @date 2021年04月07日 23:01:45
  */
 public interface ContactService extends BaseService<Contact,Integer>{
 
@@ -18,7 +18,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: saveContact
 	 * @Description: 保存
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
@@ -28,7 +28,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: deleteContact
 	 * @Description: 删除
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactId
 	 * @return
 	 */
@@ -38,7 +38,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: deleteByBatch
 	 * @Description: 批量删除
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactIdArr
 	 * @return
 	 */
@@ -48,7 +48,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: updateContact
 	 * @Description: 修改
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
@@ -58,7 +58,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: getContact
 	 * @Description: 根据contactId获取对象
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactId
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: findByPage
 	 * @Description: 分页查找
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @param jsonResult
 	 * @return
@@ -79,7 +79,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: checkParam
 	 * @Description: 参数验证
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */
@@ -89,7 +89,7 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @Title: checkUnique
 	 * @Description: 唯一性验证
 	 * @author zhuzq
-	 * @date 2021年04月05日 17:02:26
+	 * @date 2021年04月07日 23:01:45
 	 * @param contactVo
 	 * @return
 	 */

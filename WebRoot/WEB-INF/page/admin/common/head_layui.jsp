@@ -19,5 +19,7 @@
 <script type="text/javascript" src="/js/date_util.js?t=<%=new java.util.Date().getTime() %>"></script>
 <script type="text/javascript" src="/js/json_util.js?t=<%=new java.util.Date().getTime() %>"></script>
 
+<link rel="stylesheet" type="text/css" href="/admin/css/xcss.css?t=<%=new java.util.Date().getTime() %>">
+
 <!-- 自定义权限标签 -->
 <%@ taglib uri="/WEB-INF/tag/right.tld" prefix="r" %>  

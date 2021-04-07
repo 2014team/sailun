@@ -12,11 +12,71 @@
 			
 			<div class="layui-form-item">
 			<label for="L_pass" class="layui-form-label"> 
+			<span class="x-red">*</span>姓名：
+			</label>
+			<div class="layui-input-inline">
+				<input type="text" id="username" name="username"
+					value="${entity.username}"   lay-verify="required"
+					autocomplete="off" class="layui-input">
+			</div>
+			<div class="layui-form-mid layui-word-aux">必选项</div>
+		</div>
+		
+			<div class="layui-form-item">
+			<label for="L_pass" class="layui-form-label"> 
 			<span class="x-red">*</span>电话：
 			</label>
 			<div class="layui-input-inline">
 				<input type="text" id="mobileNum" name="mobileNum"
 					value="${entity.mobileNum}"   lay-verify="required"
+					autocomplete="off" class="layui-input">
+			</div>
+			<div class="layui-form-mid layui-word-aux">必选项</div>
+		</div>
+		
+			<div class="layui-form-item">
+			<label for="L_pass" class="layui-form-label"> 
+			<span class="x-red">*</span>邮箱：
+			</label>
+			<div class="layui-input-inline">
+				<input type="text" id="email" name="email"
+					value="${entity.email}"   lay-verify="required"
+					autocomplete="off" class="layui-input">
+			</div>
+			<div class="layui-form-mid layui-word-aux">必选项</div>
+		</div>
+		
+			<div class="layui-form-item">
+			<label for="L_pass" class="layui-form-label"> 
+			<span class="x-red">*</span>车辆品牌：
+			</label>
+			<div class="layui-input-inline">
+				<input type="text" id="vehicleBrand" name="vehicleBrand"
+					value="${entity.vehicleBrand}"   lay-verify="required"
+					autocomplete="off" class="layui-input">
+			</div>
+			<div class="layui-form-mid layui-word-aux">必选项</div>
+		</div>
+		
+			<div class="layui-form-item">
+			<label for="L_pass" class="layui-form-label"> 
+			<span class="x-red">*</span>型号：
+			</label>
+			<div class="layui-input-inline">
+				<input type="text" id="type" name="type"
+					value="${entity.type}"   lay-verify="required"
+					autocomplete="off" class="layui-input">
+			</div>
+			<div class="layui-form-mid layui-word-aux">必选项</div>
+		</div>
+		
+			<div class="layui-form-item">
+			<label for="L_pass" class="layui-form-label"> 
+			<span class="x-red">*</span>内容：
+			</label>
+			<div class="layui-input-inline">
+				<input type="text" id="contents" name="contents"
+					value="${entity.contents}"   lay-verify="required"
 					autocomplete="off" class="layui-input">
 			</div>
 			<div class="layui-form-mid layui-word-aux">必选项</div>

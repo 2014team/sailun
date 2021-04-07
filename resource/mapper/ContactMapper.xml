@@ -5,7 +5,12 @@
 	<!-- resultMap -->
 	<resultMap type="com.sailun.admin.domain.entity.Contact" id="resultMap">
 		<result property="contactId" column="contact_id" />
+		<result property="username" column="username" />
 		<result property="mobileNum" column="mobileNum" />
+		<result property="email" column="email" />
+		<result property="vehicleBrand" column="vehicle_brand" />
+		<result property="type" column="type" />
+		<result property="contents" column="contents" />
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
 	</resultMap>
@@ -13,13 +18,23 @@
 	<!-- 保存 -->
 	<insert id="save" parameterType="com.sailun.admin.domain.entity.Contact" useGeneratedKeys="true" keyProperty="contactId">
 		insert into t_contact (
-			mobileNum
+			username
+			,mobileNum
+			,email
+			,vehicle_brand
+			,type
+			,contents
 			,create_date
 			,update_date
 		)
 		 values
 		 (
-			#{mobileNum}
+			#{username}
+				,#{mobileNum}
+				,#{email}
+				,#{vehicleBrand}
+				,#{type}
+				,#{contents}
 				,#{createDate}
 				,#{updateDate}
 		)
@@ -44,7 +59,12 @@
 	<update id="update" parameterType="com.sailun.admin.domain.entity.Contact" >
 		update t_contact 
 			set update_Date = now()
+				,username = #{username}
 				,mobileNum = #{mobileNum}
+				,email = #{email}
+				,vehicle_brand = #{vehicleBrand}
+				,type = #{type}
+				,contents = #{contents}
 				,create_date = #{createDate}
 				,update_date = #{updateDate}
 		where contact_id = #{contactId}
@@ -54,7 +74,12 @@
  	<select id="get" parameterType="Integer" resultMap="resultMap">
  		select 
 				contact_id
+				,username
 				,mobileNum
+				,email
+				,vehicle_brand
+				,type
+				,contents
 				,create_date
 				,update_date
 		 from t_contact where contact_id = #{contactId} 
@@ -65,15 +90,35 @@
 	<select id="getOneByMap" parameterType="Map" resultMap="resultMap">
 		select 
 				contact_id
+				,username
 				,mobileNum
+				,email
+				,vehicle_brand
+				,type
+				,contents
 				,create_date
 				,update_date
 		 from
 		t_contact
 		<where>
- 			<if test="null != mobileNum and ''!= mobileNum">
-			mobileNum = #{mobileNum}
+ 			<if test="null != username and ''!= username">
+			username = #{username}
 			</if>
+			<if test="null != mobileNum and ''!= mobileNum">
+			and mobileNum = #{mobileNum}
+			</if> 
+			<if test="null != email and ''!= email">
+			and email = #{email}
+			</if> 
+			<if test="null != vehicleBrand and ''!= vehicleBrand">
+			and vehicle_brand = #{vehicleBrand}
+			</if> 
+			<if test="null != type and ''!= type">
+			and type = #{type}
+			</if> 
+			<if test="null != contents and ''!= contents">
+			and contents = #{contents}
+			</if> 
 			<if test="null != createDate and ''!= createDate">
 			and create_date = #{createDate}
 			</if> 
@@ -88,14 +133,34 @@
 	<select id="select" parameterType="Map" resultMap="resultMap">
  		select 
 				contact_id
+				,username
 				,mobileNum
+				,email
+				,vehicle_brand
+				,type
+				,contents
 				,create_date
 				,update_date
  		 from t_contact
  		<where>
- 			<if test="null != mobileNum and ''!= mobileNum">
-			mobileNum = #{mobileNum}
+ 			<if test="null != username and ''!= username">
+			username = #{username}
 			</if>
+			<if test="null != mobileNum and ''!= mobileNum">
+			and mobileNum = #{mobileNum}
+			</if> 
+			<if test="null != email and ''!= email">
+			and email = #{email}
+			</if> 
+			<if test="null != vehicleBrand and ''!= vehicleBrand">
+			and vehicle_brand = #{vehicleBrand}
+			</if> 
+			<if test="null != type and ''!= type">
+			and type = #{type}
+			</if> 
+			<if test="null != contents and ''!= contents">
+			and contents = #{contents}
+			</if> 
 			<if test="null != createDate and ''!= createDate">
 			and create_date = #{createDate}
 			</if> 
@@ -110,7 +175,12 @@
 	<select id="findByPage" parameterType="Map" resultMap="resultMap">
 		select 
 				contact_id
+				,username
 				,mobileNum
+				,email
+				,vehicle_brand
+				,type
+				,contents
 				,create_date
 				,update_date
  		 from t_contact
@@ -118,8 +188,23 @@
  			<if test="null != contactVo.contactId ">
 			contact_id = #{contactVo.contactId} 
 			</if>	
+			<if test="null != contactVo.username and ''!= contactVo.username">
+			and username = #{contactVo.username}
+			</if> 
 			<if test="null != contactVo.mobileNum and ''!= contactVo.mobileNum">
 			and mobileNum = #{contactVo.mobileNum}
+			</if> 
+			<if test="null != contactVo.email and ''!= contactVo.email">
+			and email = #{contactVo.email}
+			</if> 
+			<if test="null != contactVo.vehicleBrand and ''!= contactVo.vehicleBrand">
+			and vehicle_brand = #{contactVo.vehicleBrand}
+			</if> 
+			<if test="null != contactVo.type and ''!= contactVo.type">
+			and type = #{contactVo.type}
+			</if> 
+			<if test="null != contactVo.contents and ''!= contactVo.contents">
+			and contents = #{contactVo.contents}
 			</if> 
 			<if test="null != contactVo.createDate and ''!= contactVo.createDate">
 			and create_date = #{contactVo.createDate}
@@ -141,8 +226,23 @@
  			<if test="null != contactVo.contactId ">
 			contact_id = #{contactVo.contactId} 
 			</if>	
+			<if test="null != contactVo.username and ''!= contactVo.username">
+			and username = #{contactVo.username}
+			</if> 
 			<if test="null != contactVo.mobileNum and ''!= contactVo.mobileNum">
 			and mobileNum = #{contactVo.mobileNum}
+			</if> 
+			<if test="null != contactVo.email and ''!= contactVo.email">
+			and email = #{contactVo.email}
+			</if> 
+			<if test="null != contactVo.vehicleBrand and ''!= contactVo.vehicleBrand">
+			and vehicle_brand = #{contactVo.vehicleBrand}
+			</if> 
+			<if test="null != contactVo.type and ''!= contactVo.type">
+			and type = #{contactVo.type}
+			</if> 
+			<if test="null != contactVo.contents and ''!= contactVo.contents">
+			and contents = #{contactVo.contents}
 			</if> 
 			<if test="null != contactVo.createDate and ''!= contactVo.createDate">
 			and create_date = #{contactVo.createDate}

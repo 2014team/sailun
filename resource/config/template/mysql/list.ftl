@@ -34,7 +34,7 @@
 			</#if>
 			</#list>
 			
-				<div class="layui-input-inline">
+				<div class="layui-input-inline xbtpt10">
 	          	  <button class="layui-btn" lay-submit lay-filter="searchFilter" >搜索</button>
 	          </div>
 			

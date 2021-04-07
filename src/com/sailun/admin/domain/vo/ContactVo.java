@@ -4,9 +4,9 @@ import com.sailun.admin.domain.entity.Contact;
  
 /**
  * @ClassName: ContactVo
- * @Description: 联系信息
+ * @Description: 联系我们
  * @author zhuzq
- * @date 2021年04月05日 17:02:29
+ * @date 2021年04月07日 23:01:46
  */ 
 public class ContactVo extends Contact{
 
