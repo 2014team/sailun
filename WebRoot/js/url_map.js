@@ -46,9 +46,11 @@ var admin_url_map = {
 	'admin/CENTER/CONTACT/DELETE': {url: '/admin/center/contact/delete', isUsed: true, desc: '联系信息用户'},
 	'admin/CENTER/CONTACT/UPDATE': {url: '/admin/center/contact/update', isUsed: true, desc: '联系信息用户'},
 	'admin/CENTER/CONTACT/EDIT': {url: '/admin/center/contact/edit', isUsed: true, desc: '编辑联系信息'},
+	'admin/CENTER/CONTACT/DETAIL': {url: '/admin/center/contact/detail', isUsed: true, desc: '详情联系信息'},
 	'admin/CENTER/CONTACT/SAVE': {url: '/admin/center/contact/save', isUsed: true, desc: '保存联系信息'},
 	'admin/CENTER/CONTACT/BATCH/DELETE': {url: '/admin/center/contact/batch/delete', isUsed: true, desc: '联系信息批量删除'},
 	'admin/CENTER/CONTACT/GET': {url: '/admin/center/contact/get', isUsed: true, desc: '查找单个联系信息'},
+	'admin/CENTER/CONTACT/EXPORT': {url: '/admin/center/contact/export', isUsed: true, desc: '导出联系信息'},
 	
 
 }

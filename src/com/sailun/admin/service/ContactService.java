@@ -3,6 +3,10 @@ package com.sailun.admin.service;
 import com.sailun.common.service.BaseService;
 import com.sailun.admin.domain.entity.Contact;
 import com.sailun.admin.domain.vo.ContactVo;
+
+import java.util.List;
+import java.util.Map;
+
 import com.sailun.admin.domain.dto.ContactDto;
 import com.sailun.common.entity.AdminResultByPage;
 
@@ -94,5 +98,16 @@ public interface ContactService extends BaseService<Contact,Integer>{
 	 * @return
 	 */
 	public String checkUnique(ContactVo contactVo);
+	
+	
+	/**
+	* @Title: getByBatch
+	* @Description: 批量查询
+	* @author zhuzq
+	* @date  2021年4月8日 下午10:46:51
+	* @param paramMap
+	* @return
+	*/
+	public List<Contact> getByBatch(Map<String,Object> paramMap);
 
 }

@@ -1,6 +1,10 @@
 package com.sailun.admin.dao;
 
 import com.sailun.common.dao.BaseDao;
+
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 import com.sailun.admin.domain.entity.Contact;
 
@@ -12,5 +16,15 @@ import com.sailun.admin.domain.entity.Contact;
  */
 @Repository
 public interface ContactDao extends BaseDao<Contact,Integer>{
+	
+	/**
+	* @Title: getByBatch
+	* @Description: 批量查询
+	* @author zhuzq
+	* @date  2021年4月8日 下午10:46:51
+	* @param paramMap
+	* @return
+	*/
+	public List<Contact> getByBatch(Map<String,Object> paramMap);
 
 }

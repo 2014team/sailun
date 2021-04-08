@@ -15,12 +15,25 @@ public class BaseEntity implements Serializable {
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 
 	/**
 	 * 更新时间
 	 */
-	private Date updateDate;
+	public Date updateDate;
+	
+	public String searchKey;
+	public String searchValue;
+	
+	
+	// 时间
+	private String createDateStr;
+
+	// 查询-开始时间
+	private String beginDate;
+
+	// 查询-结束时间
+	private String endDate;
 
 	public Integer getId() {
 		return id;
@@ -46,4 +59,54 @@ public class BaseEntity implements Serializable {
 		this.updateDate = updateDate;
 	}
 
+	
+	public String getSearchKey() {
+		return searchKey;
+	}
+
+	
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+
+	
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+	
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
+	}
+
+	
+	public String getCreateDateStr() {
+		return createDateStr;
+	}
+
+	
+	public void setCreateDateStr(String createDateStr) {
+		this.createDateStr = createDateStr;
+	}
+
+	
+	public String getBeginDate() {
+		return beginDate;
+	}
+
+	
+	public void setBeginDate(String beginDate) {
+		this.beginDate = beginDate;
+	}
+
+	
+	public String getEndDate() {
+		return endDate;
+	}
+
+	
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	
 }

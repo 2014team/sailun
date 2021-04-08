@@ -33,10 +33,11 @@
 				
 			</#if>
 			</#list>
-			
-				<div class="layui-input-inline xbtpt10">
+			<span class=" xbtpt10">
+				<div class="layui-input-inline">
 	          	  <button class="layui-btn" lay-submit lay-filter="searchFilter" >搜索</button>
 	          </div>
+	          </span>
 			
           </r:auth>
         </div>

@@ -137,9 +137,23 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 	@AdminServiceLog(description="联系我们分页查找")
 	@Override
 	public AdminResultByPage findByPage(ContactVo contactVo, AdminResultByPage jsonResult) {
+		
+		//创建日期处理
+		String createDateStr = contactVo.getCreateDateStr();
+		if(StringUtils.isNotBlank(createDateStr)){
+			String[] createDateArr = createDateStr.split("~");
+			if(null != createDateArr && createDateArr.length ==2){
+				contactVo.setBeginDate(createDateArr[0]);
+				contactVo.setEndDate(createDateArr[1]);
+			}
+		}
+		
+		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("contactVo", contactVo);
 		paramMap.put("page", jsonResult);
+		
+		
 
 		int count = contactDao.findByPageCount(paramMap);
 
@@ -271,6 +285,19 @@ public class ContactServiceImpl extends BaseServiceImpl<Contact,Integer>  implem
 		dto.setCreateDate(contact.getCreateDate());
 		dto.setUpdateDate(contact.getUpdateDate());
 		return dto;
+	}
+
+	/**
+	* @Title: getByBatch
+	* @Description: 批量查询
+	* @author zhuzq
+	* @date  2021年4月8日 下午10:46:51
+	* @param paramMap
+	* @return
+	*/
+	@Override
+	public List<Contact> getByBatch(Map<String, Object> paramMap) {
+		return contactDao.getByBatch(paramMap);
 	}
 	
 }

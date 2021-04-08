@@ -20,10 +20,10 @@
     </div>
     <div class="x-body">
       <div class="layui-row">
-        <div class="layui-form layui-col-md12 x-so">
+        <div class="layui-form layui-col-md12 x-so ">
         	<r:auth menuName="联系我们列表/查询" menuUrl="联系我们列表/查询"> 	
 	         
-				 	姓名：
+				<!--  	姓名：
 		          <div class="layui-inline">
 				    <input class="layui-input" name="username" id="username" autocomplete="off">
 				  </div>
@@ -42,17 +42,38 @@
 				 	型号：
 		          <div class="layui-inline">
 				    <input class="layui-input" name="type" id="type" autocomplete="off">
-				  </div>
-				 	内容：
+				  </div> -->
+				 <!-- 	内容：
 		          <div class="layui-inline">
 				    <input class="layui-input" name="contents" id="contents" autocomplete="off">
 				  </div>
+				 -->
+				 
+				  <div class="layui-inline">
+		   		 <select id="searchKey" name="searchKey" lay-search  lay-filter="brickType">
+	                <option value="">全部</option>
+                  	<option value="1" >姓名</option>
+                  	<option value="2" >电话</option>
+                  	<option value="3" >邮箱</option>
+	            </select>
+				  </div>
+				   <div class="layui-inline">
+				    <input class="layui-input" name="searchValue" id="searchValue" autocomplete="off">
+				  </div>
+				  
+				  <div class="layui-inline">
+					<label class="layui-form-label">日期选择：</label>
+					<div class="layui-input-inline">
+						<input type="text" name="createDateStr" id="createDateStr" placeholder="请选择开始时间 - 结束时间"
+							autocomplete="off" class="layui-input" readonly="readonly" style="width: 360px;">
+					</div>
+				</div>
 				
-				
-			
-				<div class="layui-input-inline xbtpt10">
+			<span class=" xbtpt10">
+				<div class="layui-input-inline">
 	          	  <button class="layui-btn" lay-submit lay-filter="searchFilter" >搜索</button>
-	          </div>
+	          </span>
+			</div>
 			
           </r:auth>
         </div>
@@ -63,6 +84,11 @@
     </div>
     
     
+      <form class="layui-form layui-form-pane" id="rendReloadId" method="POST">
+      	<input type="hidden" id="contactIdArr" name="contactIdArr" />
+      </form>
+    
+    
     <script type="text/html" id="toolbar">
       <div class="layui-btn-container toolbar">
 		<r:auth menuName="联系我们列表/批量删除" menuUrl="联系我们列表/批量删除">
@@ -70,6 +96,9 @@
     		</r:auth>
          <r:auth menuName="联系我们列表/增加" menuUrl="联系我们列表/增加">
 			<button class="layui-btn layui-btn-sm"  onclick="edit()" ><i class="layui-icon"></i>增加</button>
+    	 </r:auth>
+		<r:auth menuName="联系我们列表/导出" menuUrl="联系我们列表/导出">
+			<button class="layui-btn layui-btn-sm"  onclick="exportContant()" > <i title="导出" class="iconfont" style="font-size: 20px;">&#xe67d;</i>导出</button>
     		</r:auth>
      </div>
 	</script>
@@ -86,6 +115,11 @@
 			<r:auth menuName="联系我们列表/状态修改" menuUrl="联系我们列表/状态修改">
               <a title="删除"  lay-event="del" href="javascript:;">
                 <i class="layui-icon" style="font-size: 20px;">&#xe640;</i>
+              </a>
+     		</r:auth>
+			<r:auth menuName="联系我们列表/查看详情" menuUrl="联系我们列表/查看详情">
+              <a title="查看详情"  lay-event="detail" href="javascript:;">
+                <i class="layui-icon" style="font-size: 20px;">&#xe615;</i>
               </a>
      		</r:auth>
 		</div>

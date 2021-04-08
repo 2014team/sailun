@@ -28,7 +28,7 @@
 			</label>
 			<div class="layui-input-inline">
 				<input type="text" id="mobileNum" name="mobileNum"
-					value="${entity.mobileNum}"   lay-verify="required"
+					value="${entity.mobileNum}"   lay-verify="required|phone"
 					autocomplete="off" class="layui-input">
 			</div>
 			<div class="layui-form-mid layui-word-aux">必选项</div>
@@ -40,7 +40,7 @@
 			</label>
 			<div class="layui-input-inline">
 				<input type="text" id="email" name="email"
-					value="${entity.email}"   lay-verify="required"
+					value="${entity.email}"   lay-verify="required|email"
 					autocomplete="off" class="layui-input">
 			</div>
 			<div class="layui-form-mid layui-word-aux">必选项</div>
@@ -70,17 +70,15 @@
 			<div class="layui-form-mid layui-word-aux">必选项</div>
 		</div>
 		
-			<div class="layui-form-item">
-			<label for="L_pass" class="layui-form-label"> 
-			<span class="x-red">*</span>内容：
-			</label>
-			<div class="layui-input-inline">
-				<input type="text" id="contents" name="contents"
-					value="${entity.contents}"   lay-verify="required"
-					autocomplete="off" class="layui-input">
-			</div>
-			<div class="layui-form-mid layui-word-aux">必选项</div>
-		</div>
+		
+	    <div class="layui-form-item layui-form-text">
+                  <label for="desc" class="layui-form-label">
+                    <span class="x-red">*</span>内容
+                  </label>
+                  <div class="layui-input-block" >
+                      <textarea id="contents" name="contents" class="layui-textarea" >${entity.contents }</textarea>
+                  </div>
+              </div>
 		
 			  
           <div class="layui-form-item">

@@ -35,8 +35,8 @@
 				,#{vehicleBrand}
 				,#{type}
 				,#{contents}
-				,#{createDate}
-				,#{updateDate}
+				,now()
+				,now()
 		)
 	</insert>
 	
@@ -65,8 +65,6 @@
 				,vehicle_brand = #{vehicleBrand}
 				,type = #{type}
 				,contents = #{contents}
-				,create_date = #{createDate}
-				,update_date = #{updateDate}
 		where contact_id = #{contactId}
 	</update>
 	
@@ -206,12 +204,11 @@
 			<if test="null != contactVo.contents and ''!= contactVo.contents">
 			and contents = #{contactVo.contents}
 			</if> 
-			<if test="null != contactVo.createDate and ''!= contactVo.createDate">
-			and create_date = #{contactVo.createDate}
-			</if> 
-			<if test="null != contactVo.updateDate and ''!= contactVo.updateDate">
-			and update_date = #{contactVo.updateDate}
-			</if> 
+			 <if test="null != contactVo and  null != contactVo.createDateStr and '' != contactVo.createDateStr">
+			<![CDATA[  
+			and create_date >= #{contactVo.beginDate} and  create_date <= #{contactVo.endDate} 
+			]]>
+			</if>
  		</where>
  		order by contact_id ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
@@ -244,14 +241,31 @@
 			<if test="null != contactVo.contents and ''!= contactVo.contents">
 			and contents = #{contactVo.contents}
 			</if> 
-			<if test="null != contactVo.createDate and ''!= contactVo.createDate">
-			and create_date = #{contactVo.createDate}
-			</if> 
-			<if test="null != contactVo.updateDate and ''!= contactVo.updateDate">
-			and update_date = #{contactVo.updateDate}
-			</if> 
+			 <if test="null != contactVo and  null != contactVo.createDateStr and '' != contactVo.createDateStr">
+			<![CDATA[  
+			and create_date >= #{contactVo.beginDate} and  create_date <= #{contactVo.endDate} 
+			]]>
+			</if>
  		</where>
  		order by contact_id ,create_date desc ;
+	</select>
+	
+	<select id="getByBatch" parameterType="Map" resultMap="resultMap">
+		select 
+				contact_id
+				,username
+				,mobileNum
+				,email
+				,vehicle_brand
+				,type
+				,contents
+				,create_date
+				,update_date
+ 		 from t_contact
+		where contact_id in
+		<foreach collection="list" item="item" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
 	</select>
 
 </mapper>

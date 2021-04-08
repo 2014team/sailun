@@ -1,8 +1,17 @@
 package com.sailun.admin.controller;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,12 +19,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sailun.admin.annotation.AdminControllerLog;
+import com.sailun.admin.constant.ContantSearchEnum;
 import com.sailun.admin.domain.dto.ContactDto;
+import com.sailun.admin.domain.entity.Contact;
 import com.sailun.admin.domain.vo.ContactVo;
 import com.sailun.admin.service.ContactService;
-import com.sailun.common.entity.JsonResult;
+import com.sailun.admin.util.DateUtil;
+import com.sailun.admin.util.ExcelUtil;
 import com.sailun.common.entity.AdminResultByPage;
-import com.sailun.admin.annotation.AdminControllerLog;
+import com.sailun.common.entity.JsonResult;
+
 
 /**
  * @ClassName: ContactController
@@ -25,6 +39,8 @@ import com.sailun.admin.annotation.AdminControllerLog;
  */
 @Controller
 public class ContactController {
+	
+	private static org.slf4j.Logger logger = LoggerFactory.getLogger(ContactController.class);
 
 	@Autowired
 	private ContactService contactService;
@@ -184,6 +200,16 @@ public class ContactController {
 
 		Integer page = Integer.valueOf(request.getParameter("page"));
 		Integer limit = Integer.valueOf(request.getParameter("limit"));
+		
+		String searchValue = contactVo.getSearchValue();
+		String searchKey = contactVo.getSearchKey();
+		if(ContantSearchEnum.NAME.getValue().toString().equals(searchKey)){
+			contactVo.setUsername(searchValue);
+		}else if(ContantSearchEnum.MOBILENUM.getValue().toString().equals(searchKey)){
+			contactVo.setMobileNum(searchValue);
+		}else if(ContantSearchEnum.EMAIL.getValue().toString().equals(searchKey)){
+			contactVo.setEmail(searchValue);
+		}
 
 		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 
@@ -224,6 +250,25 @@ public class ContactController {
 	}
 	
 	/**
+	* @Title: edit
+	* @Description: 详情
+	* @author zhuzq
+	* @date  2021年4月8日 下午10:04:31
+	* @param contactId
+	* @param request
+	* @return
+	*/
+	@RequestMapping(value = "/admin/center/contact/detail", method = { RequestMethod.GET, RequestMethod.POST })
+	public String detail(Integer contactId, HttpServletRequest request) {
+		// 编辑,为空新增
+		if (null != contactId) {
+			ContactDto entity = contactService.getContact(contactId);
+			request.setAttribute("entity", entity);
+		}
+		return "/admin/center/contact/contact_detail";
+	}
+	
+	/**
 	 * @Title: get
 	 * @Description: 查找
 	 * @author zhuzq
@@ -244,6 +289,61 @@ public class ContactController {
 		ContactDto entity = contactService.getContact(contactId);
 		result.success("entity", entity);
 		return result;
+	}
+	
+	
+	
+	/**
+	* @Title: export
+	* @Description: 导出
+	* @author zhuzq
+	* @date  2021年4月8日 下午10:45:48
+	* @param contactIdArr
+	*/
+	@AdminControllerLog(description="联系我们导出")
+	@RequestMapping(value = "/admin/center/contact/export", method = { RequestMethod.GET, RequestMethod.POST })
+	public void export(String contactIdArr,HttpServletRequest request,HttpServletResponse response) {
+		// 验证参数
+		if (StringUtils.isEmpty(contactIdArr)) {
+			logger.error("请选项要删除的数据");
+		}
+		// 删除
+		List<String> contactIdList = Arrays.asList(contactIdArr.split(","));
+		
+		// 查询需要导出的数据
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("list", contactIdList);
+		List<Contact> dataList = contactService.getByBatch(paramMap);
+		if(null == dataList ||  dataList.size() < 1){
+			logger.error("没有查询要导出的数据");
+			return ;
+		}
+		
+		String [] columnWidth ={"15","15","15","10","10","40","20"}; 
+		String[][] columnNames =  new String[][] {
+			{"姓名","电话","邮箱","车辆品牌","型号","内容","创建日期"}, 
+			{"username","mobileNum","email","vehicleBrand","type","contents","createDate"}
+			};
+			
+		List<Map<String,Object>> dataRows = new LinkedList<Map<String,Object>>();
+		if(null != dataList && dataList.size() > 0){
+			for (Contact c : dataList) {
+			 Map<String, Object> map = new HashMap<String, Object>();
+			 map.put("username",c.getUsername());
+			 map.put("mobileNum", c.getMobileNum());
+			 map.put("email", c.getEmail());
+			 map.put("vehicleBrand", c.getVehicleBrand());
+			 map.put("type", c.getType());
+			 map.put("contents",c.getContents());
+			 map.put("createDate",DateUtil.format(c.getCreateDate(), DateUtil.DATE_YYYY_MM_DD_HH_MM_SS));
+			 dataRows.add(map);
+			}	
+		}
+		
+		String excelName = "联系我们"+ExcelUtil.getFileName();
+		ExcelUtil.exportExcel(request, response, excelName, columnWidth, columnNames, dataRows);
+		
+		
 	}
 
 }

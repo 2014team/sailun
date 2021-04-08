@@ -4,6 +4,10 @@ const LIST = getAminUrl('admin/CENTER/CONTACT/LIST')
 const DELETE = getAminUrl('admin/CENTER/CONTACT/DELETE');
 /*编辑*/
 const EDIT = getAminUrl('admin/CENTER/CONTACT/EDIT');
+/*详情*/
+const DETAIL = getAminUrl('admin/CENTER/CONTACT/DETAIL');
+/*导出*/
+const EXPORT = getAminUrl('admin/CENTER/CONTACT/EXPORT');
 /*批量删除*/
 const BATCH_DELETE = getAminUrl('admin/CENTER/CONTACT/BATCH/DELETE');
 /*查找单个对象*/
@@ -11,25 +15,31 @@ const GET = getAminUrl('admin/CENTER/CONTACT/GET');
 //行对象
 var rowObj = "";
 
+
 /*初始化layui*/
 layui.use([ 'table', 'form', 'laydate' ], function() {
 	    var table  = layui.table,
 		form = layui.form,
 		laydate = layui.laydate;
+	    
+	    
+	    // 下拉清空内容
+	    form.on('select(brickType)', function(data){   
+	    	 var val=data.value;
+	    	 if(val == ""){
+	    		 $("#searchValue").val("");
+	    		 
+	    	 }
 
-	/*日历选择器*/
+	   });
+
+	  //年月范围选择
 	laydate.render({
-		elem : '#startDate',
-		done : function(value, date) { //监听日期被切换
-			$("#startDate").val(value)
-		}
+		elem : '#createDateStr'
+		,type: 'datetime'
+		,range : '~'
 	});
-	laydate.render({
-		elem : '#endDate', //指定元素
-		done : function(value, date, endDate) {
-			$("#endDate").val(value)
-		}
-	});
+	
 
 	table.render({
 		elem : '#table_list',
@@ -38,6 +48,7 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 		method : "post",
 		page : { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
 			layout : [ 'limit', 'count', 'prev', 'page', 'next', 'skip' ], //自定义分页布局 //,curr: 5 //设定初始在第 5 页
+			limits: [10,20,30,50,100,1000], //每页条数选项
 			limit : 10, //每页显示的条数
 			groups : 5, //步长
 			first : '首页', //不显示首页
@@ -79,6 +90,7 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				}
 				,{
 					field : 'contents' ,
+					hide:true,
 					title : '内容' ,
 				}
 				, {
@@ -91,6 +103,7 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				, {
 					field : 'updateDate' ,
 					title : '更新日期' ,
+					hide:true,
 					templet : function(d) {
 					return date.toDateString(d.updateDate, 'yyyy-MM-dd HH:mm:ss');
 				    }
@@ -115,6 +128,8 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 			edit(obj)//列表编辑
 		} else if (layEvent === 'del') {
 			del(obj);//列表删除
+		}else if (layEvent === 'detail') {
+			detail(obj);//详情
 		}
 	});
 	
@@ -173,6 +188,39 @@ function edit(obj) {
 		var contactId = obj.data.contactId;
 		url = EDIT + "?contactId=" + contactId;
 		 title = '联系我们';
+	}	
+	x_admin_show(title, url);
+};
+
+/*导出*/
+function exportContant() {
+	var selectData =layui.table.checkStatus('tableId').data;
+	if(selectData.length < 1){	
+		layer.msg('请选择要导出的数据！', {icon: 2});
+		return false;
+	}
+	layer.confirm('确认要导出吗？', function(index) {
+		var array = new Array();
+		$.each(selectData,function(i,e){
+			array.push(e.contactId);
+		 })
+		 
+		 layer.close(index);	
+		 $("#contactIdArr").val(array);
+		 $("#rendReloadId").attr("action",EXPORT).submit();
+	});
+	
+};
+
+/*详情*/
+function detail(obj) {
+	
+	var url = DETAIL;
+	var title = '联系我们';
+	if(obj){
+		var contactId = obj.data.contactId;
+		url = DETAIL + "?contactId=" + contactId;
+		title = '联系我们';
 	}	
 	x_admin_show(title, url);
 };
