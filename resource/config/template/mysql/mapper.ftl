@@ -26,9 +26,11 @@
 			<#if field_index ==0>
 			${"#"}{${field.java_field_Name}}
 			<#else>
-			<#if (field.java_field_Name != 'Date' || field.java_field_Name != 'Date')>
-				,${"#"}{${field.java_field_Name}}
-			</#if>
+		<#if (field.field_name != 'create_date' && field.field_name != 'update_date')>
+			,${"#"}{${field.java_field_Name}}
+		<#else>
+			,now()
+		</#if>
 			</#if>
 			</#list>
 		)
@@ -57,7 +59,7 @@
 		update ${table.tableName} 
 			set update_Date = now()
 		<#list table.common_fields as field>
-			<#if (field.field_name != 'createDate' && field.field_name != 'updateDate')>
+			<#if (field.field_name != 'create_date' && field.field_name != 'update_date')>
 				,${field.field_name} = ${"#"}{${field.java_field_Name}}
 			</#if>
 		</#list>
