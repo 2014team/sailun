@@ -22,9 +22,9 @@ import com.sailun.admin.annotation.AdminServiceLog;
 
 /**
  * @ClassName: BannerServiceImpl
- * @Description: 广告 banner
+ * @Description: 首页广告
  * @author zhuzq
- * @date 2021年04月09日 00:05:21
+ * @date 2021年04月09日 14:50:15
  */
 @Service
 public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implements BannerService {
@@ -37,11 +37,11 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: saveBanner
 	 * @Description: 保存
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
-	@AdminServiceLog(description="广告 banner保存")
+	@AdminServiceLog(description="首页广告保存")
 	@Override
 	public boolean saveBanner(BannerVo bannerVo) {
 		// BannerVo转Banner
@@ -57,11 +57,11 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: deleteBanner
 	 * @Description: 删除
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerId
 	 * @return
 	 */
-	@AdminServiceLog(description="广告 banner 删除")
+	@AdminServiceLog(description="首页广告 删除")
 	@Override
 	public boolean deleteBanner(Integer bannerId) {
 		Integer result = bannerDao.delete(bannerId);
@@ -75,11 +75,11 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: deleteByBatch
 	 * @Description: 批量删除
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerIdArr
 	 * @return
 	 */
-	@AdminServiceLog(description="广告 banner 批量删除")
+	@AdminServiceLog(description="首页广告 批量删除")
 	@Override
 	public int deleteByBatch(Integer[] bannerIdArr) {
 		List<Integer> bannerIdList = Arrays.asList(bannerIdArr);
@@ -90,11 +90,11 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: updateBanner
 	 * @Description: 修改
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
-	@AdminServiceLog(description="广告 banner 批量修改")
+	@AdminServiceLog(description="首页广告 批量修改")
 	@Override
 	public boolean updateBanner(BannerVo bannerVo) {
 		// BannerVo转Banner
@@ -108,13 +108,13 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 
 	/**
 	 * @Title: getBanner
-	 * @Description: 根据bannerId获取广告 banner
+	 * @Description: 根据bannerId获取首页广告
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerId
 	 * @return
 	 */
-	 @AdminServiceLog(description="广告 banner根据bannerId获取广告 banner")
+	 @AdminServiceLog(description="首页广告根据bannerId获取首页广告")
 	@Override
 	public BannerDto getBanner(Integer bannerId) {
 		BannerDto bannerDTO = null;
@@ -129,12 +129,12 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: findByPage
 	 * @Description: 分页查找
 	 * @author zhuzq
-	 * * @date 2021年04月09日 00:05:21
+	 * * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @param jsonResult
 	 * @return
 	 */
-	@AdminServiceLog(description="广告 banner分页查找")
+	@AdminServiceLog(description="首页广告分页查找")
 	@Override
 	public AdminResultByPage findByPage(BannerVo bannerVo, AdminResultByPage jsonResult) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -164,7 +164,7 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: checkParam
 	 * @Description: 参数验证
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
@@ -190,7 +190,7 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: checkUnique
 	 * @Description: 唯一性验证
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
@@ -221,7 +221,7 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: convertBanner
 	 * @Description: BannerVo转Banner
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
@@ -240,7 +240,7 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 	 * @Title: convertBannerDto
 	 * @Description: Banner转BannerDto
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param banner
 	 * @return
 	 */

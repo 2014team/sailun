@@ -27,13 +27,13 @@ public class BaseEntity implements Serializable {
 	
 	
 	// 时间
-	private String createDateStr;
+	public String createDateStr;
 
 	// 查询-开始时间
-	private String beginDate;
+	public String beginDate;
 
 	// 查询-结束时间
-	private String endDate;
+	public String endDate;
 
 	public Integer getId() {
 		return id;

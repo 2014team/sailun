@@ -43,8 +43,8 @@ var admin_url_map = {
 	
 	// 联系信息
 	'admin/CENTER/CONTACT/LIST': {url: '/admin/center/contact/list', isUsed: true, desc: '联系信息列表'},
-	'admin/CENTER/CONTACT/DELETE': {url: '/admin/center/contact/delete', isUsed: true, desc: '联系信息用户'},
-	'admin/CENTER/CONTACT/UPDATE': {url: '/admin/center/contact/update', isUsed: true, desc: '联系信息用户'},
+	'admin/CENTER/CONTACT/DELETE': {url: '/admin/center/contact/delete', isUsed: true, desc: '联系信息删除'},
+	'admin/CENTER/CONTACT/UPDATE': {url: '/admin/center/contact/update', isUsed: true, desc: '联系信息更新'},
 	'admin/CENTER/CONTACT/EDIT': {url: '/admin/center/contact/edit', isUsed: true, desc: '编辑联系信息'},
 	'admin/CENTER/CONTACT/DETAIL': {url: '/admin/center/contact/detail', isUsed: true, desc: '详情联系信息'},
 	'admin/CENTER/CONTACT/SAVE': {url: '/admin/center/contact/save', isUsed: true, desc: '保存联系信息'},
@@ -52,7 +52,14 @@ var admin_url_map = {
 	'admin/CENTER/CONTACT/GET': {url: '/admin/center/contact/get', isUsed: true, desc: '查找单个联系信息'},
 	'admin/CENTER/CONTACT/EXPORT': {url: '/admin/center/contact/export', isUsed: true, desc: '导出联系信息'},
 	
-
+	//首页广告
+	'admin/CENTER/BANNER/LIST': {url: '/admin/center/banner/list', isUsed: true, desc: '首页广告列表'},
+	'admin/CENTER/BANNER/DELETE': {url: '/admin/center/banner/delete', isUsed: true, desc: '首页广告列删除'},
+	'admin/CENTER/BANNER/UPDATE': {url: '/admin/center/banner/update', isUsed: true, desc: '联系信息更新'},
+	'admin/CENTER/BANNER/EDIT': {url: '/admin/center/banner/edit', isUsed: true, desc: '首页广告列编辑'},
+	'admin/CENTER/BANNER/SAVE': {url: '/admin/center/banner/save', isUsed: true, desc: '首页广告列'},
+	'admin/CENTER/BANNER/BATCH/DELETE': {url: '/admin/center/banner/batch/delete', isUsed: true, desc: '首页广告列批量删除'},
+	'admin/CENTER/BANNER/GET': {url: '/admin/center/banner/get', isUsed: true, desc: '查找单个首页广告列'},
 }
 
 var web_url_map = {

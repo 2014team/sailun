@@ -6,9 +6,9 @@ import com.sailun.admin.domain.entity.Banner;
 
 /**
  * @ClassName: BannerDao
- * @Description: 广告 banner
+ * @Description: 首页广告
  * @author zhuzq
- * @date 2021年04月09日 00:05:18
+ * @date 2021年04月09日 14:50:12
  */
 @Repository
 public interface BannerDao extends BaseDao<Banner,Integer>{

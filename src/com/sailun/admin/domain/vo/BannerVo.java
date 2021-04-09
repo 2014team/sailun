@@ -4,9 +4,9 @@ import com.sailun.admin.domain.entity.Banner;
  
 /**
  * @ClassName: BannerVo
- * @Description: 广告 banner
+ * @Description: 首页广告
  * @author zhuzq
- * @date 2021年04月09日 00:05:22
+ * @date 2021年04月09日 14:50:15
  */ 
 public class BannerVo extends Banner{
 

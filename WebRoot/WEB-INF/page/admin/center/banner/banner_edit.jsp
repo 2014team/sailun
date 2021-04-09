@@ -10,17 +10,21 @@
         
          <input type="hidden" id="bannerId" name="bannerId" value="${entity.bannerId}" />
 			
-			<div class="layui-form-item">
-			<label for="L_pass" class="layui-form-label"> 
-			<span class="x-red">*</span>图片地址：
-			</label>
-			<div class="layui-input-inline">
-				<input type="text" id="imageUrl" name="imageUrl"
-					value="${entity.imageUrl}"   lay-verify="required"
-					autocomplete="off" class="layui-input">
-			</div>
-			<div class="layui-form-mid layui-word-aux">必选项</div>
-		</div>
+		
+		<div class="layui-form-item">
+              <label for="L_repass" class="layui-form-label">
+                <span class="x-red">*</span> 首页广告
+              </label>
+              <div class="layui-input-inline">
+                 <div class="layui-upload-drag" id="upload_image_Id">
+				  <i class="layui-icon">
+				  </i>
+				  <p>点击上传，或将文件拖拽到此处</p>
+				</div>
+          </div>
+         	 <input type="hidden" id="imageUrl" name="imageUrl" value="${entity.imageUrl }"></input>
+          </div>
+		
 		
 			<div class="layui-form-item">
 			<label for="L_pass" class="layui-form-label"> 
@@ -36,14 +40,17 @@
 		
 			<div class="layui-form-item">
 			<label for="L_pass" class="layui-form-label"> 
-			<span class="x-red">*</span>1:停用：
+			<span class="x-red">*</span>状态：
 			</label>
 			<div class="layui-input-inline">
-				<input type="text" id="status" name="status"
-					value="${entity.status}"   lay-verify="required"
-					autocomplete="off" class="layui-input">
-			</div>
+			
+				<select id="status" name="status" lay-verify="required">
+			                   <option value="0" >启用</option>
+			                   <option value="1" >停用</option>
+			             </select>
+			    	</div>
 			<div class="layui-form-mid layui-word-aux">必选项</div>
+			</div>
 		</div>
 		
 			  

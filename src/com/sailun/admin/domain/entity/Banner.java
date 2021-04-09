@@ -3,9 +3,9 @@ import com.sailun.common.entity.BaseEntity;
  
 /**
  * @ClassName: Banner
- * @Description: 广告 banner
+ * @Description: 首页广告
  * @author zhuzq
- * @date 2021年04月09日 00:05:19
+ * @date 2021年04月09日 14:50:13
  */ 
 public class Banner extends BaseEntity{
 
@@ -13,19 +13,19 @@ public class Banner extends BaseEntity{
 	/**
 	 * 主键
 	 */
-	private Integer bannerId;
+	protected Integer bannerId;
 	/**
 	 * 图片地址
 	 */
-	private String imageUrl;
+	protected String imageUrl;
 	/**
 	 * 跳转地址
 	 */
-	private String jumpUrl;
+	protected String jumpUrl;
 	/**
 	 * 1:停用
 	 */
-	private Integer status;
+	protected Integer status;
  
 	public Integer getBannerId(){
 		return this.bannerId;

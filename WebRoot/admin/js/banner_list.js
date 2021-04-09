@@ -67,7 +67,14 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				}
 				,{
 					field : 'status' ,
-					title : '1:停用' ,
+					title : '状态' ,
+					templet : function(d) {
+						if(d.status == 0){
+							return "启用"
+						}else if(d.status == 1){
+							return "停用";
+						}
+					    }
 				}
 				, {
 					field : 'createDate' ,
@@ -79,6 +86,7 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				, {
 					field : 'updateDate' ,
 					title : '更新日期' ,
+					hide :true,
 					templet : function(d) {
 					return date.toDateString(d.updateDate, 'yyyy-MM-dd HH:mm:ss');
 				    }
@@ -156,11 +164,11 @@ function del(obj) {
 function edit(obj) {
 	 
 	var url = EDIT;
-	var title = '广告 banner';
+	var title = '首页广告';
 	if(obj){
 		var bannerId = obj.data.bannerId;
 		url = EDIT + "?bannerId=" + bannerId;
-		 title = '广告 banner';
+		 title = '首页广告';
 	}	
 	x_admin_show(title, url);
 };

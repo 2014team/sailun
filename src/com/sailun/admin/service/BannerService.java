@@ -8,9 +8,9 @@ import com.sailun.common.entity.AdminResultByPage;
 
 /**
  * @ClassName: BannerDao
- * @Description: 广告 banner
+ * @Description: 首页广告
  * @author zhuzq
- * @date 2021年04月09日 00:05:21
+ * @date 2021年04月09日 14:50:15
  */
 public interface BannerService extends BaseService<Banner,Integer>{
 
@@ -18,7 +18,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: saveBanner
 	 * @Description: 保存
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
@@ -28,7 +28,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: deleteBanner
 	 * @Description: 删除
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerId
 	 * @return
 	 */
@@ -38,7 +38,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: deleteByBatch
 	 * @Description: 批量删除
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerIdArr
 	 * @return
 	 */
@@ -48,7 +48,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: updateBanner
 	 * @Description: 修改
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
@@ -58,7 +58,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: getBanner
 	 * @Description: 根据bannerId获取对象
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerId
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: findByPage
 	 * @Description: 分页查找
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @param jsonResult
 	 * @return
@@ -79,7 +79,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: checkParam
 	 * @Description: 参数验证
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
@@ -89,7 +89,7 @@ public interface BannerService extends BaseService<Banner,Integer>{
 	 * @Title: checkUnique
 	 * @Description: 唯一性验证
 	 * @author zhuzq
-	 * @date 2021年04月09日 00:05:21
+	 * @date 2021年04月09日 14:50:15
 	 * @param bannerVo
 	 * @return
 	 */
