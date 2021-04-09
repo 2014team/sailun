@@ -23,19 +23,7 @@
         <div class="layui-form layui-col-md12 x-so">
         	<r:auth menuName="首页广告列表/查询" menuUrl="首页广告列表/查询"> 	
 	         
-				 	<!-- 图片地址：
-		          <div class="layui-inline">
-				    <input class="layui-input" name="imageUrl" id="imageUrl" autocomplete="off">
-				  </div>
-				 	跳转地址：
-		          <div class="layui-inline">
-				    <input class="layui-input" name="jumpUrl" id="jumpUrl" autocomplete="off">
-				  </div> -->
-				 	<!-- 1:停用：
-		          <div class="layui-inline">
-				    <input class="layui-input" name="status" id="status" autocomplete="off">
-				  </div> -->
-				  状态：
+				 	 状态：
 				  <div class="layui-inline">
 			        <select id="status" name="status" lay-search>
 			                 <option value="">全部</option>
@@ -43,7 +31,6 @@
 			                   <option value="1" >停用</option>
 			             </select>
 			    	</div>
-				
 				
 			<span class=" xbtpt10">
 				<div class="layui-input-inline">

@@ -24,33 +24,28 @@
           </div>
          	 <input type="hidden" id="imageUrl" name="imageUrl" value="${entity.imageUrl }"></input>
           </div>
-		
-		
-			<div class="layui-form-item">
-			<label for="L_pass" class="layui-form-label"> 
-			<span class="x-red">*</span>跳转地址：
-			</label>
-			<div class="layui-input-inline">
-				<input type="text" id="jumpUrl" name="jumpUrl"
-					value="${entity.jumpUrl}"   lay-verify="required"
-					autocomplete="off" class="layui-input">
-			</div>
-			<div class="layui-form-mid layui-word-aux">必选项</div>
-		</div>
-		
+          
+		 <div class="layui-form-item">
+                    <label for="name" class="layui-form-label">
+              <span class="x-red">*</span>跳转地址：
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text"  lay-verify="required" name="jumpUrl"
+                        autocomplete="off" class="layui-input" maxlength="100" value="${entity.jumpUrl}">
+                    </div>
+                </div>
+                
 			<div class="layui-form-item">
 			<label for="L_pass" class="layui-form-label"> 
 			<span class="x-red">*</span>状态：
 			</label>
 			<div class="layui-input-inline">
-			
-				<select id="status" name="status" lay-verify="required">
+					<select id="status" name="status" value="${entity.status}" lay-verify="required">
 			                   <option value="0" >启用</option>
 			                   <option value="1" >停用</option>
 			             </select>
-			    	</div>
-			<div class="layui-form-mid layui-word-aux">必选项</div>
 			</div>
+			<div class="layui-form-mid layui-word-aux">必选项</div>
 		</div>
 		
 			  
