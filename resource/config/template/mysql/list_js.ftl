@@ -191,10 +191,10 @@ function batchDel() {
 function updateRowData(obj){
 	var reqData = obj.field;
 	 reqPostHasParameter(GET, {"${table.className?uncap_first}Id":reqData.${table.className?uncap_first}Id}, function(result) {
-		 reqData = result.data.userDto;
+		 reqData = result.data.entity;
 		 rowObj.update({
 			<#list (table.common_fields) as field>
-				 ${field.java_field_Name}: obj.field.${field.java_field_Name},
+				 ${field.java_field_Name}: reqData.${field.java_field_Name},
 			</#list>
 			});	
 	 }, function(e) {

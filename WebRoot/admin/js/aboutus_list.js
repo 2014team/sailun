@@ -1,13 +1,13 @@
 ﻿/*列表数据*/
-const LIST = getAminUrl('admin/CENTER/BANNER/LIST')
+const LIST = getAminUrl('admin/CENTER/ABOUTUS/LIST')
 /*列表删除*/
-const DELETE = getAminUrl('admin/CENTER/BANNER/DELETE');
+const DELETE = getAminUrl('admin/CENTER/ABOUTUS/DELETE');
 /*编辑*/
-const EDIT = getAminUrl('admin/CENTER/BANNER/EDIT');
+const EDIT = getAminUrl('admin/CENTER/ABOUTUS/EDIT');
 /*批量删除*/
-const BATCH_DELETE = getAminUrl('admin/CENTER/BANNER/BATCH/DELETE');
+const BATCH_DELETE = getAminUrl('admin/CENTER/ABOUTUS/BATCH/DELETE');
 /*查找单个对象*/
-const GET = getAminUrl('admin/CENTER/BANNER/GET');
+const GET = getAminUrl('admin/CENTER/ABOUTUS/GET');
 //行对象
 var rowObj = "";
 
@@ -58,21 +58,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 			}
 			
 				,{
-					field : 'imageUrl' ,
-					title : '图片地址' ,
-					templet : function(d) {
-						if(d.imageUrl){
-							return '<img alt='+d.imageUrl+' src='+d.imageUrl+'>'
-						}else{
-							return "";
-						}
-					}
-				}
-				,{
-					field : 'jumpUrl' ,
-					title : '跳转地址' ,
-				}
-				,{
+					field : 'content' ,
+					title : '内容' ,
+					hide:true
+				},{
 					field : 'status' ,
 					title : '状态' ,
 					templet : function(d) {
@@ -93,7 +82,6 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				, {
 					field : 'updateDate' ,
 					title : '更新日期' ,
-					hide:true,
 					templet : function(d) {
 					return date.toDateString(d.updateDate, 'yyyy-MM-dd HH:mm:ss');
 				    }
@@ -141,10 +129,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 
 /*删除*/
 function del(obj) {
-	var bannerId = obj.data.bannerId;
+	var aboutusId = obj.data.aboutusId;
 	layer.confirm("确认要删除吗？", function(index) {
 		reqPostHasParameter(DELETE, {
-			"bannerId" : bannerId
+			"aboutusId" : aboutusId
 		}, function(result) {
 			if (result.code == 200) {
 				layer.msg(result.msg, {
@@ -171,17 +159,18 @@ function del(obj) {
 function edit(obj) {
 	 
 	var url = EDIT;
-	var title = '首页广告';
+	var title = '关于我们';
 	if(obj){
-		var bannerId = obj.data.bannerId;
-		url = EDIT + "?bannerId=" + bannerId;
-		 title = '首页广告';
+		var aboutusId = obj.data.aboutusId;
+		url = EDIT + "?aboutusId=" + aboutusId;
+		 title = '关于我们';
 	}	
 	x_admin_show(title, url);
 };
 
 /*批量删除*/
 function batchDel() {
+	debugger
 	var selectData =layui.table.checkStatus('tableId').data;
 	if(selectData.length < 1){	
 		layer.msg('请选择要删除的数据！', {icon: 2});
@@ -190,9 +179,9 @@ function batchDel() {
 	layer.confirm('确认要删除吗？', function(index) {
 		var array = new Array();
 		$.each(selectData,function(i,e){
-			array.push(e.bannerId);
+			array.push(e.aboutusId);
 		 })
-		reqPostHasParameter(BATCH_DELETE, {"bannerIdArr":array},function(result) {
+		reqPostHasParameter(BATCH_DELETE, {"aboutusIdArr":array},function(result) {
 			if (result.code == 200) { //这个是从后台取回来的状态值
 				layer.msg(result.msg, {
 					icon : 1,
@@ -215,11 +204,10 @@ function batchDel() {
 /*更新行数据*/
 function updateRowData(obj){
 	var reqData = obj.field;
-	 reqPostHasParameter(GET, {"bannerId":reqData.bannerId}, function(result) {
+	 reqPostHasParameter(GET, {"aboutusId":reqData.aboutusId}, function(result) {
 		 reqData = result.data.entity;
 		 rowObj.update({
-				 imageUrl: reqData.imageUrl,
-				 jumpUrl: reqData.jumpUrl,
+				 content: reqData.content,
 				 status: reqData.status,
 				 createDate: reqData.createDate,
 				 updateDate: reqData.updateDate,

@@ -9,6 +9,7 @@ package com.sailun.admin.constant;
  */
 public enum UploadPathEnum {
 	INDEX_BANNER(1, "/upload/banner"), // 首页banner
+	ABOUT_US(2, "/upload/aboutus"), // 关于我们
 	;
 
 	private Integer value;

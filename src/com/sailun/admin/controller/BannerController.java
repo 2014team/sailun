@@ -61,6 +61,10 @@ public class BannerController {
 		//	result.failure(errMsg);
 		//	return result;
 		//}
+		
+		String imageUrl = imageService.uploadImage(request, file, UploadPathEnum.INDEX_BANNER.getName(),false);
+		bannerVo.setImageUrl(imageUrl);
+		
 		// 保存
 		boolean save = bannerService.saveBanner(bannerVo);
 		if (save) {

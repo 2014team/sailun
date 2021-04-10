@@ -407,5 +407,25 @@ public class HttpUtil {
 		}
 		return result;
 	}
+	
+	
+	public static SortedMap<String, Object> getRequestParams2(HttpServletRequest request) {
+
+		SortedMap<String, Object> map = new TreeMap<String, Object>();
+
+		Enumeration<String> paramNames = request.getParameterNames();
+		while (paramNames.hasMoreElements()) {
+			String paramName = (String) paramNames.nextElement();
+			String[] paramValues = request.getParameterValues(paramName);
+			if (paramValues.length == 1) {
+				String paramValue = paramValues[0];
+//				if (paramValue.length() != 0) {
+//					map.put(paramName, paramValue);
+//				}
+				map.put(paramName, paramValue);
+			}
+		}
+		return map;
+	}
 
 }

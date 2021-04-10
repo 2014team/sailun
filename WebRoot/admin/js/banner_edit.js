@@ -77,7 +77,7 @@ layui.use([ 'form', 'layer','upload' ], function() {
 							//关闭当前frame
 							parent.layer.close(index);
 							//刷新列表
-							window.parent.reloadTable(data.id);
+							window.parent.updateRowData(obj);
 							
 						});
 						

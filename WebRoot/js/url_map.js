@@ -54,12 +54,21 @@ var admin_url_map = {
 	
 	//首页广告
 	'admin/CENTER/BANNER/LIST': {url: '/admin/center/banner/list', isUsed: true, desc: '首页广告列表'},
-	'admin/CENTER/BANNER/DELETE': {url: '/admin/center/banner/delete', isUsed: true, desc: '首页广告列删除'},
+	'admin/CENTER/BANNER/DELETE': {url: '/admin/center/banner/delete', isUsed: true, desc: '首页广告删除'},
 	'admin/CENTER/BANNER/UPDATE': {url: '/admin/center/banner/update', isUsed: true, desc: '联系信息更新'},
-	'admin/CENTER/BANNER/EDIT': {url: '/admin/center/banner/edit', isUsed: true, desc: '首页广告列编辑'},
-	'admin/CENTER/BANNER/SAVE': {url: '/admin/center/banner/save', isUsed: true, desc: '首页广告列'},
-	'admin/CENTER/BANNER/BATCH/DELETE': {url: '/admin/center/banner/batch/delete', isUsed: true, desc: '首页广告列批量删除'},
-	'admin/CENTER/BANNER/GET': {url: '/admin/center/banner/get', isUsed: true, desc: '查找单个首页广告列'},
+	'admin/CENTER/BANNER/EDIT': {url: '/admin/center/banner/edit', isUsed: true, desc: '首页广告编辑'},
+	'admin/CENTER/BANNER/SAVE': {url: '/admin/center/banner/save', isUsed: true, desc: '首页广告'},
+	'admin/CENTER/BANNER/BATCH/DELETE': {url: '/admin/center/banner/batch/delete', isUsed: true, desc: '首页广告批量删除'},
+	'admin/CENTER/BANNER/GET': {url: '/admin/center/banner/get', isUsed: true, desc: '查找单个首页广告'},
+	
+	//关于我们
+	'admin/CENTER/ABOUTUS/LIST': {url: '/admin/center/aboutus/list', isUsed: true, desc: '关于我们列表'},
+	'admin/CENTER/ABOUTUS/DELETE': {url: '/admin/center/aboutus/delete', isUsed: true, desc: '关于我们删除'},
+	'admin/CENTER/ABOUTUS/UPDATE': {url: '/admin/center/aboutus/update', isUsed: true, desc: '关于我们更新'},
+	'admin/CENTER/ABOUTUS/EDIT': {url: '/admin/center/aboutus/edit', isUsed: true, desc: '关于我们编辑'},
+	'admin/CENTER/ABOUTUS/SAVE': {url: '/admin/center/aboutus/save', isUsed: true, desc: '关于我们保存'},
+	'admin/CENTER/ABOUTUS/BATCH/DELETE': {url: '/admin/center/aboutus/batch/delete', isUsed: true, desc: '关于我们批量删除'},
+	'admin/CENTER/ABOUTUS/GET': {url: '/admin/center/aboutus/get', isUsed: true, desc: '查找单个关于我们'},
 }
 
 var web_url_map = {
