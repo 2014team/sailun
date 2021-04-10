@@ -1,13 +1,13 @@
 ﻿/*列表数据*/
-const LIST = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/LIST')
+const LIST = getAminUrl('admin/CENTER/NEWS/LIST')
 /*列表删除*/
-const DELETE = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/DELETE');
+const DELETE = getAminUrl('admin/CENTER/NEWS/DELETE');
 /*编辑*/
-const EDIT = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/EDIT');
+const EDIT = getAminUrl('admin/CENTER/NEWS/EDIT');
 /*批量删除*/
-const BATCH_DELETE = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/BATCH/DELETE');
+const BATCH_DELETE = getAminUrl('admin/CENTER/NEWS/BATCH/DELETE');
 /*查找单个对象*/
-const GET = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/GET');
+const GET = getAminUrl('admin/CENTER/NEWS/GET');
 //行对象
 var rowObj = "";
 
@@ -64,22 +64,56 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				sort : true,
 			}
 			
-			<#list (table.common_fields) as field>
-			<#if (field.java_field_Name != 'createDate' && field.java_field_Name != 'updateDate')>
 				,{
-					field : '${field.java_field_Name}' ,
-					title : '${field.field_comment}' ,
+					field : 'title' ,
+					title : '标题' ,
 				}
-			<#else>
-				, {
-					field : '${field.java_field_Name}' ,
-					title : '${field.field_comment}' ,
+				,{
+					field : 'coverImage' ,
+					title : '封面图片' ,
 					templet : function(d) {
-					return date.toDateString(d.${field.java_field_Name}, 'yyyy-MM-dd HH:mm:ss');
+						if(d.coverImage){
+							return '<img alt='+d.coverImage+' src='+d.coverImage+'>'
+						}else{
+							return "";
+						}
+					}
+				}
+				,{
+					field : 'describe' ,
+					title : '简介描述' ,
+				}
+				,{
+					field : 'status' ,
+					title : '状态' ,
+					templet : function(d) {
+						if(d.status == 0){
+							return "上架"
+						}else if(d.status == 1){
+							return "下架"
+						}
+					}
+				}
+				, {
+					field : 'createDate' ,
+					title : '创建日期' ,
+					templet : function(d) {
+					return date.toDateString(d.createDate, 'yyyy-MM-dd HH:mm:ss');
 				    }
 				}
-			</#if>
-			</#list>
+				, {
+					field : 'updateDate' ,
+					title : '更新日期' ,
+					hide:true,
+					templet : function(d) {
+					return date.toDateString(d.updateDate, 'yyyy-MM-dd HH:mm:ss');
+				    }
+				}
+				,{
+					field : 'typeName' ,
+					title : '新闻类别' ,
+					
+				}
 			
 			, {
 				align : 'left',
@@ -123,10 +157,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 
 /*删除*/
 function del(obj) {
-	var ${table.className?uncap_first}Id = obj.data.${table.className?uncap_first}Id;
+	var newsId = obj.data.newsId;
 	layer.confirm("确认要删除吗？", function(index) {
 		reqPostHasParameter(DELETE, {
-			"${table.className?uncap_first}Id" : ${table.className?uncap_first}Id
+			"newsId" : newsId
 		}, function(result) {
 			if (result.code == 200) {
 				layer.msg(result.msg, {
@@ -153,13 +187,13 @@ function del(obj) {
 function edit(obj) {
 	 
 	var url = EDIT;
-	var title = '${description}';
+	var title = '资讯发布';
 	if(obj){
-		var ${table.className?uncap_first}Id = obj.data.${table.className?uncap_first}Id;
-		url = EDIT + "?${table.className?uncap_first}Id=" + ${table.className?uncap_first}Id;
-		 title = '${description}';
+		var newsId = obj.data.newsId;
+		url = EDIT + "?newsId=" + newsId;
+		 title = '资讯发布';
 	}	
-	x_admin_show(title, url);
+	x_admin_show(title, url,$(window).width(),$(window).height());
 };
 
 /*批量删除*/
@@ -172,9 +206,9 @@ function batchDel() {
 	layer.confirm('确认要删除吗？', function(index) {
 		var array = new Array();
 		$.each(selectData,function(i,e){
-			array.push(e.${table.className?uncap_first}Id);
+			array.push(e.newsId);
 		 })
-		reqPostHasParameter(BATCH_DELETE, {"${table.className?uncap_first}IdArr":array},function(result) {
+		reqPostHasParameter(BATCH_DELETE, {"newsIdArr":array},function(result) {
 			if (result.code == 200) { //这个是从后台取回来的状态值
 				layer.msg(result.msg, {
 					icon : 1,
@@ -197,12 +231,16 @@ function batchDel() {
 /*更新行数据*/
 function updateRowData(obj){
 	var reqData = obj.field;
-	 reqPostHasParameter(GET, {"${table.className?uncap_first}Id":reqData.${table.className?uncap_first}Id}, function(result) {
+	 reqPostHasParameter(GET, {"newsId":reqData.newsId}, function(result) {
 		 reqData = result.data.entity;
 		 rowObj.update({
-			<#list (table.common_fields) as field>
-				 ${field.java_field_Name}: reqData.${field.java_field_Name},
-			</#list>
+				 title: reqData.title,
+				 coverImage: reqData.coverImage,
+				 describe: reqData.describe,
+				 status: reqData.status,
+				 createDate: reqData.createDate,
+				 updateDate: reqData.updateDate,
+				 newsTypeId: reqData.newsTypeId,
 			});	
 	 }, function(e) {
 		 console.log(e);

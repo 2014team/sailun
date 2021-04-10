@@ -35,7 +35,7 @@ public class LayeditController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/upload/image", method = RequestMethod.POST)
-	public String fillupf(HttpServletRequest request, @RequestParam("file") MultipartFile[] files) {
+	public String upload(HttpServletRequest request, @RequestParam("file") MultipartFile[] files) {
 		try {
 			SortedMap<String, Object> paramMap = HttpUtil.getRequestParams2(request);
 			
@@ -48,7 +48,7 @@ public class LayeditController {
 					String origName = file.getOriginalFilename();// 文件原名称
 					System.out.println("上传的文件原名称:" + origName);
 
-					String imageUrl = imageService.uploadImage(request, file, UploadPathEnum.ABOUT_US.getName(), false);
+					String imageUrl = imageService.uploadImage(request, file, UploadPathEnum.LAYEDIT.getName(), false);
 
 					map.put("code", 0);// 0表示成功，1失败
 					map.put("msg", "上传成功");// 提示消息

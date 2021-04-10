@@ -9,7 +9,9 @@ package com.sailun.admin.constant;
  */
 public enum UploadPathEnum {
 	INDEX_BANNER(1, "/upload/banner"), // 首页banner
-	ABOUT_US(2, "/upload/aboutus"), // 关于我们
+	LAYEDIT(2, "/upload/layedit"), // 富文本
+	PRODUCT(3, "/upload/product"), // 产品展示
+	NEWS(4, "/upload/news"), // 资讯发布
 	;
 
 	private Integer value;

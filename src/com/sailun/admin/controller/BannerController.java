@@ -62,8 +62,11 @@ public class BannerController {
 		//	return result;
 		//}
 		
-		String imageUrl = imageService.uploadImage(request, file, UploadPathEnum.INDEX_BANNER.getName(),false);
-		bannerVo.setImageUrl(imageUrl);
+		if(null != file && !file.isEmpty()){
+			String imageUrl = imageService.uploadImage(request, file, UploadPathEnum.INDEX_BANNER.getName(),false);
+			bannerVo.setImageUrl(imageUrl);
+		}
+		
 		
 		// 保存
 		boolean save = bannerService.saveBanner(bannerVo);

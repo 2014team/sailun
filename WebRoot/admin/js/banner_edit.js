@@ -38,6 +38,7 @@ layui.use([ 'form', 'layer','upload' ], function() {
 		  });
 	 
 	 
+	 
 	//自定义验证规则
 	form.verify({
 		integer : [

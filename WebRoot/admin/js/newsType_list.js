@@ -1,13 +1,13 @@
 ﻿/*列表数据*/
-const LIST = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/LIST')
+const LIST = getAminUrl('admin/CENTER/NEWSTYPE/LIST')
 /*列表删除*/
-const DELETE = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/DELETE');
+const DELETE = getAminUrl('admin/CENTER/NEWSTYPE/DELETE');
 /*编辑*/
-const EDIT = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/EDIT');
+const EDIT = getAminUrl('admin/CENTER/NEWSTYPE/EDIT');
 /*批量删除*/
-const BATCH_DELETE = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/BATCH/DELETE');
+const BATCH_DELETE = getAminUrl('admin/CENTER/NEWSTYPE/BATCH/DELETE');
 /*查找单个对象*/
-const GET = getAminUrl('${controllerApiPrefix}/CENTER/${table.className?upper_case}/GET');
+const GET = getAminUrl('admin/CENTER/NEWSTYPE/GET');
 //行对象
 var rowObj = "";
 
@@ -64,22 +64,24 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				sort : true,
 			}
 			
-			<#list (table.common_fields) as field>
-			<#if (field.java_field_Name != 'createDate' && field.java_field_Name != 'updateDate')>
 				,{
-					field : '${field.java_field_Name}' ,
-					title : '${field.field_comment}' ,
+					field : 'typeName' ,
+					title : '分类名称' ,
 				}
-			<#else>
 				, {
-					field : '${field.java_field_Name}' ,
-					title : '${field.field_comment}' ,
+					field : 'createDate' ,
+					title : '创建日期' ,
 					templet : function(d) {
-					return date.toDateString(d.${field.java_field_Name}, 'yyyy-MM-dd HH:mm:ss');
+					return date.toDateString(d.createDate, 'yyyy-MM-dd HH:mm:ss');
 				    }
 				}
-			</#if>
-			</#list>
+				, {
+					field : 'updateDate' ,
+					title : '更新日期' ,
+					templet : function(d) {
+					return date.toDateString(d.updateDate, 'yyyy-MM-dd HH:mm:ss');
+				    }
+				}
 			
 			, {
 				align : 'left',
@@ -123,10 +125,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 
 /*删除*/
 function del(obj) {
-	var ${table.className?uncap_first}Id = obj.data.${table.className?uncap_first}Id;
+	var newsTypeId = obj.data.newsTypeId;
 	layer.confirm("确认要删除吗？", function(index) {
 		reqPostHasParameter(DELETE, {
-			"${table.className?uncap_first}Id" : ${table.className?uncap_first}Id
+			"newsTypeId" : newsTypeId
 		}, function(result) {
 			if (result.code == 200) {
 				layer.msg(result.msg, {
@@ -153,11 +155,11 @@ function del(obj) {
 function edit(obj) {
 	 
 	var url = EDIT;
-	var title = '${description}';
+	var title = '新闻类别';
 	if(obj){
-		var ${table.className?uncap_first}Id = obj.data.${table.className?uncap_first}Id;
-		url = EDIT + "?${table.className?uncap_first}Id=" + ${table.className?uncap_first}Id;
-		 title = '${description}';
+		var newsTypeId = obj.data.newsTypeId;
+		url = EDIT + "?newsTypeId=" + newsTypeId;
+		 title = '新闻类别';
 	}	
 	x_admin_show(title, url);
 };
@@ -172,9 +174,9 @@ function batchDel() {
 	layer.confirm('确认要删除吗？', function(index) {
 		var array = new Array();
 		$.each(selectData,function(i,e){
-			array.push(e.${table.className?uncap_first}Id);
+			array.push(e.newsTypeId);
 		 })
-		reqPostHasParameter(BATCH_DELETE, {"${table.className?uncap_first}IdArr":array},function(result) {
+		reqPostHasParameter(BATCH_DELETE, {"newsTypeIdArr":array},function(result) {
 			if (result.code == 200) { //这个是从后台取回来的状态值
 				layer.msg(result.msg, {
 					icon : 1,
@@ -197,12 +199,12 @@ function batchDel() {
 /*更新行数据*/
 function updateRowData(obj){
 	var reqData = obj.field;
-	 reqPostHasParameter(GET, {"${table.className?uncap_first}Id":reqData.${table.className?uncap_first}Id}, function(result) {
+	 reqPostHasParameter(GET, {"newsTypeId":reqData.newsTypeId}, function(result) {
 		 reqData = result.data.entity;
 		 rowObj.update({
-			<#list (table.common_fields) as field>
-				 ${field.java_field_Name}: reqData.${field.java_field_Name},
-			</#list>
+				 typeName: reqData.typeName,
+				 createDate: reqData.createDate,
+				 updateDate: reqData.updateDate,
 			});	
 	 }, function(e) {
 		 console.log(e);

@@ -17,6 +17,14 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 		form = layui.form,
 		laydate = layui.laydate;
 
+	    
+    //年月范围选择
+	laydate.render({
+		elem : '#createDateStr'
+		,type: 'datetime'
+		,range : '~'
+	});
+		
 	/*日历选择器*/
 	laydate.render({
 		elem : '#startDate',
@@ -165,12 +173,11 @@ function edit(obj) {
 		url = EDIT + "?aboutusId=" + aboutusId;
 		 title = '关于我们';
 	}	
-	x_admin_show(title, url);
+	x_admin_show(title, url,$(window).width(),$(window).height());
 };
 
 /*批量删除*/
 function batchDel() {
-	debugger
 	var selectData =layui.table.checkStatus('tableId').data;
 	if(selectData.length < 1){	
 		layer.msg('请选择要删除的数据！', {icon: 2});

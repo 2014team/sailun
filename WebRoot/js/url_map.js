@@ -69,6 +69,40 @@ var admin_url_map = {
 	'admin/CENTER/ABOUTUS/SAVE': {url: '/admin/center/aboutus/save', isUsed: true, desc: '关于我们保存'},
 	'admin/CENTER/ABOUTUS/BATCH/DELETE': {url: '/admin/center/aboutus/batch/delete', isUsed: true, desc: '关于我们批量删除'},
 	'admin/CENTER/ABOUTUS/GET': {url: '/admin/center/aboutus/get', isUsed: true, desc: '查找单个关于我们'},
+	
+	//产品展示
+	'admin/CENTER/PRODUCT/LIST': {url: '/admin/center/product/list', isUsed: true, desc: '产品展示列表'},
+	'admin/CENTER/PRODUCT/DELETE': {url: '/admin/center/product/delete', isUsed: true, desc: '产品展示删除'},
+	'admin/CENTER/PRODUCT/UPDATE': {url: '/admin/center/product/update', isUsed: true, desc: '产品展示更新'},
+	'admin/CENTER/PRODUCT/EDIT': {url: '/admin/center/product/edit', isUsed: true, desc: '产品展示编辑'},
+	'admin/CENTER/PRODUCT/SAVE': {url: '/admin/center/product/save', isUsed: true, desc: '产品展示保存'},
+	'admin/CENTER/PRODUCT/BATCH/DELETE': {url: '/admin/center/product/batch/delete', isUsed: true, desc: '产品展示批量删除'},
+	'admin/CENTER/PRODUCT/GET': {url: '/admin/center/product/get', isUsed: true, desc: '查找单个产品展示'},
+	
+	//产品分类
+	'admin/CENTER/PRODUCTTYPE/LIST': {url: '/admin/center/productType/list', isUsed: true, desc: '产品分类列表'},
+	'admin/CENTER/PRODUCTTYPE/DELETE': {url: '/admin/center/productType/delete', isUsed: true, desc: '产品分类删除'},
+	'admin/CENTER/PRODUCTTYPE/UPDATE': {url: '/admin/center/productType/update', isUsed: true, desc: '产品分类更新'},
+	'admin/CENTER/PRODUCTTYPE/EDIT': {url: '/admin/center/productType/edit', isUsed: true, desc: '产品分类编辑'},
+	'admin/CENTER/PRODUCTTYPE/SAVE': {url: '/admin/center/productType/save', isUsed: true, desc: '产品分类保存'},
+	'admin/CENTER/PRODUCTTYPE/BATCH/DELETE': {url: '/admin/productType/product/batch/delete', isUsed: true, desc: '产品分类批量删除'},
+	'admin/CENTER/PRODUCTTYPE/GET': {url: '/admin/center/productType/get', isUsed: true, desc: '查找单个产品分类'},
+	//新闻分类
+	'admin/CENTER/NEWSTYPE/LIST': {url: '/admin/center/newsType/list', isUsed: true, desc: '新闻分类列表'},
+	'admin/CENTER/NEWSTYPE/DELETE': {url: '/admin/center/newsType/delete', isUsed: true, desc: '新闻分类删除'},
+	'admin/CENTER/NEWSTYPE/UPDATE': {url: '/admin/center/newsType/update', isUsed: true, desc: '新闻分类更新'},
+	'admin/CENTER/NEWSTYPE/EDIT': {url: '/admin/center/newsType/edit', isUsed: true, desc: '新闻分类编辑'},
+	'admin/CENTER/NEWSTYPE/SAVE': {url: '/admin/center/newsType/save', isUsed: true, desc: '新闻分类保存'},
+	'admin/CENTER/NEWSTYPE/BATCH/DELETE': {url: '/admin/center/newsType/batch/delete', isUsed: true, desc: '新闻分类批量删除'},
+	'admin/CENTER/NEWSTYPE/GET': {url: '/admin/center/newsType/get', isUsed: true, desc: '查找单个新闻分类'},
+	//资讯发布
+	'admin/CENTER/NEWS/LIST': {url: '/admin/center/news/list', isUsed: true, desc: '资讯发布列表'},
+	'admin/CENTER/NEWS/DELETE': {url: '/admin/center/news/delete', isUsed: true, desc: '资讯发布删除'},
+	'admin/CENTER/NEWS/UPDATE': {url: '/admin/center/news/update', isUsed: true, desc: '资讯发布更新'},
+	'admin/CENTER/NEWS/EDIT': {url: '/admin/center/news/edit', isUsed: true, desc: '资讯发布编辑'},
+	'admin/CENTER/NEWS/SAVE': {url: '/admin/center/news/save', isUsed: true, desc: '资讯发布保存'},
+	'admin/CENTER/NEWS/BATCH/DELETE': {url: '/admin/center/news/batch/delete', isUsed: true, desc: '资讯发布批量删除'},
+	'admin/CENTER/NEWS/GET': {url: '/admin/center/news/get', isUsed: true, desc: '查找单个资讯发布'},
 }
 
 var web_url_map = {
