@@ -26,7 +26,7 @@ import com.sailun.admin.service.RightService;
 @Service
 public class RightServiceImpl implements RightService {
 
-	private static Map<Integer, RightDto> cacheMap = new LinkedHashMap<Integer, RightDto>();
+	private static Map<Integer, Map<String,RightDto>> cacheMap = new LinkedHashMap<Integer,  Map<String,RightDto>>();
 	
 
 	@Autowired
@@ -53,30 +53,49 @@ public class RightServiceImpl implements RightService {
 		}
 
 		// 获取用户权限
-		Map<Integer, RightDto> map = cacheMap;
+		Map<Integer, Map<String, RightDto>> map = cacheMap;
 		if (null != map && map.size() > 0 && map.containsKey(userId)) {
-			RightDto rightDto = map.get(userId);
+			Map<String, RightDto> rightDto = map.get(userId);
+//			for (Entry<String, RightDto> r : rightDto.entrySet()) {
+//				System.out.println("-->"+r.getKey());
+//			}
 			if (null != rightDto) {
-				List<Menu> menuList = rightDto.getMenuList();
-				if (null != menuList && menuList.size() > 0) {
-					for (Menu menu : menuList) {
-						String name = menu.getMenuName();
-						String url = menu.getMenuUrl();
-						if (StringUtils.isNotBlank(menuName) && StringUtils.isNotBlank(menuUrl)) {
-							// 有权限
-							if (name.equals(menuName) && url.equals(menuUrl)) {
-								return true;
-							}
-						}
-						else if (StringUtils.isNotBlank(name)) {
-							if (name.equals(menuName)) {
-								return true;
-							}
-						}
-
-					}
+				StringBuffer sb = new StringBuffer();
+				sb.append(userId);
+				sb.append("_");
+				sb.append(menuName);
+				if(StringUtils.isNotBlank(menuUrl)){
+					sb.append("_");
+					sb.append(menuUrl);
+						
 				}
+//				System.out.println("----->"+sb.toString());
+				if(rightDto.containsKey(sb.toString())){
+					return true;
+				}
+				
 			}
+				
+//				List<Menu> menuList = rightDto.getMenuList();
+//				if (null != menuList && menuList.size() > 0) {
+//					for (Menu menu : menuList) {	
+//						String name = menu.getMenuName();
+//						String url = menu.getMenuUrl();
+//						if (StringUtils.isNotBlank(menuName) && StringUtils.isNotBlank(menuUrl)) {
+//							// 有权限
+//							if (name.equals(menuName) && url.equals(menuUrl)) {
+//								return true;
+//							}
+//						}
+//						else if (StringUtils.isNotBlank(name)) {
+//							if (name.equals(menuName)) {
+//								return true;
+//							}
+//						}
+//
+//					}
+//				}
+//			}
 
 		}
 		return false;
@@ -120,8 +139,33 @@ public class RightServiceImpl implements RightService {
 		if(cacheMap.size() > 5000) {
 			delFirst();
 		}
-		cacheMap.put(userId, right);
+		 Map<String,RightDto> m  = getRightMap(userId, right);
+		cacheMap.put(userId, m);
 
+	}
+	
+	
+	public  Map<String,RightDto> getRightMap(Integer userId ,RightDto right){
+		Map<String,RightDto> map = new HashMap<String, RightDto>();
+		List<Menu> menu = right.getMenuList();
+		for (Menu menu2 : menu) {
+			StringBuffer sb = new StringBuffer();
+			sb.append(userId);
+			String menuName  = menu2.getMenuName();
+			sb.append("_");
+			sb.append(menuName);
+			String menuUrl  = menu2.getMenuUrl();
+			if(StringUtils.isNotBlank(menuUrl)){
+				sb.append("_");
+				sb.append(menuUrl);
+				
+			}
+			map.put(sb.toString(), right);			
+		}
+		
+		return map;
+		
+		
 	}
 
 	/**
@@ -149,7 +193,7 @@ public class RightServiceImpl implements RightService {
 	
 	private static Integer delFirst() {
 		Integer key = null;
-		for (Entry<Integer, RightDto> entry : cacheMap.entrySet()) {
+		for (Entry<Integer, Map<String, RightDto>> entry : cacheMap.entrySet()) {
 			key = entry.getKey();
 			if (key != null) {
 				cacheMap.remove(key);
