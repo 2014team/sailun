@@ -24,7 +24,18 @@
 			</div>
 			<div class="layui-form-mid layui-word-aux">必选项</div>
 		</div>
-		
+		<div class="layui-form-item">
+				<label for="L_pass" class="layui-form-label"> 
+				<span class="x-red">*</span>状态：
+				</label>
+				<div class="layui-input-inline">
+						<select id="status" name="status" value="${entity.status}" lay-verify="required">
+				                   <option value="0" >上架</option>
+				                   <option value="1" >下架</option>
+				             </select>
+				</div>
+				<div class="layui-form-mid layui-word-aux">必选项</div>
+			</div>
 				
 		<div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
@@ -42,18 +53,7 @@
           </div>
 		
 		
-			<div class="layui-form-item">
-				<label for="L_pass" class="layui-form-label"> 
-				<span class="x-red">*</span>状态：
-				</label>
-				<div class="layui-input-inline">
-						<select id="status" name="status" value="${entity.status}" lay-verify="required">
-				                   <option value="0" >上架</option>
-				                   <option value="1" >下架</option>
-				             </select>
-				</div>
-				<div class="layui-form-mid layui-word-aux">必选项</div>
-			</div>
+			
 			
 		
 		

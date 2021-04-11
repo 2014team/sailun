@@ -42,18 +42,7 @@
          	 <input type="hidden" id="coverImage" name="coverImage" value="${entity.coverImage }"></input>
           </div>
 		
-		
-		
-	    <div class="layui-form-item layui-form-text">
-                  <label for="desc" class="layui-form-label">
-                    <span class="x-red">*</span>简介描述：
-                  </label>
-                  <div class="layui-input-block" >
-                      <textarea id="describe" name="describe" class="layui-textarea" >${entity.describe }</textarea>
-                  </div>
-              </div>
-		
-			<div class="layui-form-item">
+		<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label"> 
 				<span class="x-red">*</span>状态：
 				</label>
@@ -80,6 +69,17 @@
 				<div class="layui-form-mid layui-word-aux">必选项</div>
 			</div>
 		
+		
+	    <div class="layui-form-item layui-form-text">
+                  <label for="desc" class="layui-form-label">
+                    <span class="x-red">*</span>简介描述：
+                  </label>
+                  <div class="layui-input-block" >
+                      <textarea id="describe" name="describe" class="layui-textarea" >${entity.describe }</textarea>
+                  </div>
+              </div>
+		
+			
 		
 		
 		 <div class="layui-form-item layui-form-text">
