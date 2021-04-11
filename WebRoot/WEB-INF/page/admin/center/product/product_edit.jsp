@@ -2,6 +2,9 @@
 <!DOCTYPE html>
   <head>
   	<%@include file="/WEB-INF/page/admin/common/head_layui.jsp" %>
+  	<script type="text/javascript" src="/js/UEditor/ueditor.config.js?t=<%=new java.util.Date().getTime() %>"></script>
+  	<script type="text/javascript" src="/js/UEditor/ueditor.all.js?t=<%=new java.util.Date().getTime() %>"></script>
+  	 <script type="text/javascript" charset="utf-8" src="/js/UEditor/lang/zh-cn/zh-cn.js"></script>
   	<script type="text/javascript" src="/admin/js/product_edit.js?t=<%=new java.util.Date().getTime() %>"></script>
   </head>
    <body>
@@ -32,7 +35,9 @@
 				  <i class="layui-icon">
 				  </i>
 				  <p>点击上传，或将文件拖拽到此处</p>
+				  
 				</div>
+				<div class="layui-form-mid layui-word-aux upload-tips">必选项</div>
           </div>
          	 <input type="hidden" id="coverImage" name="coverImage" value="${entity.coverImage }"></input>
           </div>
@@ -82,7 +87,7 @@
                     	内容介绍：
                   </label>
                   <div class="layui-input-block" >
-                      <textarea id="content" style="display: none;">${entity.content}</textarea>	
+                      <script id="container" name="content" type="text/plain">${entity.content}</script>
                   </div>
               </div>
 		

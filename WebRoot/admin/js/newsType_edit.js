@@ -24,8 +24,24 @@ layui.use([ 'form', 'layer' ], function() {
 
 	//保存
 	form.on('submit(editSave)', function(obj) {
+		
+		//加载动画
+   		var loading = layer.load(2, {
+   		    shade: [0.2, '#fff'],
+   		    content:'保存中,请稍等操作...',
+   		    success: function (layerContentStyle) {
+   		        layerContentStyle.find('.layui-layer-content').css({
+   		            'padding-top': '35px',
+   		            'text-align': 'center',
+   		            'background-position': 'center top',
+   		            'width': 'auto'
+   		        });
+   		    }
+   		});
 		var reqData = obj.field;
 		reqPostHasParameter(checkSave() ? UPDATE : SAVE, reqData, function(result) {
+			//关闭动画
+			layer.close(loading);
 			if (result.code == 200) {
 				layer.msg(result.msg, {
 					icon : 1,

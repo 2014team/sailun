@@ -61,6 +61,21 @@ layui.use([ 'form', 'layer','upload' ], function() {
 			return false;
 		}
 		
+		//加载动画
+   		var loading = layer.load(2, {
+   		    shade: [0.2, '#fff'],
+   		    content:'保存中,请稍等操作...',
+   		    success: function (layerContentStyle) {
+   		        layerContentStyle.find('.layui-layer-content').css({
+   		            'padding-top': '35px',
+   		            'text-align': 'center',
+   		            'background-position': 'center top',
+   		            'width': 'auto'
+   		        });
+   		    }
+   		});
+   		
+		
 		var url = checkSave() ? UPDATE : SAVE;
 		$.ajax({
 			url : url,
@@ -70,6 +85,8 @@ layui.use([ 'form', 'layer','upload' ], function() {
 			contentType : false, // 不要设置Content-Type请求头
 			dataType : "json",
 			success : function(resp) {
+				//关闭动画
+				layer.close(loading);
 					if (resp.code == 200) { //这个是从后台取回来的状态值
 						layer.msg(resp.msg, {icon : 6,time : 1500
 						},function(){

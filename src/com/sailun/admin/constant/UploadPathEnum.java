@@ -12,6 +12,7 @@ public enum UploadPathEnum {
 	LAYEDIT(2, "/upload/layedit"), // 富文本
 	PRODUCT(3, "/upload/product"), // 产品展示
 	NEWS(4, "/upload/news"), // 资讯发布
+	DRIVER(4, "/upload/driver"), //车手介绍
 	;
 
 	private Integer value;

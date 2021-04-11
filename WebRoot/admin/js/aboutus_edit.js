@@ -4,6 +4,13 @@ const UPDATE = getAminUrl('admin/CENTER/ABOUTUS/UPDATE');
 const SAVE = getAminUrl('admin/CENTER/ABOUTUS/SAVE');
 
 
+/*实例化编辑器 */
+var ue = UE.getEditor('container', {
+	 /*initialFrameWidth:$(window).width()  //初始化编辑器宽度,默认1000
+    ,initialFrameHeight:$(window).height() -50  //初始化编辑器高度,默认320
+    fullscreen : true
+*/	/*fullscreen : true*/});
+
 $(function(){
 	//回显Select选值	
 	echoSelect();
@@ -19,17 +26,6 @@ layui.use([ 'form', 'layer','layedit' ], function() {
 	
 	
 	
-	layedit.set({
-		  uploadImage: {
-		    url: '/admin/center/upload/image' //接口url
-		    ,type: 'post' //默认post
-		  }
-		});
-	var index = layedit.build('content'/*, {
-		  height: 180 //设置编辑器高度
-	}*/); //建立编辑器
-	
-	
 	//自定义验证规则
 	form.verify({
 		integer : [
@@ -41,11 +37,29 @@ layui.use([ 'form', 'layer','layedit' ], function() {
 	//保存
 	form.on('submit(editSave)', function(obj) {
 		
-		var content = layedit.getContent(index)	//获得编辑器的内容
+		var content = ue.getContent();	//获得编辑器的内容
 		//参数 index： 即执行layedit.build返回的值
 		//var xxx = layedit.getText(index)
 		var reqData = obj.field;
+		
+		//加载动画
+   		var loading = layer.load(2, {
+   		    shade: [0.2, '#fff'],
+   		    content:'保存中,请稍等操作...',
+   		    success: function (layerContentStyle) {
+   		        layerContentStyle.find('.layui-layer-content').css({
+   		            'padding-top': '35px',
+   		            'text-align': 'center',
+   		            'background-position': 'center top',
+   		            'width': 'auto'
+   		        });
+   		    }
+   		});
+   		
 		reqPostHasParameter(checkSave() ? UPDATE : SAVE, {"content":content,"status":$("#status").val(),"aboutusId":($("#aboutusId")?$("#aboutusId").val():'')}, function(result) {
+			//关闭动画
+			layer.close(loading);
+			
 			if (result.code == 200) {
 				layer.msg(result.msg, {
 					icon : 1,

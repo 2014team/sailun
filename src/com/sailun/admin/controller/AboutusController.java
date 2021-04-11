@@ -1,21 +1,26 @@
 package com.sailun.admin.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sailun.admin.annotation.AdminControllerLog;
 import com.sailun.admin.domain.dto.AboutusDto;
+import com.sailun.admin.domain.entity.Aboutus;
 import com.sailun.admin.domain.vo.AboutusVo;
 import com.sailun.admin.service.AboutusService;
-import com.sailun.common.entity.JsonResult;
 import com.sailun.common.entity.AdminResultByPage;
-import com.sailun.admin.annotation.AdminControllerLog;
+import com.sailun.common.entity.JsonResult;
 
 /**
  * @ClassName: AboutusController
@@ -200,7 +205,13 @@ public class AboutusController {
 	 * @return
 	 */
 	@RequestMapping(value = "/admin/center/aboutus/list/ui", method = { RequestMethod.GET })
-	public String toList() {
+	public String toList(Model model) {
+		List<Aboutus> list = aboutusService.select(new HashMap<String,Object>());
+		if(null != list){
+			Aboutus aboutus = list.get(0);
+			model.addAttribute("entity", aboutus);
+		}
+		
 		return "/admin/center/aboutus/aboutus_list";
 	}
 
@@ -214,11 +225,12 @@ public class AboutusController {
 	 * @return
 	 */
 	@RequestMapping(value = "/admin/center/aboutus/edit", method = { RequestMethod.GET, RequestMethod.POST })
-	public String edit(Integer aboutusId, HttpServletRequest request) {
+	public String edit(Integer aboutusId, HttpServletRequest request,Model model) {
 		// 编辑,为空新增
-		if (null != aboutusId) {
-			AboutusDto entity = aboutusService.getAboutus(aboutusId);
-			request.setAttribute("entity", entity);
+		List<Aboutus> list = aboutusService.select(new HashMap<String,Object>());
+		if(null != list){
+			Aboutus aboutus = list.get(0);
+			model.addAttribute("entity", aboutus);
 		}
 		return "/admin/center/aboutus/aboutus_edit";
 	}

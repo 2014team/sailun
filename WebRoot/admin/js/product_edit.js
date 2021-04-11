@@ -3,6 +3,10 @@ const UPDATE = getAminUrl('admin/CENTER/PRODUCT/UPDATE');
 /*保存*/
 const SAVE = getAminUrl('admin/CENTER/PRODUCT/SAVE');
 
+/*实例化编辑器 */
+var ue = UE.getEditor('container', {
+	 initialFrameHeight: 200
+	});
 
 $(function(){
 	//回显Select选值	
@@ -31,16 +35,6 @@ layui.use([ 'form', 'layer','upload','layedit' ], function() {
 	});
 	
 	
-	 layedit.set({
-		  uploadImage: {
-		    url: '/admin/center/upload/image' //接口url
-		    ,type: 'post' //默认post
-		  }
-		});
-	var index = layedit.build('content'/*, {
-		  height: 180 //设置编辑器高度
-	}*/); //建立编辑器
-	
 	
 	 upload.render({
 		    elem: '#upload_image_Id'
@@ -64,7 +58,7 @@ layui.use([ 'form', 'layer','upload','layedit' ], function() {
 		 form.on('submit(editSave)', function(obj) {
 			var formData = new FormData();
 			var reqData = obj.field;
-			var content = layedit.getContent(index)	//获得编辑器的内容
+			var content = ue.getContent();	//获得编辑器的内容
 			
 			formData.append("productId", reqData.productId);
 			formData.append("title", reqData.title);
@@ -79,6 +73,19 @@ layui.use([ 'form', 'layer','upload','layedit' ], function() {
 				return false;
 			}
 			
+			//加载动画
+	   		var loading = layer.load(2, {
+	   		    shade: [0.2, '#fff'],
+	   		    content:'保存中,请稍等操作...',
+	   		    success: function (layerContentStyle) {
+	   		        layerContentStyle.find('.layui-layer-content').css({
+	   		            'padding-top': '35px',
+	   		            'text-align': 'center',
+	   		            'background-position': 'center top',
+	   		            'width': 'auto'
+	   		        });
+	   		    }
+	   		});
 			var url = checkSave() ? UPDATE : SAVE;
 			$.ajax({
 				url : url,
@@ -88,6 +95,8 @@ layui.use([ 'form', 'layer','upload','layedit' ], function() {
 				contentType : false, // 不要设置Content-Type请求头
 				dataType : "json",
 				success : function(resp) {
+					//关闭动画
+					layer.close(loading);
 						if (resp.code == 200) { //这个是从后台取回来的状态值
 							layer.msg(resp.msg, {icon : 6,time : 1500
 							},function(){
@@ -134,4 +143,5 @@ function checkSave() {
 //回显Select选值
 function echoSelect(){
 	echoSelectData("productTypeId",$("#productTypeId").attr('value'));
+	echoSelectData("status",$("#status").attr('value'));
 }

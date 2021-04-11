@@ -3,3 +3,10 @@
 	padding: 10px 0px 
 }
 
+.layui-upload-drag img{
+	max-width:250px;
+	max-height:250px;
+}
+.upload-tips{
+	float:none;
+}

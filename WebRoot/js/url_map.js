@@ -87,6 +87,7 @@ var admin_url_map = {
 	'admin/CENTER/PRODUCTTYPE/SAVE': {url: '/admin/center/productType/save', isUsed: true, desc: '产品分类保存'},
 	'admin/CENTER/PRODUCTTYPE/BATCH/DELETE': {url: '/admin/productType/product/batch/delete', isUsed: true, desc: '产品分类批量删除'},
 	'admin/CENTER/PRODUCTTYPE/GET': {url: '/admin/center/productType/get', isUsed: true, desc: '查找单个产品分类'},
+	
 	//新闻分类
 	'admin/CENTER/NEWSTYPE/LIST': {url: '/admin/center/newsType/list', isUsed: true, desc: '新闻分类列表'},
 	'admin/CENTER/NEWSTYPE/DELETE': {url: '/admin/center/newsType/delete', isUsed: true, desc: '新闻分类删除'},
@@ -103,6 +104,15 @@ var admin_url_map = {
 	'admin/CENTER/NEWS/SAVE': {url: '/admin/center/news/save', isUsed: true, desc: '资讯发布保存'},
 	'admin/CENTER/NEWS/BATCH/DELETE': {url: '/admin/center/news/batch/delete', isUsed: true, desc: '资讯发布批量删除'},
 	'admin/CENTER/NEWS/GET': {url: '/admin/center/news/get', isUsed: true, desc: '查找单个资讯发布'},
+	
+	//车手介绍
+	'admin/CENTER/DRIVER/LIST': {url: '/admin/center/driver/list', isUsed: true, desc: '车手介绍列表'},
+	'admin/CENTER/DRIVER/DELETE': {url: '/admin/center/driver/delete', isUsed: true, desc: '车手介绍删除'},
+	'admin/CENTER/DRIVER/UPDATE': {url: '/admin/center/driver/update', isUsed: true, desc: '车手介绍更新'},
+	'admin/CENTER/DRIVER/EDIT': {url: '/admin/center/driver/edit', isUsed: true, desc: '车手介绍编辑'},
+	'admin/CENTER/DRIVER/SAVE': {url: '/admin/center/driver/save', isUsed: true, desc: '车手介绍保存'},
+	'admin/CENTER/DRIVER/BATCH/DELETE': {url: '/admin/center/driver/batch/delete', isUsed: true, desc: '车手介绍批量删除'},
+	'admin/CENTER/DRIVER/GET': {url: '/admin/center/driver/get', isUsed: true, desc: '查找单个车手介绍'},
 }
 
 var web_url_map = {

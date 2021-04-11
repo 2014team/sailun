@@ -21,6 +21,7 @@
 				  </i>
 				  <p>点击上传，或将文件拖拽到此处</p>
 				</div>
+				<div class="layui-form-mid layui-word-aux upload-tips">必选项</div>
           </div>
          	 <input type="hidden" id="imageUrl" name="imageUrl" value="${entity.imageUrl }"></input>
           </div>

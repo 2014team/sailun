@@ -1,3 +1,4 @@
+
 package com.sailun.admin.controller;
 
 import java.util.HashMap;
@@ -6,12 +7,12 @@ import java.util.SortedMap;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sailun.admin.constant.UploadPathEnum;
@@ -21,21 +22,21 @@ import com.sailun.common.util.HttpUtil;
 import net.sf.json.JSONObject;
 
 /**
-* @ClassName: LayeditController
-* @Description: 富文本图片上传
-* @author zhuzq
-* @date 2021年4月9日 下午11:40:34
-* https://www.layui.com/doc/modules/layedit.html
-*/
+ * @ClassName: LayeditController
+ * @Description: 富文本图片上传
+ * @author zhuzq
+ * @date 2021年4月9日 下午11:40:34 https://www.layui.com/doc/modules/layedit.html
+ */
 @Controller
 public class LayeditController {
+
+	private static Logger logger = LoggerFactory.getLogger(LayeditController.class);
+
 	@Autowired
 	private ImageService imageService;
 	
-	
-	@ResponseBody
-	@RequestMapping(value = "/admin/center/upload/image", method = RequestMethod.POST)
-	public String upload(HttpServletRequest request, @RequestParam("file") MultipartFile[] files) {
+	@RequestMapping(value = "/admin/center/upload/image")
+	public String upload(HttpServletRequest request, @RequestParam(value="upfile",required=false) MultipartFile[] files) {
 		try {
 			SortedMap<String, Object> paramMap = HttpUtil.getRequestParams2(request);
 			

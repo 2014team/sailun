@@ -8,8 +8,18 @@ const EDIT = getAminUrl('admin/CENTER/ABOUTUS/EDIT');
 const BATCH_DELETE = getAminUrl('admin/CENTER/ABOUTUS/BATCH/DELETE');
 /*查找单个对象*/
 const GET = getAminUrl('admin/CENTER/ABOUTUS/GET');
+/*更新*/
+const UPDATE = getAminUrl('admin/CENTER/ABOUTUS/UPDATE');
+/*保存*/
+const SAVE = getAminUrl('admin/CENTER/ABOUTUS/SAVE');
+
 //行对象
 var rowObj = "";
+
+/*实例化编辑器 */
+var ue = UE.getEditor('container', {
+	initialFrameHeight:320});
+
 
 /*初始化layui*/
 layui.use([ 'table', 'form', 'laydate' ], function() {
@@ -17,219 +27,73 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 		form = layui.form,
 		laydate = layui.laydate;
 
-	    
-    //年月范围选择
-	laydate.render({
-		elem : '#createDateStr'
-		,type: 'datetime'
-		,range : '~'
-	});
+
+	 
+	 
+	    //保存
+		form.on('submit(editSave)', function(obj) {
+			
+			var content = ue.getContent();	//获得编辑器的内容
+			//参数 index： 即执行layedit.build返回的值
+			//var xxx = layedit.getText(index)
+			var reqData = obj.field;
+			
+			//加载动画
+	   		var loading = layer.load(2, {
+	   		    shade: [0.2, '#fff'],
+	   		    content:'保存中,请稍等操作...',
+	   		    success: function (layerContentStyle) {
+	   		        layerContentStyle.find('.layui-layer-content').css({
+	   		            'padding-top': '35px',
+	   		            'text-align': 'center',
+	   		            'background-position': 'center top',
+	   		            'width': 'auto'
+	   		        });
+	   		    }
+	   		});
+	   		
+			reqPostHasParameter(checkSave() ? UPDATE : SAVE, {"content":content,"status":$("#status").val(),"aboutusId":($("#aboutusId")?$("#aboutusId").val():'')}, function(result) {
+				//关闭动画
+				layer.close(loading);
+				
+				if (result.code == 200) {
+					layer.msg(result.msg, {
+						icon : 1,
+						time : 1000
+					}, function() {
+
+						//检查是否保存还是修改操作
+//						if (checkSave()) {
+//							//修改,更新行数据
+//							window.parent.updateRowData(obj);
+//						} else {
+//							//保存，重载列表
+//							window.parent.updateTableData();
+//						}
+
+
+					});
+
+				} else {
+					layer.msg(result.msg, {
+						icon : 2,
+						time : 1000
+					});
+				}
+			}, function(e) {
+				console.log(e);
+			})
+
+			return false;
+		});
 		
-	/*日历选择器*/
-	laydate.render({
-		elem : '#startDate',
-		done : function(value, date) { //监听日期被切换
-			$("#startDate").val(value)
-		}
-	});
-	laydate.render({
-		elem : '#endDate', //指定元素
-		done : function(value, date, endDate) {
-			$("#endDate").val(value)
-		}
-	});
-
-	table.render({
-		elem : '#table_list',
-		url : LIST,
-		toolbar : '#toolbar',
-		method : "post",
-		page : { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-			layout : [ 'limit', 'count', 'prev', 'page', 'next', 'skip' ], //自定义分页布局 //,curr: 5 //设定初始在第 5 页
-			limit : 10, //每页显示的条数
-			groups : 5, //步长
-			first : '首页', //不显示首页
-			last : '尾页', //不显示尾页
-			prev : '上一页',
-			next : '下一页'
-		},
-		cols : [ [
-			{
-				checkbox : true
-			},
-			{
-				field : 'indexId',
-				title : '序号',
-				type : 'numbers',
-				width : 75,
-				sort : true,
-			}
-			
-				,{
-					field : 'content' ,
-					title : '内容' ,
-					hide:true
-				},{
-					field : 'status' ,
-					title : '状态' ,
-					templet : function(d) {
-						if(d.status == 0){
-							return "开启"
-						}else if(d.status == 1){
-							return "停用"
-						}
-					}
-				}
-				, {
-					field : 'createDate' ,
-					title : '创建日期' ,
-					templet : function(d) {
-					return date.toDateString(d.createDate, 'yyyy-MM-dd HH:mm:ss');
-				    }
-				}
-				, {
-					field : 'updateDate' ,
-					title : '更新日期' ,
-					templet : function(d) {
-					return date.toDateString(d.updateDate, 'yyyy-MM-dd HH:mm:ss');
-				    }
-				}
-			
-			, {
-				align : 'left',
-				toolbar : '#operateBarTpl',
-				title : '操作'
-			}
-
-		] ]
-		  ,id: 'tableId'
-	});
-	
-	//监听行工具条 
-	table.on('tool(table_list)', function(obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
-		rowObj = obj;
-		var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-		var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
-		if (layEvent === 'edit') {
-			edit(obj)//列表编辑
-		} else if (layEvent === 'del') {
-			del(obj);//列表删除
-		}
-	});
-	
-	
-	/*搜索*/
-	 form.on('submit(searchFilter)', function (data) {
-			data = JSON.parse(JSON.stringify(data.field));
-		      //执行重载
-		      table.reload( 'tableId',{
-		      	method:"post",
-		        page: {
-		          curr: 1 //重新从第 1 页开始
-		        }
-		        ,where: data
-		      }, 'data');
-  
-    });
+		
     
 });
 
-
-/*删除*/
-function del(obj) {
-	var aboutusId = obj.data.aboutusId;
-	layer.confirm("确认要删除吗？", function(index) {
-		reqPostHasParameter(DELETE, {
-			"aboutusId" : aboutusId
-		}, function(result) {
-			if (result.code == 200) {
-				layer.msg(result.msg, {
-					icon : 1,
-					time : 1000
-				},function(){
-					obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
-					layer.close(index);		
-				});
-				
-			} else {
-				layer.msg(result.msg, {
-					icon : 2,
-					time : 1000
-				});
-			}
-		}, function(e) {
-			console.log(e);
-		})
-	});
+//检查是否保存还是修改操作
+function checkSave() {
+	var userId = $("#aboutusId").val();
+	return userId;
 };
-
-/*编辑*/
-function edit(obj) {
-	 
-	var url = EDIT;
-	var title = '关于我们';
-	if(obj){
-		var aboutusId = obj.data.aboutusId;
-		url = EDIT + "?aboutusId=" + aboutusId;
-		 title = '关于我们';
-	}	
-	x_admin_show(title, url,$(window).width(),$(window).height());
-};
-
-/*批量删除*/
-function batchDel() {
-	var selectData =layui.table.checkStatus('tableId').data;
-	if(selectData.length < 1){	
-		layer.msg('请选择要删除的数据！', {icon: 2});
-		return false;
-	}
-	layer.confirm('确认要删除吗？', function(index) {
-		var array = new Array();
-		$.each(selectData,function(i,e){
-			array.push(e.aboutusId);
-		 })
-		reqPostHasParameter(BATCH_DELETE, {"aboutusIdArr":array},function(result) {
-			if (result.code == 200) { //这个是从后台取回来的状态值
-				layer.msg(result.msg, {
-					icon : 1,
-					time : 1000
-				},function(){
-					layui.table.reload('tableId');
-					layer.close(index);	
-				});
-			}
-			
-		}, function(e) {
-			console.log(e);
-		}) 
-		
-	});
-		
-   }	
-
-
-/*更新行数据*/
-function updateRowData(obj){
-	var reqData = obj.field;
-	 reqPostHasParameter(GET, {"aboutusId":reqData.aboutusId}, function(result) {
-		 reqData = result.data.entity;
-		 rowObj.update({
-				 content: reqData.content,
-				 status: reqData.status,
-				 createDate: reqData.createDate,
-				 updateDate: reqData.updateDate,
-			});	
-	 }, function(e) {
-		 console.log(e);
-	 })
-}
-
-/*表格重载*/
-function updateTableData(){
-	layui.table.reload('tableId', {
-	       page: {
-	         curr:1 //重新从第 1 页开始
-	       }
-	     }, 'data'); 
-}
 

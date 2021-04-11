@@ -115,7 +115,11 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 				title : '操作'
 			}
 
-		] ]
+		] ],done:function(){
+			
+			table.resize('tableId');
+		}
+		  
 		  ,id: 'tableId'
 	});
 	

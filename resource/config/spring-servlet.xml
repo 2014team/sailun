@@ -40,6 +40,7 @@
 	<mvc:resources location="/admin/" mapping="/admin/**" />
 	<mvc:resources location="/web/" mapping="/web/**" />
 	<mvc:resources location="/upload/" mapping="/upload/**" />
+	<mvc:resources location="/ueditor/" mapping="/ueditor/**" />
 	
 	<mvc:interceptors>
 		<!-- 后台登录拦截器 -->
