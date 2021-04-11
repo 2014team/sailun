@@ -31,6 +31,8 @@
 			<script id="container" name="content" type="text/plain">${entity.content}</script>
           </div>
            
+           
+          <r:auth menuName="关于我们/编辑" menuUrl="关于我们/编辑"> 
           <div class="layui-form-item">
             <div class="layui-input-block" style="margin-left:0;">
               <div class="layui-footer" style="left: 0;">
@@ -39,6 +41,7 @@
               </div>
             </div>
           </div>
+          </r:auth>
         </div>
         </div>
       </div>
