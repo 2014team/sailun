@@ -107,7 +107,7 @@
     <!-- 操作模板 -->
     <script type="text/html" id="operateBarTpl">
 		<div class="td-manage">
-			<r:auth menuName="联系我们/修改" menuUrl="联系我们/修改">
+			<r:auth menuName="联系我们/编辑" menuUrl="联系我们/编辑">
               <a title="编辑"  lay-event="edit" href="javascript:;">
                 <i class="layui-icon" style="font-size: 20px;">&#xe642;</i>
               </a>

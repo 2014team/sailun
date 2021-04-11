@@ -59,7 +59,7 @@
     <!-- 操作模板 -->
     <script type="text/html" id="operateBarTpl">
 		<div class="td-manage">
-			<r:auth menuName="新闻类别/修改" menuUrl="新闻类别/修改">
+			<r:auth menuName="新闻类别/编辑" menuUrl="新闻类别/编辑">
               <a title="编辑"  lay-event="edit" href="javascript:;">
                 <i class="layui-icon" style="font-size: 20px;">&#xe642;</i>
               </a>

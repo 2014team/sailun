@@ -69,12 +69,12 @@
 					<i class="layui-icon"  style="font-size: 20px;">&#xe620;</i>
 			  </a>
      		</r:auth>
-			<r:auth menuName="管理员列表/状态修改" menuUrl="管理员列表/状态修改">
+			<r:auth menuName="管理员列表/编辑" menuUrl="管理员列表/编辑">
               <a title="编辑"  lay-event="edit" href="javascript:;">
                 <i class="layui-icon" style="font-size: 20px;">&#xe642;</i>
               </a>
      		</r:auth>
-			<r:auth menuName="管理员列表/状态修改" menuUrl="管理员列表/状态修改">
+			<r:auth menuName="管理员列表/删除" menuUrl="管理员列表/删除">
               <a title="删除"  lay-event="del" href="javascript:;">
                 <i class="layui-icon" style="font-size: 20px;">&#xe640;</i>
               </a>
