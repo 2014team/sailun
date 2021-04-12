@@ -14,6 +14,11 @@
 		<result property="updateDate" column="update_date" />
 		<result property="parentId" column="parent_id" />
 		<result property="icon" column="icon" />
+		<result property="searchFlag" column="search_flag" />
+		<result property="deleteFlag" column="delete_flag" />
+		<result property="updateFlag" column="update_flag" />
+		<result property="addFlag" column="add_flag" />
+		<result property="batchDeleteFlag" column="batch_delete_flag" />
 	</resultMap>
 
 	<!-- 保存 -->
@@ -28,6 +33,11 @@
 			,update_date
 			,parent_id
 			,icon
+			,search_flag
+			,delete_flag
+			,update_flag
+			,add_flag
+			,batch_delete_flag
 		)
 		 values
 		 (
@@ -40,6 +50,11 @@
 				,#{updateDate}
 				,#{parentId}
 				,#{icon}
+				,#{searchFlag}
+				,#{deleteFlag}
+				,#{updateFlag}
+				,#{addFlag}
+				,#{batchDeleteFlag}
 		)
 	</insert>
 	
@@ -71,6 +86,11 @@
 				,update_date = #{updateDate}
 				,parent_id = #{parentId}
 				,icon = #{icon}
+				,search_flag = #{searchFlag}
+				,delete_flag = #{deleteFlag}
+				,update_flag = #{updateFlag}
+				,add_flag = #{addFlag}
+				,batch_delete_flag = #{batchDeleteFlag}
 		where menu_id = #{menuId}
 	</update>
 	
@@ -87,6 +107,11 @@
 				,update_date
 				,parent_id
 				,icon
+				,search_flag
+				,delete_flag
+				,update_flag
+				,add_flag
+				,batch_delete_flag
 		 from t_admin_menu where menu_id = #{menuId} 
 		 order by sort_id ,create_date desc limit 1;
  	</select>
@@ -104,6 +129,11 @@
 				,update_date
 				,parent_id
 				,icon
+				,search_flag
+				,delete_flag
+				,update_flag
+				,add_flag
+				,batch_delete_flag
 		 from t_admin_menu  
 		 <where>
 		 	<if test="null != menuIdlist">
@@ -135,6 +165,11 @@
 				,update_date
 				,parent_id
 				,icon
+				,search_flag
+				,delete_flag
+				,update_flag
+				,add_flag
+				,batch_delete_flag
 		 from
 		t_admin_menu
 		<where>
@@ -165,6 +200,24 @@
 			<if test="null != icon ">
 			and icon = #{icon}
 			</if> 
+			<if test="null != icon ">
+			and icon = #{icon}
+			</if> 
+			<if test="null != searchFlag  and ''!= searchFlag">
+			and search_flag = #{searchFlag}
+			</if> 
+			<if test="null != deleteFlag  and ''!= deleteFlag">
+			and delete_flag = #{deleteFlag}
+			</if> 
+			<if test="null != updateFlag  and ''!= updateFlag">
+			and update_flag = #{updateFlag}
+			</if> 
+			<if test="null != addFlag  and ''!= addFlag">
+			and add_flag = #{addFlag}
+			</if> 
+			<if test="null != batchDeleteFlag  and ''!= batchDeleteFlag">
+			and batch_delete_flag = #{batchDeleteFlag}
+			</if> 
 		</where>
 		order by sort_id ,create_date desc limit 1;
 	</select>
@@ -182,6 +235,11 @@
 				,update_date
 				,parent_id
 				,icon
+				,search_flag
+				,delete_flag
+				,update_flag
+				,add_flag
+				,batch_delete_flag
  		 from t_admin_menu
  		<where>
  			<if test="null != menuId and ''!= menuId">
@@ -214,6 +272,21 @@
 			<if test="null != icon ">
 			and icon = #{icon}
 			</if> 
+			<if test="null != searchFlag  and ''!= searchFlag">
+			and search_flag = #{searchFlag}
+			</if> 
+			<if test="null != deleteFlag  and ''!= deleteFlag">
+			and delete_flag = #{deleteFlag}
+			</if> 
+			<if test="null != updateFlag  and ''!= updateFlag">
+			and update_flag = #{updateFlag}
+			</if> 
+			<if test="null != addFlag  and ''!= addFlag">
+			and add_flag = #{addFlag}
+			</if> 
+			<if test="null != batchDeleteFlag  and ''!= batchDeleteFlag">
+			and batch_delete_flag = #{batchDeleteFlag}
+			</if> 
  		</where>
  		order by sort_id ,create_date desc;
  	</select>
@@ -231,6 +304,11 @@
 				,update_date
 				,parent_id
 				,icon
+				,search_flag
+				,delete_flag
+				,update_flag
+				,add_flag
+				,batch_delete_flag
  		 from t_admin_menu
  		<where>
  			<if test="null != menuVo.menuId ">
@@ -262,6 +340,21 @@
 			</if> 
 			<if test="null != menuVo.icon ">
 			and icon = #{menuVo.icon}
+			</if> 
+			<if test="null != menuVo.searchFlag and ''!= menuVo.searchFlag">
+			and search_flag = #{menuVo.searchFlag}
+			</if> 
+			<if test="null != menuVo.deleteFlag and ''!= menuVo.deleteFlag">
+			and delete_flag = #{menuVo.deleteFlag}
+			</if> 
+			<if test="null != menuVo.updateFlag and ''!= menuVo.updateFlag">
+			and update_flag = #{menuVo.updateFlag}
+			</if> 
+			<if test="null != menuVo.addFlag and ''!= menuVo.addFlag">
+			and add_flag = #{menuVo.addFlag}
+			</if> 
+			<if test="null != menuVo.batchDeleteFlag and ''!= menuVo.batchDeleteFlag">
+			and batch_delete_flag = #{menuVo.batchDeleteFlag}
 			</if> 
  		</where>
  		order by sort_id ,create_date desc   
@@ -303,6 +396,21 @@
 			</if> 
 			<if test="null != menuVo.icon">
 			and icon = #{menuVo.icon}
+			</if> 
+			<if test="null != menuVo.searchFlag and ''!= menuVo.searchFlag">
+			and search_flag = #{menuVo.searchFlag}
+			</if> 
+			<if test="null != menuVo.deleteFlag and ''!= menuVo.deleteFlag">
+			and delete_flag = #{menuVo.deleteFlag}
+			</if> 
+			<if test="null != menuVo.updateFlag and ''!= menuVo.updateFlag">
+			and update_flag = #{menuVo.updateFlag}
+			</if> 
+			<if test="null != menuVo.addFlag and ''!= menuVo.addFlag">
+			and add_flag = #{menuVo.addFlag}
+			</if> 
+			<if test="null != menuVo.batchDeleteFlag and ''!= menuVo.batchDeleteFlag">
+			and batch_delete_flag = #{menuVo.batchDeleteFlag}
 			</if> 
  		</where>
  		order by sort_id ,create_date desc ;

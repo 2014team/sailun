@@ -89,6 +89,18 @@
 		  </div>	
 		  
 		  
+		  <div class="layui-form-item" pane="">
+		    <label class="layui-form-label">权限生成</label>
+		    <div class="layui-input-block">
+		      <input type="checkbox" name="batchDeleteFlag" id="batchDeleteFlag" lay-filter="batchDeleteFlag" lay-skin="primary" title="批量删除" value="${(not empty menuDto.batchDeleteFlag and menuDto.batchDeleteFlag eq 1) ? 1 : 2}" ${(not empty menuDto.batchDeleteFlag and menuDto.batchDeleteFlag eq 1) ? 'checked' : ''}>
+		      <input type="checkbox" name="addFlag" id="addFlag" lay-filter="addFlag" lay-skin="primary" title="增加" value="${(not empty menuDto.addFlag and menuDto.addFlag eq 1) ? 1 : 2}"  ${(not empty menuDto.addFlag and menuDto.addFlag eq 1) ? 'checked' : ''}>
+		      <input type="checkbox" name="updateFlag" id="updateFlag" lay-filter="updateFlag" lay-skin="primary" title="编辑" value="${(not empty menuDto.updateFlag and menuDto.updateFlag eq 1) ? 1 : 2}"  ${(not empty menuDto.updateFlag and menuDto.updateFlag eq 1) ? 'checked' : ''}>
+		      <input type="checkbox" name="deleteFlag" id="deleteFlag" lay-filter="deleteFlag" lay-skin="primary" title="删除" value="${(not empty menuDto.deleteFlag and menuDto.deleteFlag eq 1) ? 1 : 2}"  ${(not empty menuDto.deleteFlag and menuDto.deleteFlag eq 1) ? 'checked' : ''}>
+		      <input type="checkbox" name="searchFlag" id="searchFlag" lay-filter="searchFlag" lay-skin="primary" title="查询" value="${(not empty menuDto.searchFlag and menuDto.searchFlag eq 1) ? 1 : 2}"  ${(not empty menuDto.searchFlag and menuDto.searchFlag eq 1) ? 'checked' : ''}>
+		    </div>
+		  </div>
+		  
+		  
 		  <div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label"> <span
 					class="x-red">*</span>排序

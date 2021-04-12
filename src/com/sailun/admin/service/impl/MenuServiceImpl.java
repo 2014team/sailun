@@ -10,11 +10,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sailun.admin.annotation.AdminServiceLog;
+import com.sailun.admin.constant.MenuTypeEnum;
 import com.sailun.admin.constant.ValidFlagEnum;
+import com.sailun.admin.controller.ContactController;
 import com.sailun.admin.dao.MenuDao;
 import com.sailun.admin.dao.RoleDao;
 import com.sailun.admin.domain.dto.MenuDto;
@@ -34,7 +37,8 @@ import com.sailun.common.service.impl.BaseServiceImpl;
  */
 @Service
 public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements MenuService {
-
+	
+	private static org.slf4j.Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class);
 	@Autowired
 	private MenuDao menuDao;
 
@@ -57,9 +61,90 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		Menu menu = convertMenu(menuVo);
 		Integer result = menuDao.save(menu);
 		if (null != result && result > 0) {
+			//创建子菜单
+			createChild(menu);
 			return true;
 		}
 		return false;
+	}
+	private void createChild(Menu menu){
+		Integer menuType = menu.getMenuType();
+		 // 菜单
+		 if(menuType == 0){
+			 Integer addFlag = menu.getAddFlag();
+			 Integer batchDeleteFlag = menu.getBatchDeleteFlag();
+			 Integer deleteFlag = menu.getDeleteFlag();
+			 Integer searchFla = menu.getSearchFlag();
+			 Integer updateFlag = menu.getUpdateFlag();
+			 if(addFlag == 1){
+				 createChildMenu(menu, "增加");
+			 }
+			 if(batchDeleteFlag == 1){
+				 createChildMenu(menu, "批量删除");
+			 }
+			 if(deleteFlag == 1){
+				 createChildMenu(menu, "删除");
+			 }
+			 if(searchFla == 1){
+				 createChildMenu(menu, "查询");
+			 }
+			 if(updateFlag == 1){
+				 createChildMenu(menu, "编辑");
+			 }
+		 }
+	}
+	private void createChildMenu(Menu menu,String msg){
+		 Menu m = new Menu();
+		 m.setMenuName(menu.getMenuName()+"/"+msg);
+		 m.setMenuUrl(menu.getMenuName()+"/"+msg);
+		 m.setMenuType(MenuTypeEnum.BUTtON.getValue());
+		 m.setParentId(menu.getMenuId()+"");
+		 Integer save =  menuDao.save(m);
+		 logger.info("创建子菜单save="+save);
+		 
+	}
+	private void updateChild(Menu menu){
+		Integer menuType = menu.getMenuType();
+		// 菜单
+		if(menuType == 0){
+			Integer addFlag = menu.getAddFlag();
+			Integer batchDeleteFlag = menu.getBatchDeleteFlag();
+			Integer deleteFlag = menu.getDeleteFlag();
+			Integer searchFla = menu.getSearchFlag();
+			Integer updateFlag = menu.getUpdateFlag();
+			updateChildMenu(menu, "增加",addFlag);
+			updateChildMenu(menu, "批量删除",batchDeleteFlag);
+			updateChildMenu(menu, "删除",deleteFlag);
+			updateChildMenu(menu, "查询",searchFla);
+			updateChildMenu(menu, "编辑",updateFlag);
+		}
+	}
+	private void updateChildMenu(Menu menu,String msg,Integer flag){
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("menuName",menu.getMenuName()+"/"+msg);
+		paramMap.put("menuUrl",menu.getMenuName()+"/"+msg);
+		Menu m = menuDao.getOneByMap(paramMap);
+		if(flag == 1){
+			if(null == m){
+				m = new Menu();
+				m.setMenuName(menu.getMenuName()+"/"+msg);
+				m.setMenuUrl(menu.getMenuName()+"/"+msg);
+				m.setMenuType(MenuTypeEnum.BUTtON.getValue());
+				m.setParentId(menu.getMenuId()+"");
+				Integer save =  menuDao.save(m);
+				logger.info("创建子菜单save="+save);
+			}else{
+				logger.info("已创建子菜单");
+				
+			}
+		}else if(flag == 2 || flag == 0){
+			if(null != m){
+				Integer delete = menuDao.delete(m.getMenuId());
+				logger.info("删除子菜单delete="+delete);
+			}
+			
+		}
+		
 	}
 
 	/**
@@ -113,6 +198,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		Menu menu = convertMenu(menuVo);
 		Integer result = menuDao.update(menu);
 		if (null != result && result > 0) {
+			updateChild(menu);
 			return true;
 		}
 		return false;
@@ -275,6 +361,11 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		menu.setUpdateDate(menuVo.getUpdateDate());
 		menu.setParentId(menuVo.getParentId());
 		menu.setIcon(menuVo.getIcon());
+		menu.setAddFlag(menuVo.getAddFlag());
+		menu.setDeleteFlag(menuVo.getDeleteFlag());
+		menu.setBatchDeleteFlag(menuVo.getBatchDeleteFlag());
+		menu.setUpdateFlag(menuVo.getUpdateFlag());
+		menu.setSearchFlag(menuVo.getSearchFlag());
 		return menu;
 	}
 
@@ -299,6 +390,11 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		dto.setUpdateDate(menu.getUpdateDate());
 		dto.setParentId(menu.getParentId());
 		dto.setIcon(menu.getIcon());
+		dto.setAddFlag(menu.getAddFlag());
+		dto.setDeleteFlag(menu.getDeleteFlag());
+		dto.setBatchDeleteFlag(menu.getBatchDeleteFlag());
+		dto.setUpdateFlag(menu.getUpdateFlag());
+		dto.setSearchFlag(menu.getSearchFlag());
 		return dto;
 	}
 

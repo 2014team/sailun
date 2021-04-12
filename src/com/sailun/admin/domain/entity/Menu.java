@@ -43,6 +43,13 @@ public class Menu extends BaseEntity{
 	 * 图标
 	 */
 	private String icon;
+	
+	
+	private int batchDeleteFlag;
+	private int addFlag;
+	private int updateFlag;
+	private int deleteFlag;
+	private int searchFlag;
  
 	public Integer getMenuId(){
 		return this.menuId;
@@ -104,6 +111,46 @@ public class Menu extends BaseEntity{
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
-	
+
+	public int getBatchDeleteFlag() {
+		return batchDeleteFlag;
+	}
+
+	public void setBatchDeleteFlag(int batchDeleteFlag) {
+		this.batchDeleteFlag = batchDeleteFlag;
+	}
+
+	public int getAddFlag() {
+		return addFlag;
+	}
+
+	public void setAddFlag(int addFlag) {
+		this.addFlag = addFlag;
+	}
+
+	public int getUpdateFlag() {
+		return updateFlag;
+	}
+
+	public void setUpdateFlag(int updateFlag) {
+		this.updateFlag = updateFlag;
+	}
+
+	public int getDeleteFlag() {
+		return deleteFlag;
+	}
+
+	public void setDeleteFlag(int deleteFlag) {
+		this.deleteFlag = deleteFlag;
+	}
+
+	public int getSearchFlag() {
+		return searchFlag;
+	}
+
+	public void setSearchFlag(int searchFlag) {
+		this.searchFlag = searchFlag;
+	}
+
 	
 }

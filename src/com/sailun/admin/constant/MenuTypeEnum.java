@@ -12,23 +12,57 @@ public enum MenuTypeEnum {
 	BUTtON(1, "按钮"),// 按钮
 	;
 
-	private Integer value;
+	private int value;
+	// 显示名称
+	private String displayName;
 
-	private String name;
-
-	private MenuTypeEnum(int value, String name) {
+	MenuTypeEnum(int value, String displayName) {
 		this.value = value;
-		this.name = name;
+		this.displayName = displayName;
 	}
 
 	public static String getNameByValue(Integer value) {
-		MenuTypeEnum[] menuTypeEnumArr = MenuTypeEnum.values();
-		for (MenuTypeEnum menuTypeEnum : menuTypeEnumArr) {
-			Integer valueEnum = menuTypeEnum.value;
-			if (valueEnum.equals(value)) {
-				return menuTypeEnum.name;
+		MenuTypeEnum type = getByValue(value);
+		return null == type ? "" : type.name();
+	}
+
+	public static String getDisplayNameByValue(Integer value) {
+		MenuTypeEnum type = getByValue(value);
+		return null == type ? "" : type.getDisplayName();
+	}
+
+	public static MenuTypeEnum getByValue(Integer value) {
+		if (null != value) {
+			for (MenuTypeEnum type : MenuTypeEnum.values()) {
+				if (type.getValue() == value) {
+					return type;
+				}
 			}
 		}
 		return null;
+	}
+
+	public static int getValueByName(String name) {
+		if (null != name && "".equals(name.trim())) {
+			MenuTypeEnum type = MenuTypeEnum.valueOf(name);
+			return null == type ? 0 : type.value;
+		}
+		return 0;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 }
