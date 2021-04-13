@@ -241,6 +241,7 @@ public class NewsServiceImpl extends BaseServiceImpl<News,Integer>  implements N
 		news.setUpdateDate(newsVo.getUpdateDate());
 		news.setNewsTypeId(newsVo.getNewsTypeId());
 		news.setContent(newsVo.getContent());
+		news.setSort(newsVo.getSort());
 		return news;
 	}
 
@@ -263,6 +264,7 @@ public class NewsServiceImpl extends BaseServiceImpl<News,Integer>  implements N
 		dto.setUpdateDate(news.getUpdateDate());
 		dto.setNewsTypeId(news.getNewsTypeId());
 		dto.setContent(news.getContent());
+		dto.setSort(news.getSort());
 		return dto;
 	}
 	

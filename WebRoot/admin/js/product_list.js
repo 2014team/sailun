@@ -101,6 +101,9 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 							return "下架"
 						}
 					}
+				},{
+					field : 'sort' ,
+					title : '排序' ,
 				}
 				, {
 					field : 'createDate' ,
@@ -242,6 +245,7 @@ function updateRowData(obj){
 		 reqData = result.data.entity;
 		 rowObj.update({
 				 title: reqData.title,
+				 sort: reqData.sort,
 				 typeName: reqData.typeName,
 				 content: reqData.content,
 				 coverImage: reqData.coverImage,

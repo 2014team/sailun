@@ -9,6 +9,7 @@
 		<result property="coverImage" column="cover_image" />
 		<result property="content" column="content" />
 		<result property="status" column="status" />
+		<result property="sort" column="sort" />
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
 	</resultMap>
@@ -20,6 +21,7 @@
 			,cover_image
 			,content
 			,status
+			,sort
 			,create_date
 			,update_date
 		)
@@ -29,6 +31,7 @@
 			,#{coverImage}
 			,#{content}
 			,#{status}
+			,#{sort}
 			,now()
 			,now()
 		)
@@ -43,7 +46,7 @@
 	<delete id="deleteByBatch"  parameterType="java.util.List">
 		delete from
 		t_driver
-		where driver_id in
+		where sort in
 		<foreach collection="list" item="item" open="(" close=")" separator=",">
 			#{item}
 		</foreach>
@@ -57,6 +60,7 @@
 				,cover_image = #{coverImage}
 				,content = #{content}
 				,status = #{status}
+				,sort = #{sort}
 		where driver_id = #{driverId}
 	</update>
 	
@@ -68,10 +72,11 @@
 				,cover_image
 				,content
 				,status
+				,sort
 				,create_date
 				,update_date
 		 from t_driver where driver_id = #{driverId} 
-		 order by driver_id ,create_date desc limit 1;
+		 order by sort ,create_date desc limit 1;
  	</select>
  	
  	<!-- 通过Map单个查找-->
@@ -82,6 +87,7 @@
 				,cover_image
 				,content
 				,status
+				,sort
 				,create_date
 				,update_date
 		 from
@@ -106,7 +112,7 @@
 			and update_date = #{updateDate}
 			</if> 
 		</where>
-		order by driver_id ,create_date desc limit 1;
+		order by sort ,create_date desc limit 1;
 	</select>
 	
 	<!-- 列表查询 -->
@@ -117,6 +123,7 @@
 				,cover_image
 				,content
 				,status
+				,sort
 				,create_date
 				,update_date
  		 from t_driver
@@ -140,7 +147,7 @@
 			and update_date = #{updateDate}
 			</if> 
  		</where>
- 		order by driver_id ,create_date desc;
+ 		order by sort ,create_date desc;
  	</select>
  	
  	<!-- 分页查找 -->
@@ -151,6 +158,7 @@
 				,cover_image
 				,content
 				,status
+				,sort
 				,create_date
 				,update_date
  		 from t_driver
@@ -176,7 +184,7 @@
 			]]>
 			</if> 
  		</where>
- 		order by driver_id ,create_date desc   
+ 		order by sort ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${page.begin} , ${page.limit};
  		 </if>
@@ -207,7 +215,7 @@
 			]]>
 			</if>
  		</where>
- 		order by driver_id ,create_date desc ;
+ 		order by sort ,create_date desc ;
 	</select>
 
 </mapper>

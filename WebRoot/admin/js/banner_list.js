@@ -82,6 +82,9 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 							return "停用"
 						}
 					}
+				},{
+					field : 'sort' ,
+					title : '排序' ,
 				}
 				, {
 					field : 'createDate' ,
@@ -223,6 +226,7 @@ function updateRowData(obj){
 		 reqData = result.data.entity;
 		 rowObj.update({
 				 imageUrl: reqData.imageUrl,
+				 sort: reqData.sort,
 				 jumpUrl: reqData.jumpUrl,
 				 status: reqData.status,
 				 createDate: reqData.createDate,

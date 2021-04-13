@@ -249,6 +249,7 @@ public class DriverServiceImpl extends BaseServiceImpl<Driver,Integer>  implemen
 		driver.setStatus(driverVo.getStatus());
 		driver.setCreateDate(driverVo.getCreateDate());
 		driver.setUpdateDate(driverVo.getUpdateDate());
+		driver.setSort(driverVo.getSort());
 		return driver;
 	}
 
@@ -269,6 +270,7 @@ public class DriverServiceImpl extends BaseServiceImpl<Driver,Integer>  implemen
 		dto.setStatus(driver.getStatus());
 		dto.setCreateDate(driver.getCreateDate());
 		dto.setUpdateDate(driver.getUpdateDate());
+		dto.setSort(driver.getSort());
 		return dto;
 	}
 	

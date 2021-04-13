@@ -26,6 +26,7 @@ public class Banner extends BaseEntity{
 	 * 1:停用
 	 */
 	private Integer status;
+	private Integer sort;
  
 	public Integer getBannerId(){
 		return this.bannerId;
@@ -55,4 +56,15 @@ public class Banner extends BaseEntity{
 	public void setStatus(Integer status){
 		this.status = status;
 	}
+
+	
+	public Integer getSort() {
+		return sort;
+	}
+
+	
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
 }

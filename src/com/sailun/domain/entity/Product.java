@@ -47,6 +47,8 @@ public class Product extends BaseEntity {
 	 * 产品类别Id
 	 */
 	private Integer productTypeId;
+	
+	private Integer sort;
 
 	public Integer getProductId() {
 		return this.productId;
@@ -104,4 +106,14 @@ public class Product extends BaseEntity {
 		this.productTypeId = productTypeId;
 	}
 
+	
+	public Integer getSort() {
+		return sort;
+	}
+
+	
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
 }

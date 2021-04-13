@@ -47,6 +47,8 @@ public class News extends BaseEntity {
 	 * 新闻类别Id
 	 */
 	private Integer newsTypeId;
+	
+	private Integer sort;
 
 	public Integer getNewsId() {
 		return this.newsId;
@@ -103,5 +105,16 @@ public class News extends BaseEntity {
 	public void setNewsTypeId(Integer newsTypeId) {
 		this.newsTypeId = newsTypeId;
 	}
+
+	
+	public Integer getSort() {
+		return sort;
+	}
+
+	
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
 
 }

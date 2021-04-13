@@ -55,6 +55,7 @@ layui.use([ 'form', 'layer','upload' ], function() {
 		formData.append("jumpUrl", reqData.jumpUrl);
 		formData.append("imageUrl", reqData.imageUrl);
 		formData.append("status",reqData.status);
+		formData.append("sort",reqData.sort);
 		formData.append("file", files);
 		if(!files && !reqData.imageUrl){
 			layer.msg("图片不能为空！", {icon : 6,time : 1500});
@@ -91,11 +92,15 @@ layui.use([ 'form', 'layer','upload' ], function() {
 						layer.msg(resp.msg, {icon : 6,time : 1500
 						},function(){
 						// 获得frame索引
-							var index = parent.layer.getFrameIndex(window.name);
-							//关闭当前frame
-							parent.layer.close(index);
-							//刷新列表
-							window.parent.updateRowData(obj);
+							x_admin_close();
+							//检查是否保存还是修改操作
+							if (checkSave()) {
+								//修改,更新行数据
+								window.parent.updateRowData(obj);
+							} else {
+								//保存，重载列表
+								window.parent.updateTableData();
+							}
 							
 						});
 						

@@ -10,6 +10,7 @@
 		<result property="describe" column="describe" />
 		<result property="content" column="content" />
 		<result property="status" column="status" />
+		<result property="sort" column="sort" />
 		<result property="productTypeId" column="product_type_id" />
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
@@ -24,6 +25,7 @@
 			,content
 			,status
 			,product_type_id
+			,sort
 			,create_date
 			,update_date
 		)
@@ -35,6 +37,7 @@
 			,#{content}
 			,#{status}
 			,#{productTypeId}
+			,#{sort}
 			,now()
 			,now()
 		)
@@ -64,6 +67,7 @@
 				,`describe` = #{describe}
 				,content = #{content}
 				,status = #{status}
+				,sort = #{sort}
 				,product_type_id = #{productTypeId}
 		where product_id = #{productId}
 	</update>
@@ -78,10 +82,11 @@
 				,content
 				,status
 				,product_type_id
+				,sort
 				,create_date
 				,update_date
 		 from t_product where product_id = #{productId} 
-		 order by product_id ,create_date desc limit 1;
+		 order by sort ,create_date desc limit 1;
  	</select>
  	
  	<select id="getProduct" parameterType="Integer" resultType="com.sailun.domain.dto.ProductDto">
@@ -96,9 +101,10 @@
 				,t.create_date AS createDate
 				,t.update_date AS updateDate
 		 		,tt.typeName AS typeName
+		 		,t.sort AS sort
  		 from t_product t left join  t_product_type tt on t.product_type_id = tt.product_type_id
 		 where t.product_id = #{productId} 
-		 order by t.product_id ,t.create_date desc limit 1;
+		 order by t.sort ,t.create_date desc limit 1;
  	</select>
  	
  	<!-- 通过Map单个查找-->
@@ -111,6 +117,7 @@
 				,`describe`
 				,status
 				,product_type_id
+				,sort
 				,create_date
 				,update_date
 		 from
@@ -141,7 +148,7 @@
 			and update_date = #{updateDate}
 			</if> 
 		</where>
-		order by product_id ,create_date desc limit 1;
+		order by sort ,create_date desc limit 1;
 	</select>
 	
 	<!-- 列表查询 -->
@@ -154,6 +161,7 @@
 				,content
 				,status
 				,product_type_id
+				,sort
 				,create_date
 				,update_date
  		 from t_product
@@ -183,7 +191,7 @@
 			and update_date = #{updateDate}
 			</if> 
  		</where>
- 		order by product_id ,create_date desc;
+ 		order by sort ,create_date desc;
  	</select>
  	
  	<!-- 分页查找 -->
@@ -196,6 +204,7 @@
 				,content
 				,status
 				,product_type_id
+				,sort
 				,create_date
 				,update_date
  		 from t_product
@@ -227,7 +236,7 @@
 			]]>
 			</if> 
  		</where>
- 		order by product_id ,create_date desc   
+ 		order by sort ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${page.begin} , ${page.limit};
  		 </if>
@@ -244,6 +253,7 @@
 				,t.status AS status
 				,t.product_type_id AS productTypeId
 				,t.create_date AS createDate
+				,t.sort AS sort
 				,t.update_date AS updateDate
 				,tt.typeName AS typeName
  		 from t_product t left join  t_product_type tt on t.product_type_id = tt.product_type_id
@@ -275,7 +285,7 @@
 			]]>
 			</if> 
  		</where>
- 		order by t.product_id ,t.create_date desc   
+ 		order by t.sort ,t.create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${page.begin} , ${page.limit};
  		 </if>
@@ -312,7 +322,7 @@
 			]]>
 			</if>
  		</where>
- 		order by product_id ,create_date desc ;
+ 		order by sort ,create_date desc ;
 	</select>
 	
 	<!-- 分页查找数量 -->
@@ -346,7 +356,7 @@
 			]]>
 			</if>
  		</where>
- 		order by product_id ,create_date desc ;
+ 		order by sort ,create_date desc ;
 	</select>
 
 </mapper>

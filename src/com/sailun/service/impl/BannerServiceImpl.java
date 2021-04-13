@@ -234,6 +234,7 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 		banner.setStatus(bannerVo.getStatus());
 		banner.setCreateDate(bannerVo.getCreateDate());
 		banner.setUpdateDate(bannerVo.getUpdateDate());
+		banner.setSort(bannerVo.getSort());
 		return banner;
 	}
 
@@ -253,6 +254,7 @@ public class BannerServiceImpl extends BaseServiceImpl<Banner,Integer>  implemen
 		dto.setStatus(banner.getStatus());
 		dto.setCreateDate(banner.getCreateDate());
 		dto.setUpdateDate(banner.getUpdateDate());
+		dto.setSort(banner.getSort());
 		return dto;
 	}
 	

@@ -94,6 +94,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 						}
 					}
 				}
+				,{
+					field : 'sort' ,
+					title : '排序' 
+				}
 				, {
 					field : 'createDate' ,
 					title : '创建日期' ,
@@ -239,6 +243,7 @@ function updateRowData(obj){
 		 reqData = result.data.entity;
 		 rowObj.update({
 				 title: reqData.title,
+				 sort: reqData.sort,
 				 coverImage: reqData.coverImage,
 				 describe: reqData.describe,
 				 status: reqData.status,

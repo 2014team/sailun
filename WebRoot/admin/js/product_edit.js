@@ -68,6 +68,7 @@ layui.use([ 'form', 'layer','upload','layedit' ], function() {
 			formData.append("productTypeId",reqData.productTypeId);
 			formData.append("content",content);
 			formData.append("file", files);
+			formData.append("sort", reqData.sort);
 			if(!files && !reqData.coverImage){
 				layer.msg("封面图片不能为空！", {icon : 6,time : 1500});
 				return false;

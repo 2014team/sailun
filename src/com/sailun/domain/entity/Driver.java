@@ -30,6 +30,7 @@ public class Driver extends BaseEntity{
 	 * 0:上架1：下架
 	 */
 	private Integer status;
+	private Integer sort;
  
 	public Integer getDriverId(){
 		return this.driverId;
@@ -66,4 +67,15 @@ public class Driver extends BaseEntity{
 	public void setStatus(Integer status){
 		this.status = status;
 	}
+
+	
+	public Integer getSort() {
+		return sort;
+	}
+
+	
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
 }

@@ -8,6 +8,7 @@
 		<result property="imageUrl" column="image_url" />
 		<result property="jumpUrl" column="jump_url" />
 		<result property="status" column="status" />
+		<result property="sort" column="sort" />
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
 	</resultMap>
@@ -18,6 +19,7 @@
 			image_url
 			,jump_url
 			,status
+			,sort
 			,create_date
 			,update_date
 		)
@@ -26,6 +28,7 @@
 			#{imageUrl}
 			,#{jumpUrl}
 			,#{status}
+			,#{sort}
 			,now()
 			,now()
 		)
@@ -53,6 +56,7 @@
 				,image_url = #{imageUrl}
 				,jump_url = #{jumpUrl}
 				,status = #{status}
+				,sort = #{sort}
 		where banner_id = #{bannerId}
 	</update>
 	
@@ -63,10 +67,11 @@
 				,image_url
 				,jump_url
 				,status
+				,sort
 				,create_date
 				,update_date
 		 from t_banner where banner_id = #{bannerId} 
-		 order by banner_id ,create_date desc limit 1;
+		 order by sort ,create_date desc limit 1;
  	</select>
  	
  	<!-- 通过Map单个查找-->
@@ -76,6 +81,7 @@
 				,image_url
 				,jump_url
 				,status
+				,sort
 				,create_date
 				,update_date
 		 from
@@ -97,7 +103,7 @@
 			and update_date = #{updateDate}
 			</if> 
 		</where>
-		order by banner_id ,create_date desc limit 1;
+		order by sort ,create_date desc limit 1;
 	</select>
 	
 	<!-- 列表查询 -->
@@ -107,6 +113,7 @@
 				,image_url
 				,jump_url
 				,status
+				,sort
 				,create_date
 				,update_date
  		 from t_banner
@@ -127,7 +134,7 @@
 			and update_date = #{updateDate}
 			</if> 
  		</where>
- 		order by banner_id ,create_date desc;
+ 		order by sort ,create_date desc;
  	</select>
  	
  	<!-- 分页查找 -->
@@ -137,6 +144,7 @@
 				,image_url
 				,jump_url
 				,status
+				,sort
 				,create_date
 				,update_date
  		 from t_banner
@@ -160,7 +168,7 @@
 			and update_date = #{bannerVo.updateDate}
 			</if> 
  		</where>
- 		order by banner_id ,create_date desc   
+ 		order by sort ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${page.begin} , ${page.limit};
  		 </if>
@@ -189,7 +197,7 @@
 			and update_date = #{bannerVo.updateDate}
 			</if> 
  		</where>
- 		order by banner_id ,create_date desc ;
+ 		order by sort ,create_date desc ;
 	</select>
 
 </mapper>
