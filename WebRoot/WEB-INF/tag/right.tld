@@ -8,7 +8,7 @@
  <uri>http://www/zhuzq/right</uri>
  <tag>
   <name>auth</name>
-  <tag-class>com.sailun.admin.tag.RightTag</tag-class>
+  <tag-class>com.sailun.tag.RightTag</tag-class>
   <body-content>jsp</body-content>
   <description>页面元素权限控制</description>
   <attribute>

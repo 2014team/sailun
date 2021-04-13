@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sailun.admin.annotation.AdminControllerLog;
-import com.sailun.admin.constant.MenuTypeEnum;
-import com.sailun.admin.constant.ValidFlagEnum;
-import com.sailun.admin.domain.dto.MenuDto;
-import com.sailun.admin.domain.vo.MenuVo;
-import com.sailun.admin.service.MenuService;
+import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.constant.MenuTypeEnum;
+import com.sailun.constant.ValidFlagEnum;
+import com.sailun.domain.dto.MenuDto;
+import com.sailun.domain.vo.MenuVo;
+import com.sailun.service.MenuService;
 
 /**
  * @ClassName: MenuController

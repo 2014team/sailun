@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sailun.admin.dao.BannerDao">
+<mapper namespace="com.sailun.dao.BannerDao">
 	
 	<!-- resultMap -->
-	<resultMap type="com.sailun.admin.domain.entity.Banner" id="resultMap">
+	<resultMap type="com.sailun.domain.entity.Banner" id="resultMap">
 		<result property="bannerId" column="banner_id" />
 		<result property="imageUrl" column="image_url" />
 		<result property="jumpUrl" column="jump_url" />
@@ -13,7 +13,7 @@
 	</resultMap>
 
 	<!-- 保存 -->
-	<insert id="save" parameterType="com.sailun.admin.domain.entity.Banner" useGeneratedKeys="true" keyProperty="bannerId">
+	<insert id="save" parameterType="com.sailun.domain.entity.Banner" useGeneratedKeys="true" keyProperty="bannerId">
 		insert into t_banner (
 			image_url
 			,jump_url
@@ -47,7 +47,7 @@
 	</delete>
 	
 	<!-- 修改-->
-	<update id="update" parameterType="com.sailun.admin.domain.entity.Banner" >
+	<update id="update" parameterType="com.sailun.domain.entity.Banner" >
 		update t_banner 
 			set update_Date = now()
 				,image_url = #{imageUrl}

@@ -1,0 +1,101 @@
+package com.sailun.service;
+
+import com.sailun.common.service.BaseService;
+import com.sailun.domain.dto.BannerDto;
+import com.sailun.domain.entity.Banner;
+import com.sailun.domain.vo.BannerVo;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.sailun.common.entity.AdminResultByPage;
+
+/**
+ * @ClassName: BannerDao
+ * @Description: 首页广告
+ * @author zhuzq
+ * @date 2021年04月09日 20:47:22
+ */
+public interface BannerService extends BaseService<Banner,Integer>{
+
+	/**
+	 * @Title: saveBanner
+	 * @Description: 保存
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerVo
+	 * @return
+	 */
+	public boolean saveBanner(BannerVo bannerVo);
+
+	/**
+	 * @Title: deleteBanner
+	 * @Description: 删除
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerId
+	 * @return
+	 */
+	public boolean deleteBanner(Integer bannerId);
+
+	/**
+	 * @Title: deleteByBatch
+	 * @Description: 批量删除
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerIdArr
+	 * @return
+	 */
+	public int deleteByBatch(Integer[] bannerIdArr);
+
+	/**
+	 * @Title: updateBanner
+	 * @Description: 修改
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerVo
+	 * @return
+	 */
+	public boolean updateBanner(BannerVo bannerVo);
+
+	/**
+	 * @Title: getBanner
+	 * @Description: 根据bannerId获取对象
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerId
+	 * @return
+	 */
+	public BannerDto getBanner(Integer bannerId);
+
+	/**
+	 * @Title: findByPage
+	 * @Description: 分页查找
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerVo
+	 * @param jsonResult
+	 * @return
+	 */
+	public AdminResultByPage findByPage(BannerVo bannerVo, AdminResultByPage jsonResult);
+
+	/**
+	 * @Title: checkParam
+	 * @Description: 参数验证
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerVo
+	 * @return
+	 */
+	public String checkParam(BannerVo bannerVo,MultipartFile file);
+
+	/**
+	 * @Title: checkUnique
+	 * @Description: 唯一性验证
+	 * @author zhuzq
+	 * @date 2021年04月09日 20:47:22
+	 * @param bannerVo
+	 * @return
+	 */
+	public String checkUnique(BannerVo bannerVo);
+
+}

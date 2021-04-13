@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sailun.admin.dao.DriverDao">
+<mapper namespace="com.sailun.dao.DriverDao">
 	
 	<!-- resultMap -->
-	<resultMap type="com.sailun.admin.domain.entity.Driver" id="resultMap">
+	<resultMap type="com.sailun.domain.entity.Driver" id="resultMap">
 		<result property="driverId" column="driver_id" />
 		<result property="driverName" column="driver_name" />
 		<result property="coverImage" column="cover_image" />
@@ -14,7 +14,7 @@
 	</resultMap>
 
 	<!-- 保存 -->
-	<insert id="save" parameterType="com.sailun.admin.domain.entity.Driver" useGeneratedKeys="true" keyProperty="driverId">
+	<insert id="save" parameterType="com.sailun.domain.entity.Driver" useGeneratedKeys="true" keyProperty="driverId">
 		insert into t_driver (
 			driver_name
 			,cover_image
@@ -50,7 +50,7 @@
 	</delete>
 	
 	<!-- 修改-->
-	<update id="update" parameterType="com.sailun.admin.domain.entity.Driver" >
+	<update id="update" parameterType="com.sailun.domain.entity.Driver" >
 		update t_driver 
 			set update_Date = now()
 				,driver_name = #{driverName}

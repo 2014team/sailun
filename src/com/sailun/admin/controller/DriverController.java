@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sailun.admin.domain.dto.DriverDto;
-import com.sailun.admin.domain.vo.DriverVo;
-import com.sailun.admin.service.DriverService;
-import com.sailun.admin.service.ImageService;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.constant.UploadPathEnum;
+import com.sailun.domain.dto.DriverDto;
+import com.sailun.domain.vo.DriverVo;
+import com.sailun.service.DriverService;
+import com.sailun.service.ImageService;
 import com.sailun.common.entity.AdminResultByPage;
-import com.sailun.admin.annotation.AdminControllerLog;
-import com.sailun.admin.constant.UploadPathEnum;
+import com.sailun.annotation.AdminControllerLog;
 
 /**
  * @ClassName: DriverController

@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sailun.admin.annotation.AdminControllerLog;
-import com.sailun.admin.domain.dto.AboutusDto;
-import com.sailun.admin.domain.entity.Aboutus;
-import com.sailun.admin.domain.vo.AboutusVo;
-import com.sailun.admin.service.AboutusService;
+import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.domain.dto.AboutusDto;
+import com.sailun.domain.entity.Aboutus;
+import com.sailun.domain.vo.AboutusVo;
+import com.sailun.service.AboutusService;
 
 /**
  * @ClassName: AboutusController

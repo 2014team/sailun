@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sailun.admin.service.CreateFileSerivce;
+import com.sailun.service.CreateFileSerivce;
 
 
 @Controller

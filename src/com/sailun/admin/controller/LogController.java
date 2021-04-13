@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sailun.admin.annotation.AdminControllerLog;
-import com.sailun.admin.domain.dto.LogDto;
-import com.sailun.admin.domain.vo.LogVo;
-import com.sailun.admin.service.LogService;
+import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.domain.dto.LogDto;
+import com.sailun.domain.vo.LogVo;
+import com.sailun.service.LogService;
 
 /**
  * @ClassName: LogController

@@ -9,7 +9,7 @@
 		<!--EL页面调用名字-->
 		<name>getList</name>
 		<!--指定标签的处理类，指定了标签由哪个Java类来处理。-->
-		<function-class>com.sailun.admin.tag.ProductTypeTag</function-class>
+		<function-class>com.sailun.tag.ProductTypeTag</function-class>
 		<!--指定EL页面调用名字中实际调用的方法.指定处理类的实际方法.参数和回调函数要写完整路径-->
 		<function-signature>java.util.List getList()</function-signature>
 	</function>

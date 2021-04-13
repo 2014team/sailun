@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sailun.admin.domain.dto.NewsTypeDto;
-import com.sailun.admin.domain.vo.NewsTypeVo;
-import com.sailun.admin.service.NewsTypeService;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.domain.dto.NewsTypeDto;
+import com.sailun.domain.vo.NewsTypeVo;
+import com.sailun.service.NewsTypeService;
+import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
-import com.sailun.admin.annotation.AdminControllerLog;
 
 /**
  * @ClassName: NewsTypeController

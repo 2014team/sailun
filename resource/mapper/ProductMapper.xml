@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sailun.admin.dao.ProductDao">
+<mapper namespace="com.sailun.dao.ProductDao">
 	
 	<!-- resultMap -->
-	<resultMap type="com.sailun.admin.domain.entity.Product" id="resultMap">
+	<resultMap type="com.sailun.domain.entity.Product" id="resultMap">
 		<result property="productId" column="product_id" />
 		<result property="title" column="title" />
 		<result property="coverImage" column="cover_image" />
@@ -16,7 +16,7 @@
 	</resultMap>
 
 	<!-- 保存 -->
-	<insert id="save" parameterType="com.sailun.admin.domain.entity.Product" useGeneratedKeys="true" keyProperty="productId">
+	<insert id="save" parameterType="com.sailun.domain.entity.Product" useGeneratedKeys="true" keyProperty="productId">
 		insert into t_product (
 			title
 			,cover_image
@@ -56,7 +56,7 @@
 	</delete>
 	
 	<!-- 修改-->
-	<update id="update" parameterType="com.sailun.admin.domain.entity.Product" >
+	<update id="update" parameterType="com.sailun.domain.entity.Product" >
 		update t_product 
 			set update_Date = now()
 				,title = #{title}
@@ -84,7 +84,7 @@
 		 order by product_id ,create_date desc limit 1;
  	</select>
  	
- 	<select id="getProduct" parameterType="Integer" resultType="com.sailun.admin.domain.dto.ProductDto">
+ 	<select id="getProduct" parameterType="Integer" resultType="com.sailun.domain.dto.ProductDto">
  		select 
 				t.product_id AS productId
 				,t.title AS title
@@ -234,7 +234,7 @@
 	</select>
 	
  	<!-- 分页查找 -->
-	<select id="findListByPage" parameterType="Map" resultType="com.sailun.admin.domain.dto.ProductDto">
+	<select id="findListByPage" parameterType="Map" resultType="com.sailun.domain.dto.ProductDto">
 		select 
 				t.product_id AS productId
 				,t.title AS title

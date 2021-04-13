@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sailun.admin.annotation.AdminControllerLog;
-import com.sailun.admin.constant.UploadPathEnum;
-import com.sailun.admin.domain.dto.NewsDto;
-import com.sailun.admin.domain.entity.NewsType;
-import com.sailun.admin.domain.vo.NewsVo;
-import com.sailun.admin.service.ImageService;
-import com.sailun.admin.service.NewsService;
-import com.sailun.admin.service.NewsTypeService;
+import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.constant.UploadPathEnum;
+import com.sailun.domain.dto.NewsDto;
+import com.sailun.domain.entity.NewsType;
+import com.sailun.domain.vo.NewsVo;
+import com.sailun.service.ImageService;
+import com.sailun.service.NewsService;
+import com.sailun.service.NewsTypeService;
 
 /**
  * @ClassName: NewsController

@@ -19,10 +19,13 @@
         ">
 
 	<!-- 扫描包路径设置 -->
-	<context:component-scan base-package="com.sailun">
+	<!-- <context:component-scan base-package="com.sailun">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>  -->
+	<!-- start开启注释 -->
+	<mvc:annotation-driven />
+		<context:component-scan base-package="com.sailun">
 	</context:component-scan> 
-	 
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -70,19 +73,19 @@
 	</tx:advice>
 
 	<aop:config>                                                  
-		<aop:pointcut id="servicePointcut" expression="execution(* com.sailun.*.service.*.*(..))" />
+		<aop:pointcut id="servicePointcut" expression="execution(* com.sailun.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="servicePointcut" />
 	</aop:config>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath*:mapper/**/*Mapper.xml" />
+		<property name="mapperLocations" value="classpath*:mapper/*Mapper.xml" />
 	</bean>
 
 
 	<!-- 自动扫描 mybatis DAO接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.sailun.*.dao" />
+		<property name="basePackage" value="com.sailun.dao" />
 	</bean>
 
 

@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sailun.admin.annotation.AdminControllerLog;
-import com.sailun.admin.constant.ValidFlagEnum;
-import com.sailun.admin.domain.dto.RoleDto;
-import com.sailun.admin.domain.dto.UserDto;
-import com.sailun.admin.domain.vo.UserVo;
-import com.sailun.admin.service.RoleService;
-import com.sailun.admin.service.UserService;
+import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.entity.JsonResult;
+import com.sailun.constant.ValidFlagEnum;
+import com.sailun.domain.dto.RoleDto;
+import com.sailun.domain.dto.UserDto;
+import com.sailun.domain.vo.UserVo;
+import com.sailun.service.RoleService;
+import com.sailun.service.UserService;
 
 /**
  * @ClassName: UserController

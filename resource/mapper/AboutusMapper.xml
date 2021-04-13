@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sailun.admin.dao.AboutusDao">
+<mapper namespace="com.sailun.dao.AboutusDao">
 	
 	<!-- resultMap -->
-	<resultMap type="com.sailun.admin.domain.entity.Aboutus" id="resultMap">
+	<resultMap type="com.sailun.domain.entity.Aboutus" id="resultMap">
 		<result property="aboutusId" column="aboutus_id" />
 		<result property="content" column="content" />
 		<result property="status" column="status" />
@@ -12,7 +12,7 @@
 	</resultMap>
 
 	<!-- 保存 -->
-	<insert id="save" parameterType="com.sailun.admin.domain.entity.Aboutus" useGeneratedKeys="true" keyProperty="aboutusId">
+	<insert id="save" parameterType="com.sailun.domain.entity.Aboutus" useGeneratedKeys="true" keyProperty="aboutusId">
 		insert into t_aboutus (
 			content
 			,status
@@ -44,7 +44,7 @@
 	</delete>
 	
 	<!-- 修改-->
-	<update id="update" parameterType="com.sailun.admin.domain.entity.Aboutus" >
+	<update id="update" parameterType="com.sailun.domain.entity.Aboutus" >
 		update t_aboutus 
 			set update_Date = now()
 				,content = #{content}

@@ -13,13 +13,15 @@
      	 http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 		">
 		
-	<!-- 设置扫描Controller -->	
+	<!-- start开启注释 -->
 	<context:component-scan base-package="com.sailun">
-	</context:component-scan>	
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+	<!-- end开始注释 -->	
 	
-	<!-- 强制使用cglib代理，如果不设置，将默认使用jdk的代理，但是jdk的代理是基于接口的 -->
-	 <aop:aspectj-autoproxy proxy-target-class="true">
-    </aop:aspectj-autoproxy>
 		
 	<!-- mvc注解设置 -->	
 	<mvc:annotation-driven>
@@ -49,7 +51,7 @@
 			<mvc:exclude-mapping path="/admin/login"/>
 			<mvc:exclude-mapping path="/admin/login/submit"/>
 			<mvc:exclude-mapping path="/admin/logout"/>
-			<bean class="com.sailun.admin.interceptor.LoginInterceptor"></bean>
+			<bean class="com.sailun.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
