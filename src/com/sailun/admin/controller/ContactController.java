@@ -319,7 +319,7 @@ public class ContactController {
 			return ;
 		}
 		
-		String [] columnWidth ={"15","15","15","10","10","40","20"}; 
+		String [] columnWidth ={"10","15","15","10","10","40","20"}; 
 		String[][] columnNames =  new String[][] {
 			{"姓名","电话","邮箱","车辆品牌","型号","内容","创建日期"}, 
 			{"username","mobileNum","email","vehicleBrand","type","contents","createDate"}
