@@ -1,0 +1,49 @@
+package com.sailun.admin.service.impl;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sailun.admin.constant.StatusEnum;
+import com.sailun.admin.controller.ContactController;
+import com.sailun.admin.dao.BannerDao;
+import com.sailun.admin.domain.entity.Banner;
+import com.sailun.admin.service.CreateFileSerivce;
+import com.sailun.common.util.CreateFileUtil;
+
+@Service
+public class BannerCreateFileServiceImpl extends CreateFileSerivce{
+	
+	private static org.slf4j.Logger logger = LoggerFactory.getLogger(BannerCreateFileServiceImpl.class);
+	
+	@Autowired
+	private BannerDao bannerDao;
+	
+	@Override
+	public void createFile() {
+		
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("status", StatusEnum.ON.getValue());
+		List<Banner> bannerList = bannerDao.select(paramMap);
+		if(null == bannerList || bannerList.size() < 1){
+			logger.info("没有要生成的Banner图片");
+			return ;
+		}
+		
+		Map<String,Object> dataMap =new HashMap<String, Object>();
+		dataMap.put("listItem", bannerList);
+		String templateName = "banner.html";
+		try {
+			
+			String html = CreateFileUtil.getTemplateHtml(templateName, dataMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<#list listItem as item >
+<#if item.getImageUrl()?exists>
+	<div class="swiper-slide"><a href="${item.getJumpUrl()?default('')}"><img src="${item.getImageUrl()?default('')}" alt=""></a></div>
+</#if>
+</#list>
+
+
+

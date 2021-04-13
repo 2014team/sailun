@@ -2,6 +2,7 @@
 package com.sailun.common.util;
 
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
@@ -66,6 +67,47 @@ public class ToolsUtil {
 			}
 		}
 		return ip;
+	}
+	
+	public static String getWebRoot() {
+		String classPath = getClassPath();
+		if ( StringUtils.isEmpty(classPath)) {
+			return "";
+		}
+		int index = classPath.indexOf("WEB-INF/classes/");
+		if (index == -1) {
+			return "";
+		}
+		return classPath.substring(0, index);
+	}
+	
+	
+	/**
+	 * 获取classes目录路径 如:F:/email3/WebRoot/WEB-INF/classes/
+	 * 
+	 * @return
+	 */
+	public static String getClassPath() {
+		String classPath = "";
+		URL webRootUrl = ToolsUtil.class.getResource("");
+		if (webRootUrl == null) {
+			webRootUrl = ToolsUtil.class.getClassLoader().getResource("");
+		}
+		if (webRootUrl == null) {
+			webRootUrl = Thread.currentThread().getContextClassLoader().getResource("");
+		}
+		if (webRootUrl == null) {
+			String webRoot = System.getProperty("web.root");// spring保存在系统中的根路径变量
+			classPath = StringUtils.isEmpty(webRoot) ? null : (webRoot + "/WEB-INF/classes/");
+			if (StringUtils.isEmpty(classPath)) {
+				return "";
+			} else {
+				return classPath;
+			}
+		}
+		classPath = webRootUrl.getPath().substring(1);
+		classPath = classPath.substring(0, classPath.indexOf("/WEB-INF/classes/")) + "/WEB-INF/classes/";
+		return classPath;
 	}
 
 }
