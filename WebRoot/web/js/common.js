@@ -107,13 +107,13 @@ function scPoint(element){ return element.getBoundingClientRect().top + window.p
 
 function fixedText(section,target){
 	var wtop = window.pageYOffset;
-	if(wtop > scPoint(section)){
-		if(wtop < scPoint(section) + section.clientHeight){
-			if(wtop + target.clientHeight < scPoint(section) + section.clientHeight){
-				target.style.transform = "translateY("+(wtop - scPoint(section))+"px)";
-			}
-		}
-	}
+	// if(wtop > scPoint(section)){
+	// 	if(wtop < scPoint(section) + section.clientHeight){
+	// 		if(wtop + target.clientHeight < scPoint(section) + section.clientHeight){
+	// 			target.style.transform = "translateY("+(wtop - scPoint(section))+"px)";
+	// 		}
+	// 	}
+	// }
 }
 scroll();
 window.addEventListener("scroll",scroll);

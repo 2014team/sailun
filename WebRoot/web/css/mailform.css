@@ -5,7 +5,7 @@
 
 form#mail_form{
 	width : 900px;
-	margin : 50px auto;
+	margin : 0 auto;
 	padding : 10px 0;
 	
 	text-shadow : 0px 1px 0px #ffffff;
@@ -69,7 +69,7 @@ form#mail_form dl dd span{
 
 
 form#mail_form input{
-	height : 1.8em;
+	height : 40px;
 	border : 1px solid #cccccc;
 	border-radius : 3px;
 	background : #fafafa;
@@ -90,14 +90,14 @@ form#mail_form textarea:focus{
 }
 form#mail_form input#name_1,
 form#mail_form input#name_2{
-	width : 40%;
+	width : 80%;
 }
 form#mail_form input#read_1,
 form#mail_form input#read_2{
-	width : 40%;
+	width : 80%;
 }
 form#mail_form input#mail_address,
-form#mail_form input#mail_address_confirm{
+form#mail_form input#vehicle_brand{
 	width : 80%;
 }
 form#mail_form ul li{
@@ -111,8 +111,8 @@ form#mail_form ul li input{
 	height : auto;
 	margin-right : 0.5em;
 }
-form#mail_form input#postal{
-	width : 30%;
+form#mail_form input#model{
+	width : 80%;
 }
 form#mail_form input#address_1,
 form#mail_form input#address_2{
@@ -121,14 +121,14 @@ form#mail_form input#address_2{
 	margin-bottom : 7px;
 }
 form#mail_form input#phone{
-	width : 30%;
+	width : 80%;
 }
 form#mail_form input#schedule{
 	width : 30%;
 }
 form#mail_form input#mail_submit_button{
-	width : auto;
-	height : auto;
+	width : 150px;
+	height : 40px;
 	padding : 4px 10px;
 	vertical-align : middle;
 	color : #444444;
@@ -154,6 +154,7 @@ form#mail_form input#mail_submit_button:hover{
 
 form#mail_form{
 	width : 95%;
+	font-size: 14px;
 }
 form#mail_form dl{
 	width : 90%;
@@ -186,21 +187,21 @@ form#mail_form dl dt span.optional{
 
 
 form#mail_form input{
-	height : 25px;
+	height : 35px;
 }
 form#mail_form input#name_1,
 form#mail_form input#name_2,
 form#mail_form input#read_1,
 form#mail_form input#read_2,
 form#mail_form input#mail_address,
-form#mail_form input#mail_address_confirm,
-form#mail_form input#postal,
+form#mail_form input#vehicle_brand,
+form#mail_form input#model,
 form#mail_form input#address_1,
 form#mail_form input#address_2,
 form#mail_form input#phone,
 form#mail_form input#schedule,
 form#mail_form textarea{
-	max-width : 95%;
+	width : 100%;
 	-webkit-appearance : none;
 }
 

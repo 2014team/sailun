@@ -11,6 +11,10 @@ public class WebProductController {
 	public String index(){
 		return "/web/product";
 	}
+	@RequestMapping("/product/detail")
+	public String detail(){
+		return "/web/product_detail";
+	}
 
 	
 }

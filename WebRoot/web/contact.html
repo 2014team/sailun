@@ -31,8 +31,6 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<!-- Animate.css -->
@@ -119,24 +117,22 @@
 							</dd>
 
 							<dt>电话<span>Phone Number</span></dt>
-							<dd><input type="text" id="read_1" name="read_1" value="" /> </dd>
+							<dd class="required"><input type="text" id="phone" name="phone" value="" /> </dd>
 
 							<dt>车辆品牌<span>Vehicle Brand</span></dt>
-							<dd class="required"><input type="text" id="mail_address" name="mail_address" value="" />
+							<dd class="required"><input type="text" id="vehicle_brand" name="vehicle_brand" value="" />
 							</dd>
 
 							<dt>邮箱<span>Mail Address Confirm</span></dt>
-							<dd class="required"><input type="text" id="mail_address_confirm" name="mail_address_confirm" value="" /></dd>
+							<dd class="required"><input type="text" id="mail_address" name="mail_address" value="" /></dd>
 
 
-							<dt>型号<span>Postal</span></dt>
-							<dd><input type="text" id="postal" name="postal" value=""
-									onkeyup="AjaxZip3.zip2addr(this,'','address_1','address_1');" /></dd>
+							<dt>型号<span>Model</span></dt>
+							<dd class="required"><input type="text" id="model" name="model" value=""/></dd>
 
 
 							<dt>内容<span>Contents</span></dt>
-							<dd class="required"><textarea id="mail_contents" name="mail_contents" cols="40"
-									rows="5"></textarea></dd>
+							<dd class="required"><textarea id="content" name="content" cols="40" rows="5"></textarea></dd>
 
 							<dt></dt>
 							<dd><input type="submit" id="mail_submit_button" name="mail_submit_button" value="提交信息" />

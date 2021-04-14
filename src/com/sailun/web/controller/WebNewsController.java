@@ -11,6 +11,11 @@ public class WebNewsController {
 	public String index(){
 		return "/web/news";
 	}
+	
+	@RequestMapping("/news/detail")
+	public String detail(){
+		return "/web/news_detail";
+	}
 
 	
 }

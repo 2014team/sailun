@@ -10,6 +10,10 @@ public class WebDriverController {
 	public String index(){
 		return "/web/driver";
 	}
+	@RequestMapping("/detail/detail")
+	public String detail(){
+		return "/web/driver_detail";
+	}
 
 	
 }

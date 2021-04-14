@@ -1,44 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>VALINO TIRES Official Website / COMPANY PROFILE</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="VALINO TIRES Official Website" />
-	<meta name="keywords"
-		content="VALINO, ヴァリノ, VARINO TIRES, ヴァリノタイヤ, スポーツ走行, sports tires, ドリフトタイヤ, drift tires, pergea, ペルギア, greeva, グリーヴァ, ebisu matsuri, エビス祭," />
-
-	<meta name="author" content="VALINO TIRES" />
-
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
-
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="/web/css2/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="/web/css2/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="/web/css2/bootstrap.css">
-	<!-- Superfish -->
-	<link rel="stylesheet" href="/web/css2/superfish.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="/web/css2/flexslider.css">
-	<link rel="stylesheet" href="/web/css/common_style.css">
-	<link rel="stylesheet" href="/web/css/top.css">
-	<link rel="stylesheet" href="/web/css2/style.css">
-
+	<%@include file="/WEB-INF/page/web/common/meta.jsp" %>
+	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
 
 	<!-- Modernizr JS -->
 	<script src="/web/js/modernizr-2.6.2.min.js"></script>
@@ -46,8 +9,6 @@
 	<!--[if lt IE 9]>
 	<script src="/web/js/respond.min.js"></script>
 	<![endif]-->
-	
-	<%@include file="/WEB-INF/page/web/common/head.jsp" %>
 
 </head>
 
@@ -55,11 +16,9 @@
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			 <!-- nav -->
+			<!-- nav -->
 			<%@include file="/WEB-INF/page/web/common/nav.jsp" %>
 
-			<!-- end:fh5co-header -->
-			<!-- ヘッダー部インクルード ここまで -->
 
 			<!-- end:fh5co-header -->
 			<aside id="fh5co-hero" class="js-fullheight">
@@ -95,7 +54,7 @@
 					</div>
 					<div class="times-block flex-box">
 						<div class="times1-item flex-item banner-anime">
-							<a href="pdetail.html">
+							<a href="/product/detail">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_15c4ca.jpg?1);">
 									</div>
@@ -111,7 +70,7 @@
 						<div class="times2-item flex-item">
 							<div class="times2_inner-box flex-box">
 								<div class="flex-item banner-anime">
-									<a href="info/race2020/index.html">
+									<a href="pdetail.html">
 										<div class="image-wrap">
 											<div class="image-times" style="background-image:url(/web/img/times_02.jpg);">
 											</div>
@@ -122,7 +81,7 @@
 									</a>
 								</div>
 								<div class="flex-item banner-anime">
-									<a href="report2020/d1_tsukuba/index.html">
+									<a href="pdetail.html">
 										<div class="image-wrap">
 											<div class="image-times" style="background-image:url(/web/img/times_03.jpg);">
 											</div>
@@ -145,7 +104,7 @@
 							</div>
 -->
 								<div class="flex-item banner-anime">
-									<a href="valino_girls/index.html">
+									<a href="pdetail.html">
 										<div class="image-wrap">
 											<div class="image-times" style="background-image:url(/web/img/times_07.jpg);">
 											</div>
@@ -156,7 +115,7 @@
 									</a>
 								</div>
 								<div class="flex-item banner-anime">
-									<a href="info/tire_service/index.html">
+									<a href="pdetail.html">
 										<div class="image-wrap">
 											<div class="image-times" style="background-image:url(/web/img/times_10.jpg);">
 											</div>
@@ -172,7 +131,7 @@
 					<div class="times3-box flex-box">
 
 						<div class="flex-item banner-anime">
-							<a href="info/tegumi/index.html">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_05.jpg);"></div>
 								</div>
@@ -182,7 +141,7 @@
 							</a>
 						</div>
 						<div class="flex-item banner-anime">
-							<a href="show_report.html">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_04.jpg);"></div>
 								</div>
@@ -192,7 +151,7 @@
 							</a>
 						</div>
 						<div class="flex-item banner-anime">
-							<a href="https://www.valino.jp/frlvalino/">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_06.jpg);"></div>
 								</div>
@@ -214,7 +173,7 @@
 					</div>
 					-->
 						<div class="flex-item banner-anime">
-							<a href="https://www.valino.jp/catalog.php">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_09.jpg);"></div>
 								</div>
@@ -236,7 +195,7 @@
 					</div>
 -->
 						<div class="flex-item banner-anime">
-							<a href="products/vr08gp/index.html">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_12.jpg);"></div>
 								</div>
@@ -247,7 +206,7 @@
 						</div>
 
 						<div class="flex-item banner-anime">
-							<a href="info/coin/index.html">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_11.jpg);"></div>
 								</div>
@@ -257,7 +216,7 @@
 							</a>
 						</div>
 						<div class="flex-item banner-anime">
-							<a href="info/d1_license/index.html">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_16.jpg);"></div>
 								</div>
@@ -267,7 +226,7 @@
 							</a>
 						</div>
 						<div class="flex-item banner-anime">
-							<a href="iitai/index.html">
+							<a href="pdetail.html">
 								<div class="image-wrap">
 									<div class="image-times" style="background-image:url(/web/img/times_17.jpg);"></div>
 								</div>
@@ -325,40 +284,8 @@
 		<!-- END fh5co-page -->
 
 	</div>
-	<!-- END fh5co-wrapper -->
-
-	<!-- jQuery -->
-
-
-	<script src="/web/js/jquery.min.js"></script>
-	<!-- Waypoints -->
-	<script src="/web/js/jquery.waypoints.min.js"></script>
-	<!-- Superfish -->
-	<script src="/web/js/superfish.js"></script>
-	<!-- Flexslider -->
-	<script src="/web/js/jquery.flexslider-min.js"></script>
-
-	<!-- Main JS (Do not remove) -->
-	<script src="/web/js/main.js"></script>
-	<script src="/web/js/scrollreveal.min.js"></script>
-	<script>
-		ScrollReveal({ distance: '80px' });
-		var option = {
-			duration: 1000,
-			viewFactor: 1,
-			origin: "left",
-			easing: 'cubic-bezier(.25,.1,.25,1)',
-		}
-
-		ScrollReveal().reveal('.headline-anime', option)
-		var option2 = {
-			duration: 800,
-			viewFactor: 0.7,
-			origin: "top",
-			easing: 'cubic-bezier(.25,.1,.25,1)',
-		}
-		ScrollReveal().reveal('.banner-anime', option2);
-	</script>
+	<!-- js -->
+		<%@include file="/WEB-INF/page/web/common/js.jsp" %>
 </body>
 
 </html>

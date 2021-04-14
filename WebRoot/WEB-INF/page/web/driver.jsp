@@ -3,45 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>VALINO TIRES Official Website / COMPANY PROFILE</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="VALINO TIRES Official Website" />
-	<meta name="keywords"
-		content="VALINO, ヴァリノ, VARINO TIRES, ヴァリノタイヤ, スポーツ走行, sports tires, ドリフトタイヤ, drift tires, pergea, ペルギア, greeva, グリーヴァ, ebisu matsuri, エビス祭," />
-
-	<meta name="author" content="VALINO TIRES" />
-
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
-
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="/web/css2/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="/web/css2/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="/web/css2/bootstrap.css">
-	<!-- Superfish -->
-	<link rel="stylesheet" href="/web/css2/superfish.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="/web/css2/flexslider.css">
-	<link rel="stylesheet" href="/web/css/common_style.css">
-	<link rel="stylesheet" href="/web/css/top.css">
-	<link rel="stylesheet" href="/web/css2/style.css">
-
+	<%@include file="/WEB-INF/page/web/common/meta.jsp" %>
+	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
 
 	<!-- Modernizr JS -->
 	<script src="/web/js/modernizr-2.6.2.min.js"></script>
@@ -49,8 +12,6 @@
 	<!--[if lt IE 9]>
 	<script src="/web/js/respond.min.js"></script>
 	<![endif]-->
-	
-	<%@include file="/WEB-INF/page/web/common/head.jsp" %>
 
 </head>
 
@@ -58,9 +19,8 @@
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			 	<!-- nav -->
+			 <!-- nav -->
 			<%@include file="/WEB-INF/page/web/common/nav.jsp" %>
-			<!-- end:fh5co-header -->
 
 
 			<!-- end:fh5co-header -->
@@ -91,7 +51,7 @@
 							</h2>
 							<div class="link flex-box">
 								<div class="flex-item banner-anime">
-									<a href="ddetail.html" target="_blank">
+									<a href="/detail/detail" target="_blank">
 										<div class="image">
 											<img src="/web/img/banner_02.jpg" alt="VALINO BASE">
 										</div>
@@ -177,36 +137,8 @@
 
 	<!-- jQuery -->
 
-
-	<script src="/web/js/jquery.min.js"></script>
-	<!-- Waypoints -->
-	<script src="/web/js/jquery.waypoints.min.js"></script>
-	<!-- Superfish -->
-	<script src="/web/js/superfish.js"></script>
-	<!-- Flexslider -->
-	<script src="/web/js/jquery.flexslider-min.js"></script>
-
-	<!-- Main JS (Do not remove) -->
-	<script src="/web/js/main.js"></script>
-	<script src="/web/js/scrollreveal.min.js"></script>
-	<script>
-		ScrollReveal({ distance: '80px' });
-		var option = {
-			duration: 1000,
-			viewFactor: 1,
-			origin: "left",
-			easing: 'cubic-bezier(.25,.1,.25,1)',
-		}
-
-		ScrollReveal().reveal('.headline-anime', option)
-		var option2 = {
-			duration: 800,
-			viewFactor: 0.7,
-			origin: "top",
-			easing: 'cubic-bezier(.25,.1,.25,1)',
-		}
-		ScrollReveal().reveal('.banner-anime', option2);
-	</script>
+		<!-- js -->
+		<%@include file="/WEB-INF/page/web/common/js.jsp" %>
 </body>
 
 </html>

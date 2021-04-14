@@ -2,47 +2,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-  	<script type="text/javascript" src="/web/js/jquery.min.js"></script>
-  	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VALINO TIRES Official Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="VALINO TIRES Official Website" />
-    <meta name="keywords"
-        content="VALINO, ヴァリノ, VARINO TIRES, ヴァリノタイヤ, スポーツ走行, sports tires, ドリフトタイヤ, drift tires, pergea, ペルギア, greeva, グリーヴァ, ebisu matsuri, エビス祭," />
-    <meta name="author" content="VALINO TIRES" />
-    <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:description" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
-    <!-- Lightboxもろもろ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:700|Noto+Serif+JP:700" rel="stylesheet"><!-- webfont -->
-
-
-
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="/web/css2/animate.css">
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="/web/css2/bootstrap.css">
-    <!-- Superfish -->
-    <link rel="stylesheet" href="/web/css2/superfish.css">
-    <!-- Flexslider  -->
-    <link rel="stylesheet" href="/web/css2/flexslider.css">
-    <link rel="stylesheet" href="/web/css/icomoon.css">
-    <!-- Icomoon Icon Fonts-->
-    <!-- Swiper -->
+    <%@include file="/WEB-INF/page/web/common/meta.jsp" %>
+ 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
     <link rel="stylesheet" href="/web/css/swiper.css"><!-- Swiper -->
-    <link rel="stylesheet" href="/web/css/common_style.css">
     <!-- 基本 -->
-    <link rel="stylesheet" href="/web/css/top.css">
-    <link rel="stylesheet" href="/web/css2/style.css">
     <style>
         #fh5co-header-section {
             position: relative;
@@ -62,24 +25,20 @@
             z-index: 10;
         }
     </style>
-    
-	<%@include file="/WEB-INF/page/web/common/head.jsp" %>
-	
-  </head>
- <body data-menuflag="off">
+</head>
+
+<body data-menuflag="off">
     <div id="fh5co-wrapper">
         <div id="fh5co-page">
         
-          	<!-- nav -->
+           <!-- nav -->
 			<%@include file="/WEB-INF/page/web/common/nav.jsp" %>
             
-            
             <section id="firstview">
-               <div class="sec-inner">
+                <div class="sec-inner">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-	                            <!--banner-->
-	            				<%@include file="/WEB-INF/page/web/common/banner.jsp" %>
+                            <%@include file="/WEB-INF/page/web/common/banner.jsp" %>
                         </div>
                         <div class="swiper-button-prev swiper-button-white"></div>
                         <div class="swiper-button-next swiper-button-white"></div>
@@ -87,8 +46,6 @@
                     </div>
                 </div>
             </section>
-            
-            
             <section id="products_news">
                 <div class="section-text st-products show-pc">
                     <img src="/web/img/products_text.png" alt="products">
@@ -103,9 +60,150 @@
                                 <span class="text-en">PRODUCTS</span>
                                 <span class="text-ja">产品一览</span>
                             </h2>
-                             <div class="products_banner flex-box">
-                            	<!-- 产品展示 -->
-                           		<%@include file="/WEB-INF/page/web/common/product.jsp" %>	
+                            <div class="products_banner flex-box">
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_01.jpg" alt="PERGEA">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>PERGEA</h4>
+                                                <p>勝つために作られた最強のドリフトタイヤ</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_02.jpg" alt="GREEVA">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>GREEVA</h4>
+                                                <p>「MOREタフ＆MOREライフ」強くて長持ちする“もっと走れる“タイヤ</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_08.jpg" alt="RACING DECK">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>VR08GP</h4>
+                                                <p>ラップタイム短縮を目指すサーキットドライバーのためのハイグリップタイヤ</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_09.jpg" alt="RACING DECK">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>GREEVA✕ドリフト天国</h4>
+                                                <p>ドリフト天国専用コンパウンド採用のロングライフを実現したコラボタイヤ</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_15.jpg" alt="BUSHOU">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>BUSHOU-武将- × ADVANTI RACING WHEELS</h4>
+                                                <p>タイヤメーカーがADVANTI RACINGとともに本気で創ったアルミホイール</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_05.jpg" alt="SPREDGE">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>SPREDGE</h4>
+                                                <p>モータースポーツから培った実績をフィードバックした足もとを支えるパーツ群</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_06.jpg" alt="RACING DECK">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>RACING DECK</h4>
+                                                <p>サーキットのピットやガレージで活躍する組み合わせ自由なデッキマット</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_10.jpg" alt="VALINO TOKYO">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4>VALINO 公式グッズ</h4>
+                                                <p>VALINO TOKYOブランドが贈るアパレル＆カーアクセサリーの数々</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_11.jpg" alt="Radicon Tire & Wheel">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4 class="radicon-page">RC TIRE & WHEEL</h4>
+                                                <p>OVERDOSE×VALINO <br>RC TIRE&WHEEL</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_12.jpg" alt="COLOR TENT">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4 class="radicon-page">VALINO COLOR TENT</h4>
+                                                <p>2021年モデル VALINOオリジナルカラーテント</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="flex-item banner-anime">
+                                    <a href="pdetail.html">
+                                        <div class="image">
+                                            <img src="/web/img/products_13.jpg" alt="COLOR TENT">
+                                        </div>
+                                        <div class="contents-hover">
+                                            <div class="products_desc">
+                                                <h4 class="radicon-page">SCHOLARSHIP 2021</h4>
+                                                <p>VALINOスカラシップ制度2021応募のご案内</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div id="news" class="news-box flex-item">
@@ -251,6 +349,7 @@
     <script src="/web/js/common.js"></script>
     <script src="/web/js/jquery.min.js"></script>
     <script src="/web/js/superfish.js"></script>
+    <script src="/web/js/jquery.waypoints.min.js"></script>
     <script src="/web/js/jquery.flexslider-min.js"></script>
     <script src="/web/js/main.js"></script>
     <script src="/web/js/scrollreveal.min.js"></script>
