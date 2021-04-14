@@ -19,9 +19,9 @@ public class Start {
 			
 			//mysql
 			DataBaseUtil.jdbc_driver = "com.mysql.jdbc.Driver";
-			DataBaseUtil.jdbc_url = "jdbc:mysql://127.0.0.1:3306/sailun?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
-			DataBaseUtil.jdbc_user = "*";
-			DataBaseUtil.jdbc_password = "*";
+			DataBaseUtil.jdbc_url = "jdbc:mysql://127.0.0.1:3306/sailun_dev?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
+			DataBaseUtil.jdbc_user = "**";
+			DataBaseUtil.jdbc_password = "**";
 			
 			
 			//sqlserver
@@ -38,12 +38,13 @@ public class Start {
 			
 			//实体基础包名
 			//如com.job528.personal.domain.MyUsers 的基础包名为com.job528.personal
-			paramMap.put("basePackageName","com.sailun.admin");
+			paramMap.put("jspPrefix","admin");
+			paramMap.put("basePackageName","com.sailun");
 			//dao、service、实体类继承父类包
 			paramMap.put("commonPackage","com.sailun.common");
-			paramMap.put("description","菜单");//表名
+			paramMap.put("description","页面创建");//表名
 
-			paramMap.put("tableName","t_admin_log_1");//表名
+			paramMap.put("tableName","t_page_create");//表名
 			generator.createCode(paramMap);//第一个表
 			
 			//第二个表

@@ -113,6 +113,25 @@ var admin_url_map = {
 	'admin/CENTER/DRIVER/SAVE': {url: '/admin/center/driver/save', isUsed: true, desc: '车手介绍保存'},
 	'admin/CENTER/DRIVER/BATCH/DELETE': {url: '/admin/center/driver/batch/delete', isUsed: true, desc: '车手介绍批量删除'},
 	'admin/CENTER/DRIVER/GET': {url: '/admin/center/driver/get', isUsed: true, desc: '查找单个车手介绍'},
+	
+	//页面创建
+	'admin/CENTER/PAGECREATE/LIST': {url: '/admin/center/pageCreate/list', isUsed: true, desc: '页面创建列表'},
+	'admin/CENTER/PAGECREATE/DELETE': {url: '/admin/center/pageCreate/delete', isUsed: true, desc: '页面创建删除'},
+	'admin/CENTER/PAGECREATE/UPDATE': {url: '/admin/center/pageCreate/update', isUsed: true, desc: '页面创建更新'},
+	'admin/CENTER/PAGECREATE/EDIT': {url: '/admin/center/pageCreate/edit', isUsed: true, desc: '页面创建编辑'},
+	'admin/CENTER/PAGECREATE/SAVE': {url: '/admin/center/pageCreate/save', isUsed: true, desc: '页面创建保存'},
+	'admin/CENTER/PAGECREATE/BATCH/DELETE': {url: '/admin/center/pageCreate/batch/delete', isUsed: true, desc: '页面创建批量删除'},
+	'admin/CENTER/PAGECREATE/GET': {url: '/admin/center/pageCreate/get', isUsed: true, desc: '查找单个页面创建'},
+	
+	//页面配置
+	'admin/CENTER/PAGECONFIG/LIST': {url: '/admin/center/pageConfig/list', isUsed: true, desc: '页面配置列表'},
+	'admin/CENTER/PAGECONFIG/DELETE': {url: '/admin/center/pageConfig/delete', isUsed: true, desc: '页面配置删除'},
+	'admin/CENTER/PAGECONFIG/UPDATE': {url: '/admin/center/pageConfig/update', isUsed: true, desc: '页面配置更新'},
+	'admin/CENTER/PAGECONFIG/EDIT': {url: '/admin/center/pageConfig/edit', isUsed: true, desc: '页面配置编辑'},
+	'admin/CENTER/PAGECONFIG/SAVE': {url: '/admin/center/pageConfig/save', isUsed: true, desc: '页面配置保存'},
+	'admin/CENTER/PAGECONFIG/BATCH/DELETE': {url: '/admin/center/pageConfig/batch/delete', isUsed: true, desc: '页面配置批量删除'},
+	'admin/CENTER/PAGECONFIG/GET': {url: '/admin/center/pageConfig/get', isUsed: true, desc: '查找单个页面配置'},
+	'admin/CENTER/PAGECONFIG/CHECKUNIQUE': {url: '/admin/center/pageConfig/checkUnique', isUsed: true, desc: '查找单个页面配置'},
 }
 
 var web_url_map = {

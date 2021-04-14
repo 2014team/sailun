@@ -24,7 +24,7 @@ public class CreateFileUtil {
 	public static String getTemplateHtml(String templateName, Map<String, Object> map) throws Exception {
 		String html = "";
 		Configuration config = new Configuration();
-		String filepath = ToolsUtil.getWebRoot() + "/WEB-INF/template/";
+		String filepath = ToolsUtil.getWebRoot();
 		File file = new File(filepath);
 		config.setDirectoryForTemplateLoading(file);
 		config.setObjectWrapper(new DefaultObjectWrapper());

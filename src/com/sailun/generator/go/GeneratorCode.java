@@ -53,7 +53,7 @@ public abstract class GeneratorCode {
 		String commonPackage = (String)paramMap.get("commonPackage");
 		String tableName = (String)paramMap.get("tableName");
 		String basePackageName = (String)paramMap.get("basePackageName");
-		String controllerApiPrefix = (String)paramMap.get("controllerApiPrefix");
+		String jspPrefix = (String)paramMap.get("jspPrefix");
 		
 		String className = DataBaseUtil.getClassName(tableName);
 		
@@ -130,10 +130,10 @@ public abstract class GeneratorCode {
 				target_file_name = DataBaseUtil.capitalFirstChar(className) + "ServiceImpl.java";
 			}else if(template_name.equalsIgnoreCase("controller")){
 				//如果是controller.ftl，则生成controller
-				target_file_dir = new File(file , "controller");
+				target_file_dir = new File(file +"/"+jspPrefix , "controller");
 				if(!target_file_dir.exists())
 					target_file_dir.mkdirs();
-				target_file_name = DataBaseUtil.capitalFirstChar(className) + "Controller.java";
+				target_file_name = DataBaseUtil.capitalFirstChar(className)+ "Controller.java";
 			}else if(template_name.equalsIgnoreCase("vo")){
 				//如果是controller.ftl，则生成controller
 				target_file_dir = new File(file , "domain/vo");
@@ -169,7 +169,7 @@ public abstract class GeneratorCode {
 			}else if(template_name.equalsIgnoreCase("list")){
 				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
 				File config_source_folder = new File(projectPath);
-				config_source_folder = new File(config_source_folder , "/WebRoot/WEB-INF/page/"+controllerApiPrefix+"/center");
+				config_source_folder = new File(config_source_folder , "/WebRoot/WEB-INF/page/"+jspPrefix+"/center");
 				if(!config_source_folder.exists())
 					config_source_folder.mkdirs();
 				target_file_dir = new File(config_source_folder , DataBaseUtil.lowerFirstCapse(className));
@@ -181,7 +181,7 @@ public abstract class GeneratorCode {
 			}else if(template_name.equalsIgnoreCase("edit")){
 				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
 				File config_source_folder = new File(projectPath);
-				config_source_folder = new File(config_source_folder , "/WebRoot/WEB-INF/page/"+controllerApiPrefix+"/center");
+				config_source_folder = new File(config_source_folder , "/WebRoot/WEB-INF/page/"+jspPrefix+"/center");
 				if(!config_source_folder.exists())
 					config_source_folder.mkdirs();
 				target_file_dir = new File(config_source_folder ,DataBaseUtil.lowerFirstCapse(className));
@@ -196,7 +196,7 @@ public abstract class GeneratorCode {
 				
 				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
 				File config_source_folder = new File(projectPath);
-				config_source_folder = new File(config_source_folder , "/WebRoot/"+controllerApiPrefix+"/js");
+				config_source_folder = new File(config_source_folder , "/WebRoot/"+jspPrefix+"/js");
 				if(!config_source_folder.exists())
 					config_source_folder.mkdirs();
 				target_file_dir = new File(config_source_folder ,"");
@@ -209,7 +209,7 @@ public abstract class GeneratorCode {
 				
 				//如果是mybatis.ftl，则生成mybatis核心配置文件sqlMapConfig.xml
 				File config_source_folder = new File(projectPath);
-				config_source_folder = new File(config_source_folder , "/WebRoot/"+controllerApiPrefix+"/js");
+				config_source_folder = new File(config_source_folder , "/WebRoot/"+jspPrefix+"/js");
 				if(!config_source_folder.exists())
 					config_source_folder.mkdirs();
 				target_file_dir = new File(config_source_folder , "");
@@ -232,7 +232,7 @@ public abstract class GeneratorCode {
 			
 			//设置包名
 			paramMap.put("basePackageName", basePackageName);//baseController,baseService等包名路径
-			paramMap.put("controllerPackageName", basePackageName+".controller");
+			paramMap.put("controllerPackageName", basePackageName+"."+jspPrefix+".controller");
 			paramMap.put("daoPackageName", basePackageName+".dao");
 			paramMap.put("basePackageName", basePackageName+".base");
 			paramMap.put("mapperPackageName", basePackageName+".mapper");

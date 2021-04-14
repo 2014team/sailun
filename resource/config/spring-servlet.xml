@@ -53,6 +53,21 @@
 			<mvc:exclude-mapping path="/admin/logout"/>
 			<bean class="com.sailun.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/center/banner/save" />
+			<mvc:mapping path="/admin/center/banner/delete" />
+			<mvc:mapping path="/admin/center/banner/update" />
+			<mvc:mapping path="/admin/center/banner/batch/delete" />
+			
+			<mvc:mapping path="/admin/center/pageCreate/save" />
+			<mvc:mapping path="/admin/center/pageCreate/delete" />
+			<mvc:mapping path="/admin/center/pageCreate/update" />
+			<mvc:mapping path="/admin/center/pageCreate/batch/delete" />
+			<bean class="com.sailun.interceptor.IndexBannerInterceptor"></bean>
+		</mvc:interceptor>
+		
+		
 	</mvc:interceptors>
 	
 	

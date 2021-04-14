@@ -76,7 +76,7 @@
                     <span class="x-red">*</span>内容
                   </label>
                   <div class="layui-input-block" >
-                      <textarea id="contents" name="contents" class="layui-textarea" >${entity.contents }</textarea>
+                      <textarea id="contents" name="contents" class="layui-textarea">${entity.contents }</textarea>
                   </div>
               </div>
 		

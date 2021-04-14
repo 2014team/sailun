@@ -1,7 +1,9 @@
 package com.sailun.service;
- 
-public abstract class CreateFileSerivce {
+
+import com.sailun.constant.PageConfigEnum;
+
+public interface CreateFileSerivce {
 	
-	public abstract void createFile() ;
+	public void createFile(PageConfigEnum pageConfigEnum) ;
 	
 }

@@ -1,39 +1,33 @@
 
 package com.sailun.constant;
 
-/**
- * @ClassName: MenuTypeEnum
- * @Description: 菜单按钮类型
- * @author zhuzq
- * @date 2020年4月16日 下午3:46:06
- */
-public enum MenuTypeEnum {
-	MENU(0, "菜单"), // 菜单
-	BUTtON(1, "按钮"),// 按钮
-	;
 
-	private Integer value;
+public enum PageConfigEnum {
+	INDEX_BANNER(100, "首页Banner"), // 首页Banner
+	INDEX_PRODUCT(200, "首页产品"),// 首页产品
+	;
+	private int value;
 	// 显示名称
 	private String displayName;
 
-	MenuTypeEnum(int value, String displayName) {
+	PageConfigEnum(int value, String displayName) {
 		this.value = value;
 		this.displayName = displayName;
 	}
 
 	public static String getNameByValue(Integer value) {
-		PageConfigEnum type = getByValue(value);
+		MenuTypeEnum type = getByValue(value);
 		return null == type ? "" : type.name();
 	}
 
 	public static String getDisplayNameByValue(Integer value) {
-		PageConfigEnum type = getByValue(value);
+		MenuTypeEnum type = getByValue(value);
 		return null == type ? "" : type.getDisplayName();
 	}
 
-	public static PageConfigEnum getByValue(Integer value) {
+	public static MenuTypeEnum getByValue(Integer value) {
 		if (null != value) {
-			for (PageConfigEnum type : PageConfigEnum.values()) {
+			for (MenuTypeEnum type : MenuTypeEnum.values()) {
 				if (type.getValue() == value) {
 					return type;
 				}
@@ -42,9 +36,9 @@ public enum MenuTypeEnum {
 		return null;
 	}
 
-	public static Integer getValueByName(String name) {
+	public static int getValueByName(String name) {
 		if (null != name && "".equals(name.trim())) {
-			MenuTypeEnum type = MenuTypeEnum.valueOf(name);
+			PageConfigEnum type = PageConfigEnum.valueOf(name);
 			return null == type ? 0 : type.value;
 		}
 		return 0;

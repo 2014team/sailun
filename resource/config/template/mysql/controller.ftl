@@ -15,7 +15,7 @@ import ${voPackageName}.${table.className?cap_first}Vo;
 import ${servicePackageName}.${table.className?cap_first}Service;
 import ${entityCommonPackage}.JsonResult;
 import ${entityCommonPackage}.AdminResultByPage;
-import com.sailun.admin.annotation.AdminControllerLog;
+import com.sailun.annotation.AdminControllerLog;
 
 /**
  * @ClassName: ${table.className?cap_first}Controller
@@ -39,7 +39,7 @@ public class ${table.className?cap_first}Controller {
 	 */
 	@AdminControllerLog(description="${description}保存")
 	@ResponseBody
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/save", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/save", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult save(${table.className?cap_first}Vo ${table.className?uncap_first}Vo) {
 		JsonResult result = new JsonResult();
 
@@ -77,7 +77,7 @@ public class ${table.className?cap_first}Controller {
 	 */
 	@AdminControllerLog(description="${description}删除")
 	@ResponseBody
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/delete", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult delete(Integer ${table.key_fields[0].java_field_Name}) {
 		JsonResult result = new JsonResult();
 
@@ -107,7 +107,7 @@ public class ${table.className?cap_first}Controller {
 	 */
 	@AdminControllerLog(description="${description}批量删除")
 	@ResponseBody
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/batch/delete", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/batch/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult deleteByIdArr(@RequestParam("${table.key_fields[0].java_field_Name}Arr[]") Integer[] ${table.key_fields[0].java_field_Name}Arr) {
 		JsonResult result = new JsonResult();
 		// 验证参数
@@ -136,7 +136,7 @@ public class ${table.className?cap_first}Controller {
 	 */
 	@AdminControllerLog(description="${description}修改")
 	@ResponseBody
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/update", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/update", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult update(${table.className?cap_first}Vo ${table.className?uncap_first}Vo) {
 		JsonResult result = new JsonResult();
 
@@ -179,7 +179,7 @@ public class ${table.className?cap_first}Controller {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/list", method = { RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/list", method = { RequestMethod.POST })
 	public AdminResultByPage list(${table.className?cap_first}Vo ${table.className?uncap_first}Vo, HttpServletRequest request) {
 
 		Integer page = Integer.valueOf(request.getParameter("page"));
@@ -199,9 +199,9 @@ public class ${table.className?cap_first}Controller {
 	 * @date ${dateTime}
 	 * @return
 	 */
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/list/ui", method = { RequestMethod.GET })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/list/ui", method = { RequestMethod.GET })
 	public String toList() {
-		return "/${controllerApiPrefix}/center/${table.className?uncap_first}/${table.className?uncap_first}_list";
+		return "/${jspPrefix}/center/${table.className?uncap_first}/${table.className?uncap_first}_list";
 	}
 
 	/**
@@ -213,14 +213,14 @@ public class ${table.className?cap_first}Controller {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/edit", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/edit", method = { RequestMethod.GET, RequestMethod.POST })
 	public String edit(Integer ${table.key_fields[0].java_field_Name}, HttpServletRequest request) {
 		// 编辑,为空新增
 		if (null != ${table.key_fields[0].java_field_Name}) {
 			${table.className?cap_first}Dto entity = ${table.className?uncap_first}Service.get${table.className?cap_first}(${table.key_fields[0].java_field_Name});
 			request.setAttribute("entity", entity);
 		}
-		return "/${controllerApiPrefix}/center/${table.className?uncap_first}/${table.className?uncap_first}_edit";
+		return "/${jspPrefix}/center/${table.className?uncap_first}/${table.className?uncap_first}_edit";
 	}
 	
 	/**
@@ -232,7 +232,7 @@ public class ${table.className?cap_first}Controller {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/${controllerApiPrefix}/center/${table.className?uncap_first}/get", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/${jspPrefix}/center/${table.className?uncap_first}/get", method = { RequestMethod.GET, RequestMethod.POST })
 	public JsonResult get(Integer ${table.key_fields[0].java_field_Name}) {
 
 		JsonResult result = new JsonResult();

@@ -99,6 +99,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 		 m.setMenuUrl(menu.getMenuName()+"/"+msg);
 		 m.setMenuType(MenuTypeEnum.BUTtON.getValue());
 		 m.setParentId(menu.getMenuId()+"");
+		 m.setSortId(1);
 		 Integer save =  menuDao.save(m);
 		 logger.info("创建子菜单save="+save);
 		 
@@ -131,10 +132,18 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 				m.setMenuUrl(menu.getMenuName()+"/"+msg);
 				m.setMenuType(MenuTypeEnum.BUTtON.getValue());
 				m.setParentId(menu.getMenuId()+"");
+				m.setSortId(menu.getSortId());
 				Integer save =  menuDao.save(m);
-				logger.info("创建子菜单save="+save);
+				logger.info("修改子菜单save="+save);
 			}else{
-				logger.info("已创建子菜单");
+				m.setMenuName(menu.getMenuName()+"/"+msg);
+				m.setMenuUrl(menu.getMenuName()+"/"+msg);
+				m.setMenuType(MenuTypeEnum.BUTtON.getValue());
+				m.setParentId(menu.getMenuId()+"");
+				m.setSortId(menu.getSortId());
+				Integer save =  menuDao.update(m);
+				
+				logger.info("修改子菜单");
 				
 			}
 		}else if(flag == 2 || flag == 0){

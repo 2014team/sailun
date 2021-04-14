@@ -18,7 +18,7 @@ import ${serviceImplCommonPackageName}.BaseServiceImpl;
 import ${voPackageName}.${table.className?cap_first}Vo;
 import ${dtoPackageName}.${table.className?cap_first}Dto;
 import ${entityCommonPackage}.AdminResultByPage;
-import com.sailun.admin.annotation.AdminServiceLog;
+import com.sailun.annotation.AdminServiceLog;
 
 /**
  * @ClassName: ${table.className?cap_first}ServiceImpl
