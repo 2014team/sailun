@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import com.sailun.annotation.AdminServiceLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.service.impl.BaseServiceImpl;
-import com.sailun.common.util.LogUtil;
 import com.sailun.constant.ValidFlagEnum;
 import com.sailun.dao.RoleDao;
 import com.sailun.dao.UserDao;
@@ -23,6 +22,7 @@ import com.sailun.domain.entity.Role;
 import com.sailun.domain.entity.User;
 import com.sailun.domain.vo.UserVo;
 import com.sailun.service.UserService;
+import com.sailun.util.LogUtil;
 
 /**
  * @ClassName: UserServiceImpl

@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sailun.admin.controller.ContactController;
-import com.sailun.common.util.CreateFileUtil;
 import com.sailun.constant.StatusEnum;
 import com.sailun.dao.BannerDao;
 import com.sailun.domain.entity.Banner;
 import com.sailun.service.CreateFileSerivce;
+import com.sailun.util.CreateFileUtil;
 
 @Service
 public class BannerCreateFileServiceImpl extends CreateFileSerivce{

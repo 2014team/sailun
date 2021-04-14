@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sailun.common.util.SessionUtil;
 import com.sailun.domain.dto.UserDto;
+import com.sailun.util.SessionUtil;
 
 
 @Controller

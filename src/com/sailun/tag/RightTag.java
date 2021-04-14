@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.tags.RequestContextAwareTag;
 
-import com.sailun.common.util.LogUtil;
-import com.sailun.common.util.SessionUtil;
 import com.sailun.domain.dto.UserDto;
 import com.sailun.service.RightService;
+import com.sailun.util.LogUtil;
+import com.sailun.util.SessionUtil;
 
 public class RightTag extends RequestContextAwareTag {
 

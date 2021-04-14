@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.sailun.common.util.SpringConfigUtil;
 import com.sailun.domain.entity.NewsType;
 import com.sailun.service.NewsTypeService;
+import com.sailun.util.SpringConfigUtil;
 
 public class NewsTypeTag {
 

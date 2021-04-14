@@ -19,14 +19,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.sailun.common.util.GsonUtil;
-import com.sailun.common.util.LogUtil;
-import com.sailun.common.util.SessionUtil;
-import com.sailun.common.util.ToolsUtil;
 import com.sailun.constant.LogTypeEnum;
 import com.sailun.domain.dto.UserDto;
 import com.sailun.domain.entity.Log;
 import com.sailun.service.LogService;
+import com.sailun.util.GsonUtil;
+import com.sailun.util.LogUtil;
+import com.sailun.util.SessionUtil;
+import com.sailun.util.ToolsUtil;
 
 /**
  * @ClassName: AdminLogAspect

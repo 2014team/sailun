@@ -1,4 +1,4 @@
-package com.sailun.common.util;
+package com.sailun.util;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;

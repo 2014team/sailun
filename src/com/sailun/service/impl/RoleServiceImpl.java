@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 import com.sailun.annotation.AdminServiceLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.service.impl.BaseServiceImpl;
-import com.sailun.common.util.LogUtil;
-import com.sailun.common.util.ToolsUtil;
 import com.sailun.dao.RoleDao;
 import com.sailun.domain.dto.RoleDto;
 import com.sailun.domain.entity.Role;
 import com.sailun.domain.vo.RoleVo;
 import com.sailun.service.RoleService;
+import com.sailun.util.LogUtil;
+import com.sailun.util.ToolsUtil;
 
 /**
  * @ClassName: RoleServiceImpl

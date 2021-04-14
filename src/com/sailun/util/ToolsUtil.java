@@ -1,5 +1,5 @@
 
-package com.sailun.common.util;
+package com.sailun.util;
 
 import java.net.InetAddress;
 import java.net.URL;

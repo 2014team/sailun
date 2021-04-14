@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sailun.common.util.HttpUtil;
 import com.sailun.constant.UploadPathEnum;
 import com.sailun.service.ImageService;
+import com.sailun.util.HttpUtil;
 
 import net.sf.json.JSONObject;
 

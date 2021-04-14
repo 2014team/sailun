@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sailun.annotation.AdminControllerLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.entity.JsonResult;
-import com.sailun.common.util.GsonUtil;
-import com.sailun.common.util.ToolsUtil;
 import com.sailun.domain.dto.MenuTreeDto;
 import com.sailun.domain.dto.RoleDto;
 import com.sailun.domain.vo.RoleVo;
 import com.sailun.service.MenuService;
 import com.sailun.service.RoleService;
+import com.sailun.util.GsonUtil;
+import com.sailun.util.ToolsUtil;
 
 /**
  * @ClassName: RoleController

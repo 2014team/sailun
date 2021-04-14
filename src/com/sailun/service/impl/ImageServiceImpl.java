@@ -16,12 +16,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sailun.common.util.DateUtil;
-import com.sailun.common.util.ImageUtil;
-import com.sailun.common.util.UploadUtil;
 import com.sailun.constant.ImagePrefixNameEnum;
 import com.sailun.constant.ImageSuffixNameEnum;
 import com.sailun.service.ImageService;
+import com.sailun.util.DateUtil;
+import com.sailun.util.ImageUtil;
+import com.sailun.util.UploadUtil;
 
 import net.coobird.thumbnailator.Thumbnails;
 

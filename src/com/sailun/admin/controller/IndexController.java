@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sailun.annotation.AdminControllerAfterLog;
 import com.sailun.common.entity.JsonResult;
-import com.sailun.common.util.SessionUtil;
 import com.sailun.domain.dto.MenuDto;
 import com.sailun.domain.dto.UserDto;
 import com.sailun.domain.vo.UserVo;
 import com.sailun.service.MenuService;
 import com.sailun.service.RightService;
 import com.sailun.service.UserService;
+import com.sailun.util.SessionUtil;
 
 /**
  * @ClassName: indexController

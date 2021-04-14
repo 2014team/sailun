@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sailun.common.util.LogUtil;
-import com.sailun.common.util.SessionUtil;
 import com.sailun.domain.dto.UserDto;
+import com.sailun.util.LogUtil;
+import com.sailun.util.SessionUtil;
 
 /**
  * @ClassName: LoginInterceptor

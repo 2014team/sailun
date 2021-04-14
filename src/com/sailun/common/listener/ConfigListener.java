@@ -4,8 +4,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import com.sailun.common.util.LogUtil;
-import com.sailun.common.util.PropertiesUtil;
+import com.sailun.util.LogUtil;
+import com.sailun.util.PropertiesUtil;
 
 @Component
 public class ConfigListener implements ApplicationListener<ContextRefreshedEvent> {

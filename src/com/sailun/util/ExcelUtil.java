@@ -1,4 +1,4 @@
-package com.sailun.common.util;
+package com.sailun.util;
 
 import java.io.BufferedOutputStream;
 import java.io.OutputStream;

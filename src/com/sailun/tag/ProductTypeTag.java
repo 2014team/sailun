@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.sailun.common.util.SpringConfigUtil;
 import com.sailun.domain.entity.ProductType;
 import com.sailun.service.ProductTypeService;
+import com.sailun.util.SpringConfigUtil;
 
 public class ProductTypeTag {
 

@@ -1,4 +1,4 @@
-package com.sailun.common.util;
+package com.sailun.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

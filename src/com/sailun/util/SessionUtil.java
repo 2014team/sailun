@@ -1,5 +1,5 @@
 
-package com.sailun.common.util;
+package com.sailun.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
