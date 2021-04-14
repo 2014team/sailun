@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
- <div class="products_banner flex-box">
+
                                 <div class="flex-item banner-anime">
                                     <a href="pdetail.html">
                                         <div class="image">
@@ -130,16 +130,4 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="flex-item banner-anime">
-                                    <a href="pdetail.html">
-                                        <div class="image">
-                                            <img src="/web/img/products_13.jpg" alt="COLOR TENT">
-                                        </div>
-                                        <div class="contents-hover">
-                                            <div class="products_desc">
-                                                <h4 class="radicon-page">SCHOLARSHIP 2021</h4>
-                                                <p>VALINOスカラシップ制度2021応募のご案内</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                

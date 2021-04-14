@@ -103,6 +103,7 @@
                                 <span class="text-en">PRODUCTS</span>
                                 <span class="text-ja">产品一览</span>
                             </h2>
+                             <div class="products_banner flex-box">
                             	<!-- 产品展示 -->
                            		<%@include file="/WEB-INF/page/web/common/product.jsp" %>	
                             </div>

@@ -67,6 +67,19 @@
 			<bean class="com.sailun.interceptor.IndexBannerInterceptor"></bean>
 		</mvc:interceptor>
 		
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/center/product/save" />
+			<mvc:mapping path="/admin/center/product/delete" />
+			<mvc:mapping path="/admin/center/product/update" />
+			<mvc:mapping path="/admin/center/product/batch/delete" />
+			
+			<mvc:mapping path="/admin/center/pageCreate/save" />
+			<mvc:mapping path="/admin/center/pageCreate/delete" />
+			<mvc:mapping path="/admin/center/pageCreate/update" />
+			<mvc:mapping path="/admin/center/pageCreate/batch/delete" />
+			<bean class="com.sailun.interceptor.IndexProductInterceptor"></bean>
+		</mvc:interceptor>
+		
 		
 	</mvc:interceptors>
 	

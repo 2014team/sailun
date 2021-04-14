@@ -9,13 +9,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.constant.PageConfigEnum;
 import com.sailun.constant.StatusEnum;
 import com.sailun.dao.BannerDao;
 import com.sailun.dao.PageCreateDao;
+import com.sailun.dao.ProductDao;
 import com.sailun.domain.entity.Banner;
 import com.sailun.domain.entity.PageCreate;
-import com.sailun.generator.util.Tools;
+import com.sailun.domain.entity.Product;
+import com.sailun.domain.vo.ProductVo;
 import com.sailun.service.CreateFileSerivce;
 import com.sailun.util.CreateFileUtil;
 import com.sailun.util.FileUtil;
@@ -32,6 +35,8 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 	
 	@Autowired
 	private PageCreateDao pageCreateDao;
+	@Autowired
+	private ProductDao productDao;
 	
 	
 	
@@ -47,21 +52,49 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 		// 首页Banner
 		if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.INDEX_BANNER.getValue()))){
 			indexBannerCreateFile(pageConfigEnum);
+		}else if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.INDEX_PRODUCT.getValue()))){
+			indexProductCreateFile(pageConfigEnum);
 		}
 		
 	}
 	
-	public void indexBannerCreateFile(PageConfigEnum pageConfigEnum) {
-		
+	public void indexProductCreateFile(PageConfigEnum pageConfigEnum) {
 		Map<String,Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("status", StatusEnum.ON.getValue());
-		List<Banner> bannerList = bannerDao.select(paramMap);
-		if(null == bannerList || bannerList.size() < 1){
-			logger.info("没有要生成的Banner图片");
+		
+		
+		Integer page = 1;
+		Integer limit = 12;
+		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
+		ProductVo productVo = new ProductVo();
+		productVo.setStatus(StatusEnum.ON.getValue());
+		paramMap.put("productVo", productVo);
+		paramMap.put("page", jsonResult);
+		
+		List<Product> list = productDao.findByPage(paramMap);
+		if(null == list || list.size() < 1){
+			logger.info("没有要生成产品图片");
 			return ;
 		}
 		
+		createFile(list, pageConfigEnum);
 		
+		
+	}
+
+	public void indexBannerCreateFile(PageConfigEnum pageConfigEnum) {
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("status", StatusEnum.ON.getValue());
+		List<Banner> list = bannerDao.select(paramMap);
+		if(null == list || list.size() < 1){
+			logger.info("没有要生成的Banner图片");
+			return ;
+		}
+		createFile(list, pageConfigEnum);
+		
+	}
+	
+	
+	private void createFile(List list ,PageConfigEnum pageConfigEnum){
 		// 获取配置
 		Map<String,Object> configParamMap = new HashMap<String, Object>();
 		configParamMap.put("code",pageConfigEnum.getValue());
@@ -73,7 +106,7 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 		
 		// 数据封装
 		Map<String,Object> dataMap =new HashMap<String, Object>();
-		dataMap.put("listItem", bannerList);
+		dataMap.put("listItem", list);
 		try {
 			// 模板路径
 			String templateName =  ToolsUtil.getWebRoot() + pageCreate.getTemplatePath();
@@ -93,7 +126,6 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 
