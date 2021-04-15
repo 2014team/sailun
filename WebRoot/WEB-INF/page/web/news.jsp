@@ -6,7 +6,8 @@
 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
 	
 	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
-	<script type="text/javascript" src="/web/sailun/js/news.js?t=<%=new java.util.Date().getTime() %>"></script>
+	<script type="text/javascript" src="/web/sailun/js/news.js"></script>
+	<script type="text/javascript" src="/web/sailun/js/page.js?t=<%=new java.util.Date().getTime() %>"></script>
 
 </head>
 
@@ -42,40 +43,13 @@
 					</ul>
 				</div>
 			</aside>
-			<div id="fh5co-work-section">
-				<section id="onlinestore">
-					<div class="sec-inner inner-width inner-mid-width">
-						<div class="h2Title-block">
-							<h2 class="h2Title headline-anime">
-								<span class="text-en">NEWS</span>
-								<span class="text-ja">新闻中心</span>
-							</h2>
-						</div>
-						<div class="onlinestore flex-box" id="news_list">
-							
-							<%@include file="/WEB-INF/page/web/common/news_list.jsp" %>
-							
-							
-						</div>
-					</div>
-				</section>
+			
+
+			<div id="list_div">
+				<!-- 分页数据列表 -->
+				<%@include file="/WEB-INF/page/web/news_list.jsp" %>
 			</div>
-			<div style="text-align: center;">
-				<div id="pager" class="pager clearfix">
-					<a class="pg-first" page-id="1"></a>
-					<a class="pg-prev" page-id="0" disabled="true"></a>
-					<span class="current" page-id="1">1</span>
-					<a page-id="2">2</a>
-					<a page-id="3">3</a>
-					<a page-id="4">4</a>
-					<a page-id="5">5</a>
-					<a page-id="6">6</a>
-					<a page-id="7">7</a>
-					<span class="els">...</span>
-					<a class="pg-next" page-id="2"></a>
-					<a class="pg-last" page-id="10"></a>
-				</div>
-			</div>
+			
 			<!-- フッター部インクルード ここから -->
 			<div id="footer">
 				<div class="container">

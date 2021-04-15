@@ -1,18 +1,5 @@
 
-
-
-function search(){
-	$.ajax({
-		url : "/news/type",
-		type : "get",
-		cache:false,
-		dataType : "text",
-		success : function(data) {
-			debugger
-			$("#news_list").html(data);
-		},
-		error : function(err) {
-		}
-	});
-	
-}
+$(function(){
+	//	初始化分页参数
+	initPageUrl('/news/search/by/page',4);
+})

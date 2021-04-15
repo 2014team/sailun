@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.constant.StatusEnum;
@@ -33,19 +34,24 @@ public class WebNewsController {
 	public String detail( NewsVo newsVo, HttpServletRequest request){
 		
 		newsVo.setStatus(StatusEnum.ON.getValue());
-		
 		Integer page = 1;
 		Integer limit = 4;
-		
 		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
-		
 		jsonResult = newsService.findByPage(newsVo, jsonResult);
 		request.setAttribute("result", jsonResult);
-		
 		return "/web/news";
 	}
 	
 	
+	/**
+	* @Title: detail
+	* @Description: 新闻详情
+	* @author zhuzq
+	* @date  2021年4月15日 下午9:07:44
+	* @param newsId
+	* @param request
+	* @return
+	*/
 	@RequestMapping("/news/detail/{newsId}")
 	public String detail(@PathVariable("newsId") String newsId, HttpServletRequest request){
 		if (StringUtils.isEmpty(newsId)) {
@@ -55,29 +61,45 @@ public class WebNewsController {
 
 		request.setAttribute("entity", entity);
 		
-		return "/web/news/news_detail";
+		return "/web/news_detail";
 	}
 	
 
 	
-	@RequestMapping("/news/type/{newsId}")
-	public String detail(@PathVariable("newsId") String newsId, NewsVo newsVo, HttpServletRequest request){
-		
-		if(StringUtils.isNotEmpty(newsId) && !"all".equals(newsId)){
-			newsVo.setNewsId(Integer.valueOf(newsId));
-		}
-		
+	/**
+	* @Title: detail
+	* @Description: 新闻分类
+	* @author zhuzq
+	* @date  2021年4月15日 下午9:08:02
+	* @param newsId
+	* @param newsVo
+	* @param request
+	* @return
+	*/
+	@RequestMapping("/news/type/{newsTypeId}")
+	public String detail(@PathVariable("newsTypeId") String newsTypeId, RedirectAttributes attr){
+		attr.addAttribute("newsTypeId", newsTypeId);
+		return "redirect:/news";
+	}
+	
+	
+	
+	/**
+	* @Title: searchByPage
+	* @Description: 分页查找
+	* @author zhuzq
+	* @date  2021年4月15日 下午10:14:30
+	* @param newsVo
+	* @param request
+	* @param page
+	* @return
+	*/
+	@RequestMapping("/news/search/by/page")
+	public String searchByPage(NewsVo newsVo, HttpServletRequest request,AdminResultByPage resultByPage){
 		newsVo.setStatus(StatusEnum.ON.getValue());
-		
-		Integer page = Integer.valueOf(request.getParameter("page"));
-		Integer limit = 4;
-
-		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
-
-		jsonResult = newsService.findByPage(newsVo, jsonResult);
-		request.setAttribute("result", jsonResult);
-		
-		return "/web/common/news_list";
+		resultByPage = newsService.findByPage(newsVo, resultByPage);
+		request.setAttribute("result", resultByPage);
+		return "/web/news_list";
 	}
 	
 	

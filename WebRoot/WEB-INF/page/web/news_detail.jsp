@@ -36,9 +36,9 @@
 
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-12 pnameeng"><span>这里是新闻的标题</span></div>
+					<div class="col-12 pnameeng"><span>${entity.title }</span></div>
 					<div class="col-sm-2"></div>
-					<div class="col-sm-8 pnamejp" style="margin-bottom:0;"> ADVANTI RACING WHEELは自動車レースの世界最高峰、F1 GRAND PRIXに於いて2009年よりScuderia Toro Rossoへホイール供給を開始し、2013年からはMercedes-AMG F1 Teamにも供給。Mercedes-AMG F1Teamのルイス・ハミルトン選手、ニコ・ロズベルグ選手のF1ワールドチャンピオン獲得を足元で支えてきました。一切の妥協が許されないF1の世界でトップコンテンダーを支える為に磨いてきた技術は、文字通り世界最高峰。そんな圧倒的な技術を誇るADVANTI RACINGとのコラボレーションモデルとしてVALINO Bushou[武将]ホイールシリーズは誕生しました。世界の舞台で認められた品質を、魅力的なモデルと価格であなたへ。あなたのすべてのシーンにおける安全性と安心感を足元から演出します。 </div>
+					<div class="col-sm-8 pnamejp" style="margin-bottom:0;">${entity.content }</div>
 					<div class="col-sm-2"></div>
 				</div>
 			</div>

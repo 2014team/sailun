@@ -152,8 +152,8 @@ public class NewsServiceImpl extends BaseServiceImpl<News,Integer>  implements N
 		if (count > 0) {
 			List<NewsDto> newsList = newsDao.findListByPage(paramMap);
 			jsonResult.setData(newsList);
-			jsonResult.setCount(count);
 		}
+		jsonResult.setCount(count);
 		return jsonResult;
 	}
 
