@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+  	<%@ taglib uri="/WEB-INF/tag/newsType.tld" prefix="nt" %>
+  	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="fh5co-header">
 	<header id="fh5co-header-section">
 		<div class="clearfix">
@@ -12,9 +14,9 @@
 						<li><a href="/"><b>网站首页</b></a></li>
 						<li><a href="/news" class="fh5co-sub-ddown"><b>资讯发布</b></a>
 							<ul class="fh5co-sub-menu">
-								<li><a href="./news.html"><b>品牌新闻</b></a></li>
-								<li><a href="./news.html"><b>赛事新闻</b></a></li>
-								<li><a href="./news.html"><b>快讯</b></a></li>
+							 <c:forEach items="${nt:getList()}" var="item">
+									<li><a href="/news/type/${item.newsTypeId}"><b>${item.typeName}</b></a></li>
+				          	</c:forEach> 
 							</ul></li>
 						<li><a href="/product" class="fh5co-sub-ddown"><b>产品展示</b></a>
 							<ul class="fh5co-sub-menu">

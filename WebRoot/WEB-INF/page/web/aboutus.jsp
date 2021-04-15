@@ -33,7 +33,7 @@
 			</aside>
 			<div id="fh5co-work-section">
 				<div class="container">
-					关于我们的内容
+					${entity.content }
 				</div>
 			</div>
 			

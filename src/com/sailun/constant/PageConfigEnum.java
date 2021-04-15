@@ -3,8 +3,11 @@ package com.sailun.constant;
 
 
 public enum PageConfigEnum {
-	INDEX_BANNER(100, "首页Banner"), // 首页Banner
-	INDEX_PRODUCT(200, "首页产品"),// 首页产品
+	
+	INDEX_BANNER(100, "banner"), // 首页Banner
+	INDEX_PRODUCT(200, "product"),// 首页产品
+	DRIVER_DRIVER(300, "driver"),// 车手
+	PAGECREATE(1000, "pageCreate"),
 	;
 	private int value;
 	// 显示名称
@@ -16,18 +19,18 @@ public enum PageConfigEnum {
 	}
 
 	public static String getNameByValue(Integer value) {
-		MenuTypeEnum type = getByValue(value);
+		PageConfigEnum type = getByValue(value);
 		return null == type ? "" : type.name();
 	}
 
 	public static String getDisplayNameByValue(Integer value) {
-		MenuTypeEnum type = getByValue(value);
+		PageConfigEnum type = getByValue(value);
 		return null == type ? "" : type.getDisplayName();
 	}
 
-	public static MenuTypeEnum getByValue(Integer value) {
+	public static PageConfigEnum getByValue(Integer value) {
 		if (null != value) {
-			for (MenuTypeEnum type : MenuTypeEnum.values()) {
+			for (PageConfigEnum type : PageConfigEnum.values()) {
 				if (type.getValue() == value) {
 					return type;
 				}

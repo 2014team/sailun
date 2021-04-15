@@ -97,6 +97,7 @@
 				,t.update_date AS updateDate
 			,tc.config_page_name as configPageName
  		 from t_page_create t left join t_page_config tc on t.page_config_id=tc.code
+ 		 where page_create_id = #{pageCreateId} 
 		 order by t.page_create_id ,t.create_date desc limit 1;
  	</select>
  	

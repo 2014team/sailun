@@ -55,30 +55,32 @@
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
+			<!-- 页面配置 -->
+			<mvc:mapping path="/admin/center/pageCreate/save" />
+			<mvc:mapping path="/admin/center/pageCreate/delete" />
+			<mvc:mapping path="/admin/center/pageCreate/update" />
+			<mvc:mapping path="/admin/center/pageCreate/batch/delete" />
+
+			<!--banner  -->
 			<mvc:mapping path="/admin/center/banner/save" />
 			<mvc:mapping path="/admin/center/banner/delete" />
 			<mvc:mapping path="/admin/center/banner/update" />
 			<mvc:mapping path="/admin/center/banner/batch/delete" />
 			
-			<mvc:mapping path="/admin/center/pageCreate/save" />
-			<mvc:mapping path="/admin/center/pageCreate/delete" />
-			<mvc:mapping path="/admin/center/pageCreate/update" />
-			<mvc:mapping path="/admin/center/pageCreate/batch/delete" />
-			<bean class="com.sailun.interceptor.IndexBannerInterceptor"></bean>
-		</mvc:interceptor>
-		
-		<mvc:interceptor>
+			<!-- product -->
 			<mvc:mapping path="/admin/center/product/save" />
 			<mvc:mapping path="/admin/center/product/delete" />
 			<mvc:mapping path="/admin/center/product/update" />
 			<mvc:mapping path="/admin/center/product/batch/delete" />
 			
-			<mvc:mapping path="/admin/center/pageCreate/save" />
-			<mvc:mapping path="/admin/center/pageCreate/delete" />
-			<mvc:mapping path="/admin/center/pageCreate/update" />
-			<mvc:mapping path="/admin/center/pageCreate/batch/delete" />
-			<bean class="com.sailun.interceptor.IndexProductInterceptor"></bean>
-		</mvc:interceptor>
+			<!-- driver -->
+			<mvc:mapping path="/admin/center/driver/save" />
+			<mvc:mapping path="/admin/center/driver/delete" />
+			<mvc:mapping path="/admin/center/driver/update" />
+			<mvc:mapping path="/admin/center/driver/batch/delete" />
+			
+			<bean class="com.sailun.interceptor.CreateFileInterceptor"></bean>
+		</mvc:interceptor> 
 		
 		
 	</mvc:interceptors>

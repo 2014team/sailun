@@ -6,6 +6,7 @@
   	<link rel="stylesheet" href="/admin/css/list.css?t=<%=new java.util.Date().getTime() %>">
   	<script type="text/javascript" src="/admin/js/news_list.js?t=<%=new java.util.Date().getTime() %>"></script>
   	<%@ taglib uri="/WEB-INF/tag/newsType.tld" prefix="nt" %>
+  	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   </head>
   
    <body>

@@ -4,6 +4,9 @@
  <head>
 	<%@include file="/WEB-INF/page/web/common/meta.jsp" %>
 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
+	
+	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
+	<script type="text/javascript" src="/web/sailun/js/news.js?t=<%=new java.util.Date().getTime() %>"></script>
 
 </head>
 
@@ -48,40 +51,11 @@
 								<span class="text-ja">新闻中心</span>
 							</h2>
 						</div>
-						<div class="onlinestore flex-box">
-							<div class="flex-item banner-anime">
-								<a href="/news/detail" target="_blank">
-									<div class="image">
-										<img src="/web/img/valino_TOKYO.jpg" alt="VALINO TIRES">
-									</div>
-									<div class="text">
-										<h4>Honda中国2021年3月汽车销量同比暴涨150.2%</h4>
-										<p>Honda发布2021年3月在中国的终端汽车销量。2021年3月Honda在中国的终端汽车销量为151218辆，同比暴涨150.2%。其中广汽本田3月终端销量为76203辆，东风本田3月终端销量为75015辆。</p>
-									</div>
-								</a>
-							</div>
-							<div class="flex-item banner-anime">
-								<a href="ndetail.html" target="_blank">
-									<div class="image">
-										<img src="/web/img/banner_01.jpg" alt="">
-									</div>
-									<div class="text">
-										<h4>隔热板缺陷 逾19万辆国产奥迪A6L召回</h4>
-										<p>日前，一汽-大众汽车有限公司根据《缺陷汽车产品召回管理条例》和《缺陷汽车产品召回管理条例实施办法》的要求，向国家市场监督管理总局备案了召回计划。决定自2021年4月16日起召回部分国产A6L，共191981辆。</p>
-									</div>
-								</a>
-							</div>
-							<div class="flex-item banner-anime">
-								<a href="ndetail.html" target="_blank">
-									<div class="image">
-										<img src="/web/img/banner_04.jpg" alt="">
-									</div>
-									<div class="text">
-										<h4>上汽荣威3月汽车销量发布 同比大涨65%</h4>
-										<p>上汽荣威3月热销超3.3万辆，同比上涨65%，创历年新高!热门车型荣威i5销量继续破万，助力荣威i系列热销1.7万辆、同比增长89%;荣威RX5系列热销近万辆，同比增长11%，成为当之无愧的SUV销量王;荣威iMAX8继续发力，环比大涨148%，稳居自主品牌高端MPV前列;上汽科莱威CLEVER热销3668辆，推动新能源整体销量突破万辆大关，环比劲增141%，持续领跑自主品牌新能源市场。</p>
-									</div>
-								</a>
-							</div>
+						<div class="onlinestore flex-box" id="news_list">
+							
+							<%@include file="/WEB-INF/page/web/common/news_list.jsp" %>
+							
+							
 						</div>
 					</div>
 				</section>

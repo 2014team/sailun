@@ -98,7 +98,8 @@
                     	内容介绍：
                   </label>
                   <div class="layui-input-block" >
-                      <script id="container" name="content" type="text/plain">${entity.content}</script>
+                      <span id="daily_content" style="display: none">${entity.content}</span>
+                      <script id="container" name="content" type="text/plain"></script>
                   </div>
               </div>
 		

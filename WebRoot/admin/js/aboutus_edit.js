@@ -4,16 +4,22 @@ const UPDATE = getAminUrl('admin/CENTER/ABOUTUS/UPDATE');
 const SAVE = getAminUrl('admin/CENTER/ABOUTUS/SAVE');
 
 
-/*实例化编辑器 */
-var ue = UE.getEditor('container', {
-	 /*initialFrameWidth:$(window).width()  //初始化编辑器宽度,默认1000
-    ,initialFrameHeight:$(window).height() -50  //初始化编辑器高度,默认320
-    fullscreen : true
-*/	/*fullscreen : true*/});
 
+var ue;
 $(function(){
 	//回显Select选值	
 	echoSelect();
+	/*实例化编辑器 */
+	ue = UE.getEditor('container', {
+	});
+	
+	
+	ue.addListener("ready", function () {
+		var content =$('#daily_content').html();
+        // editor准备好之后才可以使用
+        ue.setContent(content);
+ 
+        });
 	
 });
 

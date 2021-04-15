@@ -3,11 +3,7 @@ const UPDATE = getAminUrl('admin/CENTER/PRODUCT/UPDATE');
 /*保存*/
 const SAVE = getAminUrl('admin/CENTER/PRODUCT/SAVE');
 
-/*实例化编辑器 */
-var ue = UE.getEditor('container', {
-	 initialFrameHeight: 200
-	});
-
+var ue;
 $(function(){
 	//回显Select选值	
 	echoSelect();
@@ -16,7 +12,23 @@ $(function(){
 	if(imageUrl){
 	 $('.layui-upload-drag').html('<img class="layui-upload-img" src="'+imageUrl+'">')
 	}
+	
+	/*实例化编辑器 */
+	ue = UE.getEditor('container', {
+		initialFrameHeight: 200
+	});
+	
+	
+	ue.addListener("ready", function () {
+		var content =$('#daily_content').html();
+        // editor准备好之后才可以使用
+        ue.setContent(content);
+ 
+        });
+
 });
+
+
 
 var files = "";
 /*初始化layui*/
@@ -39,7 +51,7 @@ layui.use([ 'form', 'layer','upload','layedit' ], function() {
 	 upload.render({
 		    elem: '#upload_image_Id'
 		    /* ,url: '/upload/' */
-		     ,size: 1024 //限制文件大小，单位 KB
+		     ,size: 1024 * 5 //限制文件大小，单位 KB
 		    ,auto:false
 		    ,choose: function(obj){
 		      //预读本地文件示例，不支持ie8

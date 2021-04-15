@@ -3,11 +3,8 @@ const UPDATE = getAminUrl('admin/CENTER/NEWS/UPDATE');
 /*保存*/
 const SAVE = getAminUrl('admin/CENTER/NEWS/SAVE');
 
-/*实例化编辑器 */
-var ue = UE.getEditor('container', {
-	 initialFrameHeight: 200
-	});
 
+var ue;
 $(function(){
 	//回显Select选值	
 	echoSelect();
@@ -16,6 +13,19 @@ $(function(){
 	if(imageUrl){
 	 $('.layui-upload-drag').html('<img class="layui-upload-img" src="'+imageUrl+'">')
 	}
+	
+	/*实例化编辑器 */
+	ue = UE.getEditor('container', {
+		initialFrameHeight: 200
+	});
+	
+	
+	ue.addListener("ready", function () {
+		var content =$('#daily_content').html();
+        // editor准备好之后才可以使用
+        ue.setContent(content);
+ 
+        });
 });
 
 var files = "";

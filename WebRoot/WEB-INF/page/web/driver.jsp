@@ -50,56 +50,10 @@
 								<span class="text-ja">车手介绍</span>
 							</h2>
 							<div class="link flex-box">
-								<div class="flex-item banner-anime">
-									<a href="/detail/detail" target="_blank">
-										<div class="image">
-											<img src="/web/img/banner_02.jpg" alt="VALINO BASE">
-										</div>
-										<div class="text">
-											<p>
-												VALINO BASE
-												<br>Official Website
-											</p>
-										</div>
-									</a>
-								</div>
-								<div class="flex-item banner-anime">
-									<a href="ddetail.html" target="_blank">
-										<div class="image">
-											<img src="/web/img/banner_03.jpg" alt="VALINO INTERNATIONAL">
-										</div>
-										<div class="text">
-											<p>
-												VALINO
-												<br>INTERNATIONAL
-											</p>
-										</div>
-									</a>
-								</div>
-								<div class="flex-item banner-anime">
-									<a href="ddetail.html" target="_blank">
-										<div class="image">
-											<img src="/web/img/banner_05.jpg" alt="DIGICAM">
-										</div>
-										<div class="text">
-											<p>
-												DIGICAM
-											</p>
-										</div>
-									</a>
-								</div>
-								<div class="flex-item banner-anime">
-									<a href="ddetail.html" target="_blank">
-										<div class="image">
-											<img src="/web/img/banner_06.jpg" alt="Advanti Racing">
-										</div>
-										<div class="text">
-											<p>
-												Advanti Racing
-											</p>
-										</div>
-									</a>
-								</div>
+							
+								<%@include file="/WEB-INF/page/web/common/driver.jsp" %>
+								
+								
 							</div>
 						</div>
 					</div>

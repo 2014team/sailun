@@ -13,11 +13,14 @@ import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.constant.PageConfigEnum;
 import com.sailun.constant.StatusEnum;
 import com.sailun.dao.BannerDao;
+import com.sailun.dao.DriverDao;
 import com.sailun.dao.PageCreateDao;
 import com.sailun.dao.ProductDao;
 import com.sailun.domain.entity.Banner;
+import com.sailun.domain.entity.Driver;
 import com.sailun.domain.entity.PageCreate;
 import com.sailun.domain.entity.Product;
+import com.sailun.domain.vo.DriverVo;
 import com.sailun.domain.vo.ProductVo;
 import com.sailun.service.CreateFileSerivce;
 import com.sailun.util.CreateFileUtil;
@@ -37,6 +40,8 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 	private PageCreateDao pageCreateDao;
 	@Autowired
 	private ProductDao productDao;
+	@Autowired
+	private DriverDao driverDao;
 	
 	
 	
@@ -54,10 +59,33 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 			indexBannerCreateFile(pageConfigEnum);
 		}else if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.INDEX_PRODUCT.getValue()))){
 			indexProductCreateFile(pageConfigEnum);
+		}else if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.DRIVER_DRIVER.getValue()))){
+			driverCreateFile(pageConfigEnum);
 		}
 		
 	}
 	
+	public void driverCreateFile(PageConfigEnum pageConfigEnum) {
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		
+		Integer page = 1;
+		Integer limit = 4;
+		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
+		DriverVo driverVo = new DriverVo();
+		driverVo.setStatus(StatusEnum.ON.getValue());
+		paramMap.put("driverVo", driverVo);
+		paramMap.put("page", jsonResult);
+		
+		List<Driver> list = driverDao.findByPage(paramMap);
+		if(null == list || list.size() < 1){
+			logger.info("没有要生成车手图片");
+			return ;
+		}
+		
+		createFile(list, pageConfigEnum);
+		
+	}
+
 	public void indexProductCreateFile(PageConfigEnum pageConfigEnum) {
 		Map<String,Object> paramMap = new HashMap<String, Object>();
 		
@@ -97,7 +125,7 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 	private void createFile(List list ,PageConfigEnum pageConfigEnum){
 		// 获取配置
 		Map<String,Object> configParamMap = new HashMap<String, Object>();
-		configParamMap.put("code",pageConfigEnum.getValue());
+		configParamMap.put("pageConfigId",pageConfigEnum.getValue());
 		PageCreate pageCreate = pageCreateDao.getOneByMap(configParamMap);
 		if(null == pageCreate || StringUtils.isEmpty(pageCreate.getTemplatePath()) || StringUtils.isEmpty(pageCreate.getGeneratorFile()) || StringUtils.isEmpty(pageCreate.getTemplateContent())){
 			logger.info("没有找到相关配置");

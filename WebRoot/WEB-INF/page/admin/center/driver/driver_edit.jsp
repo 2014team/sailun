@@ -75,7 +75,8 @@
                   <div class="layui-input-block" >
                      <!--   <textarea id="content" style="display: none;">${entity.content}</textarea>-->	
                       <!-- 加载编辑器的容器 -->
-					<script id="container" name="content" type="text/plain">${entity.content}</script>
+                      <span id="daily_content" style="display: none">${entity.content}</span>
+					<script id="container" name="content" type="text/plain"></script>
                   </div>
               </div>
 		

@@ -16,9 +16,10 @@
           
           <div class="layui-form-item">
             <label class="layui-form-label">内容</label>
-            <div class="layui-input-block"> <input type="hidden" id="aboutusId" name="aboutusId" value="${entity.aboutusId}" />
+            <div class="layui-input-block">
           <!-- 加载编辑器的容器 -->
-			<script id="container" name="content" type="text/plain">${entity.content}</script></div>
+          <span id="daily_content" style="display: none">${entity.content}</span>
+			<script id="container" name="content" type="text/plain"></script></div>
           </div>
            
           <div class="layui-form-item layui-layout-admin">
