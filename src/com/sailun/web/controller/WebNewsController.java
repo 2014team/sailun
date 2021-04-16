@@ -33,7 +33,7 @@ public class WebNewsController {
 		
 		newsVo.setStatus(StatusEnum.ON.getValue());
 		Integer page = 1;
-		Integer limit = 4;
+		Integer limit = 10;
 		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		jsonResult = newsService.findByPage(newsVo, jsonResult);
 		request.setAttribute("result", jsonResult);

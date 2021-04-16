@@ -2,6 +2,8 @@ package com.sailun.common.entity;
 
 import java.io.Serializable;
 
+import org.apache.commons.lang.StringUtils;
+
 public class PageBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -23,9 +25,9 @@ public class PageBean implements Serializable{
 
 	protected int totalPages = 10; // 总的页数
 	
-	protected int step = 7; 			// 步长
+	protected int step = 10; 			// 步长
 	protected int stepBeginIndex = 1; 			// 
-	protected int stepEndIndex = 7; 			// 
+	protected int stepEndIndex = 10; 			// 
 
 	
 	public PageBean() {
@@ -100,11 +102,20 @@ public class PageBean implements Serializable{
 		int index = this.getStep();
 		if (this.getPage() <= index) {
 			stepBeginIndex = 1;
-		} else if ((this.getPage() + index) >= this.getTotalPages()) {
-			int begin = this.getTotalPages() - this.getStep();
-			stepBeginIndex = begin; // 如果小于0,责等于1
 		}else {
+			
 			int begin = this.getPage() - index;
+			int mod = this.getPage() % index;
+			if(mod == 1){
+				begin = this.getPage();
+			}else{
+				if(mod == 0){
+					begin = begin + 1 ; 
+				}else{
+					begin = this.getPage()+1 - mod ; 
+					
+				}
+			}
 			begin = begin > 0 ? begin : 1; // 如果小于0,责等于1
 			stepBeginIndex = begin;
 		}
@@ -120,10 +131,35 @@ public class PageBean implements Serializable{
 		if (this.getPage() <= index) {
 			stepEndIndex =this.getStep();
 		} else if ((this.getPage() + index) >= this.getTotalPages()) {
-			int end = this.getTotalPages();
-			stepEndIndex = end;
+			int mod = this.getPage() % index;
+			if(mod == 1 || String.valueOf(this.getPage()).equals(String.valueOf(this.getTotalPages()))){
+				int end = this.getTotalPages();
+				stepEndIndex = end;
+			}else{
+				int end = this.getPage() + index;
+				if(mod == 1){
+					end = this.getPage()-1 + index;
+				}else if(mod != 0){
+					end = this.getPage() - mod  + index ; 
+				}else if(mod == 0){
+					end = this.getPage();
+				}
+				
+				end = end > this.getTotalPages()? this.getTotalPages(): end;
+				stepEndIndex=end;
+			}
+			
 		}else {
 			int end = this.getPage() + index;
+			int mod = this.getPage() % index;
+			if(mod == 1){
+				end = this.getPage()-1 + index;
+			}else if(mod != 0){
+				end = this.getPage() - mod  + index ; 
+			}else if(mod == 0){
+				end = this.getPage();
+			}
+			
 			stepEndIndex=end;
 		}
 		return stepEndIndex;

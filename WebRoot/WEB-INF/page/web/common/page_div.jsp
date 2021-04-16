@@ -34,9 +34,10 @@
 						</c:otherwise>
 					</c:choose>	
 		</c:forEach>
-		<c:if test="${result.totalPages - result.page gt 7 }">
+		
+		<%--  <c:if test="${}">
 			<span class="els">...</span>
-		</c:if>
+		</c:if>  --%>
 		
 		<c:choose>
 			<c:when test="${result.page eq result.totalPages}">

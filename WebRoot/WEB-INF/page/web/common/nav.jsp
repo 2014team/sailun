@@ -7,7 +7,7 @@
 			<div class="nav-header">
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 				<h1 id="fh5co-logo">
-					<a href="index.html"><img src="/web/images/logo.png"></a>
+					<a href="/"><img src="/web/images/logo.png"></a>
 				</h1>
 				<nav id="fh5co-menu-wrap" role="navigation">
 					<ul class="sf-menu" id="fh5co-primary-menu">
