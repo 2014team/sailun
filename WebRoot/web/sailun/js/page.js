@@ -15,7 +15,7 @@ function searchByPage(page){
 			$("#list_div").html(data);
 		},
 		error : function(err) {
-			log.info(err)
+			console.log(err)
 		}
 	});
 	

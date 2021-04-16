@@ -1,9 +1,7 @@
 
 package com.sailun.common.entity;
 
-import java.io.Serializable;
-
-public class AdminResultByPage implements Serializable {
+public class AdminResultByPage extends PageBean {
 
 	private static final long serialVersionUID = 1L;
 
@@ -12,46 +10,14 @@ public class AdminResultByPage implements Serializable {
 	private String msg;
 
 	private Object data;
-
-	/**
-	 * 总的记录数
-	 */
-	private int count; // 总的记录数
-
-	/**
-	 * 页码
-	 */
-	private int page = 1;// 第几页
-
-	/**
-	 * 每页多少条
-	 */
-	private int limit = 10; // 每页多少条
-
-	private int totalPages = 10; // 总的页数
-
+	
 	public AdminResultByPage() {
-		super();
 	}
-
+	
 	public AdminResultByPage(int page, int limit) {
-		super();
-		this.page = page;
-		this.limit = limit;
+		super(page, limit);
 	}
-
-	public int getTotalPages() {
-
-		totalPages = totalPages < 1 ? 1 : totalPages;
-		totalPages = getCount() % getLimit() == 0 ? (getCount() / getLimit()) : (getCount() / getLimit() + 1);
-		return totalPages;
-	}
-
-	public void setTotalPages(int totalPages) {
-
-		this.totalPages = totalPages;
-	}
-
+	
 	public int getCode() {
 
 		return code;
@@ -82,41 +48,7 @@ public class AdminResultByPage implements Serializable {
 		this.data = data;
 	}
 
-	public int getCount() {
-
-		return count;
-	}
-
-	public void setCount(int count) {
-
-		this.count = count;
-	}
-
-	public int getPage() {
-
-		return page;
-	}
-
-	public void setPage(int page) {
-
-		this.page = page;
-	}
-
-	public int getLimit() {
-
-		return limit;
-	}
-
-	public void setLimit(int limit) {
-
-		this.limit = limit;
-	}
-
-	public int getBegin() {
-
-		return (this.getPage() - 1) * this.getLimit();
-	}
-
+	
 	/**
 	 * @Title: success
 	 * @Description: 成功
