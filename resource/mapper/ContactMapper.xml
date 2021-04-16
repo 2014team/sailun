@@ -81,7 +81,7 @@
 				,create_date
 				,update_date
 		 from t_contact where contact_id = #{contactId} 
-		 order by contact_id ,create_date desc limit 1;
+		 order by contact_id  desc ,create_date desc limit 1;
  	</select>
  	
  	<!-- 通过Map单个查找-->
@@ -166,7 +166,7 @@
 			and update_date = #{updateDate}
 			</if> 
  		</where>
- 		order by contact_id ,create_date desc;
+ 		order by contact_id desc ,create_date desc;
  	</select>
  	
  	<!-- 分页查找 -->
@@ -210,7 +210,7 @@
 			]]>
 			</if>
  		</where>
- 		order by contact_id ,create_date desc   
+ 		order by contact_id desc,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${page.begin} , ${page.limit};
  		 </if>
@@ -247,7 +247,7 @@
 			]]>
 			</if>
  		</where>
- 		order by contact_id ,create_date desc ;
+ 		order by contact_id desc,create_date desc ;
 	</select>
 	
 	<select id="getByBatch" parameterType="Map" resultMap="resultMap">

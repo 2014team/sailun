@@ -9,7 +9,7 @@
 ----------------------------------------------*/
 
 
-(function($){
+
 	
 	var mailform_dt = $('#mail_form dl dt');
 	var start_time = 0;
@@ -56,13 +56,6 @@
 		stop_time = new Date();
 		writing_time += Math.round( ( stop_time - start_time ) / 1000 );
 	});
-	
-	
-	
-	
-	$('#mail_submit_button').click(required_check);
-	
-	
 	
 	
 	function slice_method(dt){
@@ -186,4 +179,32 @@
 	
 	}
 	
-})(jQuery);
+
+
+
+
+$('#mail_submit_button').click(function(){
+	var check = required_check();
+	if(undefined != check){
+		return false;
+	}
+	var datas = $('#mail_form').serializeArray();
+	$.ajax({
+		url : '/contact/save',
+		type : "post",
+		data:datas,
+		cache:false,
+		dataType : "json",
+		success : function(data) {
+			alert(data.msg)
+			if(data.code == 200){
+				$('form')[0].reset();
+			}
+		},
+		error : function(err) {
+			console.log(err)
+		}
+	});
+	
+	
+});

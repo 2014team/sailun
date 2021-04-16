@@ -36,32 +36,32 @@
 			<div id="fh5co-work-section">
 				<div class="container">
 
-					<form action="https://valino.jp/contact/php/mailform.php" method="post" id="mail_form">
+					<form method="post" id="mail_form">
 						<dl>
 							<dt>姓名<span>Your Name</span></dt>
-							<dd class="required"><input type="text" id="name_1" name="name_1" value="" />
+							<dd class="required"><input type="text" id="name_1" name="username" value="" />
 							</dd>
 
 							<dt>电话<span>Phone Number</span></dt>
-							<dd class="required"><input type="text" id="phone" name="phone" value="" /> </dd>
+							<dd class="required"><input type="text" id="phone" name="mobileNum" value="" /> </dd>
 
 							<dt>车辆品牌<span>Vehicle Brand</span></dt>
-							<dd class="required"><input type="text" id="vehicle_brand" name="vehicle_brand" value="" />
+							<dd class="required"><input type="text" id="vehicle_brand" name="vehicleBrand" value="" />
 							</dd>
 
 							<dt>邮箱<span>Mail Address Confirm</span></dt>
-							<dd class="required"><input type="text" id="mail_address" name="mail_address" value="" /></dd>
+							<dd class="required"><input type="text" id="mail_address" name="email" value="" /></dd>
 
 
 							<dt>型号<span>Model</span></dt>
-							<dd class="required"><input type="text" id="model" name="model" value=""/></dd>
+							<dd class="required"><input type="text" id="model" name="type" value=""/></dd>
 
 
 							<dt>内容<span>Contents</span></dt>
-							<dd class="required"><textarea id="content" name="content" cols="40" rows="5"></textarea></dd>
+							<dd class="required"><textarea id="content" name="contents" cols="40" rows="5"></textarea></dd>
 
 							<dt></dt>
-							<dd><input type="submit" id="mail_submit_button" name="mail_submit_button" value="提交信息" />
+							<dd><input type="button" id="mail_submit_button" name="mail_submit_button" value="提交信息" />
 							</dd>
 						</dl>
 					</form>
@@ -70,31 +70,10 @@
 			</div>
 
 
-
-
+			<!-- foot -->	
+			<%@include file="/WEB-INF/page/web/common/foot.jsp" %>
 			
-			<!-- フッター部インクルード ここから -->
-			<div id="footer">
-				<div class="container">
-					<div class="row copy-right">
-						<div class="col-md-6 col-md-offset-3 text-center">
-							<!-- <p class="fh5co-social-icons">
-								<a href="https://twitter.com/VALINOTIRES/"><i class="icon-twitter2"></i></a>
-								<a href="https://www.facebook.com/Valino-Tires-International-651901148493959/"><i
-										class="icon-facebook2"></i></a>
-								<a href="https://www.instagram.com/valino_photos/"><i class="icon-instagram"></i></a>
-								<a href="https://www.youtube.com/channel/UCMtrayWAm38NYTD2m_I5svQ"><i
-										class="icon-youtube"></i></a>
-							</p> -->
-							<p class="flogoimg"><a href="index.html"><img src="/web/images/logo_2.jpg"></a></p>
-							<p class="flogo">COPYRIGHT (C) VALINO TIRES CO., LTD. ALL RIGHTS RESERVED.</p>
-							<p class="flogo"><a href="company.html"> - COMPANY PROFILE -</a></p>
-							<p class="flogo"><a href="https://valino.tires/logos/"> - BRANDLOGO RESOURCES SITE -</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			
 
 		</div>
 		<!-- END fh5co-page -->
@@ -105,6 +84,8 @@
 		<script type="text/javascript" src="/web/js/mailform.js"></script>
 	
 </body>
+
+<style>
 
 <!-- Mirrored from valino.jp/company.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Apr 2021 06:45:11 GMT -->
 
