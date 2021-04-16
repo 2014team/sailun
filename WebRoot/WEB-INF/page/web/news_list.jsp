@@ -8,7 +8,7 @@
 						<div class="h2Title-block">
 							<h2 class="h2Title headline-anime">
 								<span class="text-en">NEWS</span>
-								<span class="text-ja">新闻中心</span>
+								<span class="text-ja">${empty newsType.typeName?'新闻中心' :newsType.typeName }</span>
 							</h2>
 						</div>
 						<div class="onlinestore flex-box" id="list_div">

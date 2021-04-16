@@ -68,13 +68,13 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 	public void driverCreateFile(PageConfigEnum pageConfigEnum) {
 		Map<String,Object> paramMap = new HashMap<String, Object>();
 		
-		Integer page = 1;
-		Integer limit = 4;
-		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
+//		Integer page = 1;
+//		Integer limit = 4;
+//		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		DriverVo driverVo = new DriverVo();
 		driverVo.setStatus(StatusEnum.ON.getValue());
 		paramMap.put("driverVo", driverVo);
-		paramMap.put("page", jsonResult);
+//		paramMap.put("page", jsonResult);
 		
 		List<Driver> list = driverDao.findByPage(paramMap);
 		if(null == list || list.size() < 1){

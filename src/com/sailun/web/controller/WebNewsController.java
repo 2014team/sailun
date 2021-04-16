@@ -12,14 +12,18 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.constant.StatusEnum;
 import com.sailun.domain.dto.NewsDto;
+import com.sailun.domain.entity.NewsType;
 import com.sailun.domain.vo.NewsVo;
 import com.sailun.service.NewsService;
+import com.sailun.service.NewsTypeService;
 
 @Controller
 public class WebNewsController {
 	
 	@Autowired
 	private NewsService newsService;
+	@Autowired
+	private NewsTypeService newsTypeService;
 	
 	/**
 	* @Title: index
@@ -37,6 +41,13 @@ public class WebNewsController {
 		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		jsonResult = newsService.findByPage(newsVo, jsonResult);
 		request.setAttribute("result", jsonResult);
+		
+		if(null != newsVo.getNewsTypeId()){
+			NewsType newsType = newsTypeService.get(Integer.valueOf(newsVo.getNewsTypeId()));
+			
+			request.setAttribute("newsType", newsType);
+		}
+		
 		return "/web/news";
 	}
 	
@@ -58,6 +69,9 @@ public class WebNewsController {
 		NewsDto entity = newsService.getNews(Integer.valueOf(newsId));
 
 		request.setAttribute("entity", entity);
+		
+		
+		
 		
 		return "/web/news_detail";
 	}
@@ -97,6 +111,13 @@ public class WebNewsController {
 		newsVo.setStatus(StatusEnum.ON.getValue());
 		resultByPage = newsService.findByPage(newsVo, resultByPage);
 		request.setAttribute("result", resultByPage);
+		
+		if(null != newsVo.getNewsTypeId()){
+			NewsType newsType = newsTypeService.get(Integer.valueOf(newsVo.getNewsTypeId()));
+			
+			request.setAttribute("newsType", newsType);
+		}
+		
 		return "/web/news_list";
 	}
 	
