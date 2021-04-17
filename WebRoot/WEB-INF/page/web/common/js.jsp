@@ -1,4 +1,3 @@
-<script src="/web/js/jquery.min.js"></script>
 <!-- Waypoints -->
 <script src="/web/js/jquery.waypoints.min.js"></script>
 <!-- Superfish -->

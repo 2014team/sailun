@@ -235,6 +235,9 @@
 			and create_date >= #{productVo.beginDate} and  create_date <= #{productVo.endDate} 
 			]]>
 			</if> 
+			<if test="null != productVo.searchKey and '' != productVo.searchKey">
+			and title like '%${productVo.searchKey}%'
+			</if> 
  		</where>
  		order by sort ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
@@ -283,7 +286,10 @@
 			<![CDATA[  
 			and t.create_date >= #{productVo.beginDate} and  create_date <= #{productVo.endDate} 
 			]]>
-			</if> 
+			</if>
+			<if test="null != productVo.searchKey and '' != productVo.searchKey">
+			and title like '%${productVo.searchKey}%'
+			</if>  
  		</where>
  		order by t.sort ,t.create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
@@ -321,6 +327,9 @@
 			and create_date >= #{productVo.beginDate} and  create_date <= #{productVo.endDate} 
 			]]>
 			</if>
+			<if test="null != productVo.searchKey and '' != productVo.searchKey">
+			and title like '%${productVo.searchKey}%'
+			</if>
  		</where>
  		order by sort ,create_date desc ;
 	</select>
@@ -354,6 +363,9 @@
 			<![CDATA[  
 			and create_date >= #{productVo.beginDate} and  create_date <= #{productVo.endDate} 
 			]]>
+			</if> 
+			<if test="null != productVo.searchKey and '' != productVo.searchKey">
+			and title like '%${productVo.searchKey}%'
 			</if>
  		</where>
  		order by sort ,create_date desc ;

@@ -18,6 +18,8 @@ public class ProductType extends BaseEntity{
 	 * 分类名称
 	 */
 	private String typeName;
+	
+	private Integer sort;
  
 	public Integer getProductTypeId(){
 		return this.productTypeId;
@@ -33,4 +35,13 @@ public class ProductType extends BaseEntity{
 	public void setTypeName(String typeName){
 		this.typeName = typeName;
 	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
 }

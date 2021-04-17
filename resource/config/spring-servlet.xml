@@ -79,6 +79,18 @@
 			<mvc:mapping path="/admin/center/driver/update" />
 			<mvc:mapping path="/admin/center/driver/batch/delete" />
 			
+			<!-- newsType -->
+			<mvc:mapping path="/admin/center/newsType/save" />
+			<mvc:mapping path="/admin/center/newsType/delete" />
+			<mvc:mapping path="/admin/center/newsType/update" />
+			<mvc:mapping path="/admin/center/newsType/batch/delete" />
+			
+			<!-- productType -->
+			<mvc:mapping path="/admin/center/productType/save" />
+			<mvc:mapping path="/admin/center/productType/delete" />
+			<mvc:mapping path="/admin/center/productType/update" />
+			<mvc:mapping path="/admin/center/productType/batch/delete" />
+			
 			<bean class="com.sailun.interceptor.CreateFileInterceptor"></bean>
 		</mvc:interceptor> 
 		

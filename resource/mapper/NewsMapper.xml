@@ -239,6 +239,9 @@
 			<if test="null != newsVo.newsTypeId ">
 			and news_type_id = #{newsVo.newsTypeId}
 			</if> 
+			<if test="null != newsVo.searchKey and '' != newsVo.searchKey">
+			and title like '%${newsVo.searchKey}%'
+			</if> 
  		</where>
  		order by sort ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
@@ -276,6 +279,9 @@
 			</if> 
 			<if test="null != newsVo.newsTypeId ">
 			and news_type_id = #{newsVo.newsTypeId}
+			</if> 
+			<if test="null != newsVo.searchKey and '' != newsVo.searchKey">
+			and title like '%${newsVo.searchKey}%'
 			</if> 
  		</where>
  		order by sort ,create_date desc ;
@@ -322,6 +328,9 @@
 			<if test="null != newsVo.newsTypeId ">
 			and t.news_type_id = #{newsVo.newsTypeId}
 			</if> 
+			<if test="null != newsVo.searchKey and '' != newsVo.searchKey">
+			and title like '%${newsVo.searchKey}%'
+			</if> 
  		</where>
  		order by t.sort ,t.create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
@@ -358,6 +367,9 @@
 			</if>
 			<if test="null != newsVo.newsTypeId ">
 			and news_type_id = #{newsVo.newsTypeId}
+			</if> 
+			<if test="null != newsVo.searchKey and '' != newsVo.searchKey">
+			and title like '%${newsVo.searchKey}%'
 			</if> 
  		</where>
  		order by sort ,create_date desc ;

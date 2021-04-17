@@ -3,6 +3,7 @@
 	<%@include file="/WEB-INF/page/web/common/meta.jsp" %>
 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
 	<link rel="stylesheet" type="text/css" href="/web/css/mailform.css" />
+	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
 
 </head>
 

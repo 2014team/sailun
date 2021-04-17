@@ -68,6 +68,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 					field : 'typeName' ,
 					title : '分类名称' ,
 				}
+				,{
+					field : 'sort' ,
+					title : '排序' ,
+				}
 				, {
 					field : 'createDate' ,
 					title : '创建日期' ,
@@ -206,6 +210,7 @@ function updateRowData(obj){
 	 reqPostHasParameter(GET, {"newsTypeId":reqData.newsTypeId}, function(result) {
 		 reqData = result.data.entity;
 		 rowObj.update({
+			 	sort: reqData.sort,
 				 typeName: reqData.typeName,
 				 createDate: reqData.createDate,
 				 updateDate: reqData.updateDate,

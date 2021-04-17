@@ -223,6 +223,7 @@ public class ProductTypeServiceImpl extends BaseServiceImpl<ProductType,Integer>
 		productType.setTypeName(productTypeVo.getTypeName());
 		productType.setCreateDate(productTypeVo.getCreateDate());
 		productType.setUpdateDate(productTypeVo.getUpdateDate());
+		productType.setSort(productTypeVo.getSort());
 		return productType;
 	}
 
@@ -240,6 +241,7 @@ public class ProductTypeServiceImpl extends BaseServiceImpl<ProductType,Integer>
 		dto.setTypeName(productType.getTypeName());
 		dto.setCreateDate(productType.getCreateDate());
 		dto.setUpdateDate(productType.getUpdateDate());
+		dto.setSort(productType.getSort());
 		return dto;
 	}
 	

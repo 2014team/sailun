@@ -16,39 +16,39 @@ public class News extends BaseEntity {
 	/**
 	 * 主键
 	 */
-	private Integer newsId;
+	protected Integer newsId;
 
 	/**
 	 * 标题
 	 */
-	private String title;
+	protected String title;
 
 	/**
 	 * 封面图片
 	 */
-	private String coverImage;
+	protected String coverImage;
 
 	/**
 	 * 简介描述
 	 */
-	private String describe;
+	protected String describe;
 
 	/**
 	 * 内容介绍
 	 */
-	private String content;
+	protected String content;
 
 	/**
 	 * 0:上架1：下架
 	 */
-	private Integer status;
+	protected Integer status;
 
 	/**
 	 * 新闻类别Id
 	 */
-	private Integer newsTypeId;
+	protected Integer newsTypeId;
 	
-	private Integer sort;
+	protected Integer sort;
 
 	public Integer getNewsId() {
 		return this.newsId;

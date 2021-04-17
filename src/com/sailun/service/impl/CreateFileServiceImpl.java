@@ -14,13 +14,19 @@ import com.sailun.constant.PageConfigEnum;
 import com.sailun.constant.StatusEnum;
 import com.sailun.dao.BannerDao;
 import com.sailun.dao.DriverDao;
+import com.sailun.dao.NewsTypeDao;
 import com.sailun.dao.PageCreateDao;
 import com.sailun.dao.ProductDao;
+import com.sailun.dao.ProductTypeDao;
 import com.sailun.domain.entity.Banner;
 import com.sailun.domain.entity.Driver;
+import com.sailun.domain.entity.NewsType;
 import com.sailun.domain.entity.PageCreate;
 import com.sailun.domain.entity.Product;
+import com.sailun.domain.entity.ProductType;
 import com.sailun.domain.vo.DriverVo;
+import com.sailun.domain.vo.NewsTypeVo;
+import com.sailun.domain.vo.ProductTypeVo;
 import com.sailun.domain.vo.ProductVo;
 import com.sailun.service.CreateFileSerivce;
 import com.sailun.util.CreateFileUtil;
@@ -42,6 +48,11 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 	private ProductDao productDao;
 	@Autowired
 	private DriverDao driverDao;
+	@Autowired
+	private NewsTypeDao newsTypeDao;
+	
+	@Autowired
+	private ProductTypeDao productTypeDao;
 	
 	
 	
@@ -61,10 +72,52 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 			indexProductCreateFile(pageConfigEnum);
 		}else if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.DRIVER_DRIVER.getValue()))){
 			driverCreateFile(pageConfigEnum);
+		}else if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.NEW_NEWSTYPE.getValue()))){
+			newsTypeCreateFile(pageConfigEnum);
+		}else if(String.valueOf(pageConfigEnum.getValue()).equals(String.valueOf(PageConfigEnum.PRODUCTTYPE.getValue()))){
+			productTypeCreateFile(pageConfigEnum);
 		}
 		
 	}
 	
+	private void productTypeCreateFile(PageConfigEnum pageConfigEnum) {
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		
+//		Integer page = 1;
+//		Integer limit = 4;
+//		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
+		ProductTypeVo productTypeVo = new ProductTypeVo();
+		paramMap.put("productTypeVo", productTypeVo);
+//		paramMap.put("page", jsonResult);
+		
+		List<ProductType> list = productTypeDao.findByPage(paramMap);
+		if(null == list || list.size() < 1){
+			logger.info("没有要生成的产品类型");
+			return ;
+		}
+		createFile(list, pageConfigEnum);
+		
+	}
+
+	private void newsTypeCreateFile(PageConfigEnum pageConfigEnum) {
+		Map<String,Object> paramMap = new HashMap<String, Object>();
+		
+//		Integer page = 1;
+//		Integer limit = 4;
+//		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
+		NewsTypeVo entityVo = new NewsTypeVo();
+		paramMap.put("newsTypeVo", entityVo);
+//		paramMap.put("page", jsonResult);
+		
+		List<NewsType> list = newsTypeDao.findByPage(paramMap);
+		if(null == list || list.size() < 1){
+			logger.info("没有要生成的新闻类型");
+			return ;
+		}
+		createFile(list, pageConfigEnum);
+		
+	}
+
 	public void driverCreateFile(PageConfigEnum pageConfigEnum) {
 		Map<String,Object> paramMap = new HashMap<String, Object>();
 		

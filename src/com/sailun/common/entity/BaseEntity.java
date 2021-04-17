@@ -15,25 +15,25 @@ public class BaseEntity implements Serializable {
 	/**
 	 * 创建时间
 	 */
-	public Date createDate;
+	protected Date createDate;
 
 	/**
 	 * 更新时间
 	 */
-	public Date updateDate;
+	protected Date updateDate;
 	
-	public String searchKey;
-	public String searchValue;
+	protected String searchKey;
+	protected String searchValue;
 	
 	
 	// 时间
-	public String createDateStr;
+	protected String createDateStr;
 
 	// 查询-开始时间
-	public String beginDate;
+	protected String beginDate;
 
 	// 查询-结束时间
-	public String endDate;
+	protected String endDate;
 
 	public Integer getId() {
 		return id;

@@ -1,5 +1,18 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 	<div class="flex-item banner-anime">
+       <a href="/product/detail/15">
+           <div class="image">
+               <img src="/upload/product\5FE94C3C22FE34273D16186410115081.jpg" alt="/upload/product\5FE94C3C22FE34273D16186410115081.jpg">
+           </div>
+           <div class="contents-hover">
+               <div class="products_desc">
+                   <h4 class="radicon-page">VALINO TIRESドライバー全戦優勝！</h4>
+                   <p>VALINO TIRESドライバー全戦優勝！</p>
+               </div>
+           </div>
+       </a>
+   </div>
+	<div class="flex-item banner-anime">
        <a href="/product/detail/8">
            <div class="image">
                <img src="/upload/product\4956329E1AD742A2E216184489894291.png" alt="/upload/product\4956329E1AD742A2E216184489894291.png">

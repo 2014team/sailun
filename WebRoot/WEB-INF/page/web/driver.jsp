@@ -5,6 +5,7 @@
   <head>
 	<%@include file="/WEB-INF/page/web/common/meta.jsp" %>
 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
+	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
 
 	<!-- Modernizr JS -->
 	<script src="/web/js/modernizr-2.6.2.min.js"></script>

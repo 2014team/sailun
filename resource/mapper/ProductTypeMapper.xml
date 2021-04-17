@@ -6,6 +6,7 @@
 	<resultMap type="com.sailun.domain.entity.ProductType" id="resultMap">
 		<result property="productTypeId" column="product_type_id" />
 		<result property="typeName" column="typeName" />
+		<result property="sort" column="sort" />
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
 	</resultMap>
@@ -14,12 +15,14 @@
 	<insert id="save" parameterType="com.sailun.domain.entity.ProductType" useGeneratedKeys="true" keyProperty="productTypeId">
 		insert into t_product_type (
 			typeName
+			sort
 			,create_date
 			,update_date
 		)
 		 values
 		 (
 			#{typeName}
+			#{sort}
 			,now()
 			,now()
 		)
@@ -45,6 +48,7 @@
 		update t_product_type 
 			set update_Date = now()
 				,typeName = #{typeName}
+				,sort = #{sort}
 		where product_type_id = #{productTypeId}
 	</update>
 	
@@ -53,6 +57,7 @@
  		select 
 				product_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
 		 from t_product_type where product_type_id = #{productTypeId} 
@@ -64,6 +69,7 @@
 		select 
 				product_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
 		 from
@@ -87,6 +93,7 @@
  		select 
 				product_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
  		 from t_product_type
@@ -109,6 +116,7 @@
 		select 
 				product_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
  		 from t_product_type 

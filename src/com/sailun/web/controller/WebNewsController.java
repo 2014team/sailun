@@ -69,10 +69,6 @@ public class WebNewsController {
 		NewsDto entity = newsService.getNews(Integer.valueOf(newsId));
 
 		request.setAttribute("entity", entity);
-		
-		
-		
-		
 		return "/web/news_detail";
 	}
 	

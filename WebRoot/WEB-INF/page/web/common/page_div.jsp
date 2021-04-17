@@ -2,7 +2,9 @@
 <!-- jstl -->
 <%@include file="/WEB-INF/page/web/common/com.jsp"%>
 
-<c:if test="${result.totalPages gt 1}">
+	<input type="hidden" value="${result.page}" name="page" id="page">
+	
+	<c:if test="${result.totalPages gt 1}">
 		<div id="pager" class="pager clearfix">
 		<c:choose>
 			<c:when test="${result.page eq 1}">
@@ -34,10 +36,9 @@
 						</c:otherwise>
 					</c:choose>	
 		</c:forEach>
-		
-		<%--  <c:if test="${}">
+		 <c:if test="${result.totalPages - result.page ge result.step/2 }">
 			<span class="els">...</span>
-		</c:if>  --%>
+		</c:if> 
 		
 		<c:choose>
 			<c:when test="${result.page eq result.totalPages}">

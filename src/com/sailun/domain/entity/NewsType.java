@@ -18,6 +18,8 @@ public class NewsType extends BaseEntity{
 	 * 分类名称
 	 */
 	private String typeName;
+	
+	private Integer sort;
  
 	public Integer getNewsTypeId(){
 		return this.newsTypeId;
@@ -33,4 +35,13 @@ public class NewsType extends BaseEntity{
 	public void setTypeName(String typeName){
 		this.typeName = typeName;
 	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
 }

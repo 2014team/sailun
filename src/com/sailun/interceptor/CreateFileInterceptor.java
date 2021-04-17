@@ -48,6 +48,10 @@ public class CreateFileInterceptor implements HandlerInterceptor {
 					createFileSerivce.createFile(PageConfigEnum.INDEX_PRODUCT);
 				}else if(path.indexOf(PageConfigEnum.DRIVER_DRIVER.getDisplayName()) != -1){
 					createFileSerivce.createFile(PageConfigEnum.DRIVER_DRIVER);
+				}else if(path.indexOf(PageConfigEnum.NEW_NEWSTYPE.getDisplayName()) != -1){
+					createFileSerivce.createFile(PageConfigEnum.NEW_NEWSTYPE);
+				}else if(path.indexOf(PageConfigEnum.PRODUCTTYPE.getDisplayName()) != -1){
+					createFileSerivce.createFile(PageConfigEnum.PRODUCTTYPE);
 				}else if(path.indexOf(PageConfigEnum.PAGECREATE.getDisplayName()) != -1){
 					String pageConfigId = request.getParameter("pageConfigId");
 					if(StringUtils.isNotEmpty(pageConfigId)){

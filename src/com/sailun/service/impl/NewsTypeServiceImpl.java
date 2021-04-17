@@ -223,6 +223,7 @@ public class NewsTypeServiceImpl extends BaseServiceImpl<NewsType,Integer>  impl
 		newsType.setTypeName(newsTypeVo.getTypeName());
 		newsType.setCreateDate(newsTypeVo.getCreateDate());
 		newsType.setUpdateDate(newsTypeVo.getUpdateDate());
+		newsType.setSort(newsTypeVo.getSort());
 		return newsType;
 	}
 
@@ -240,6 +241,7 @@ public class NewsTypeServiceImpl extends BaseServiceImpl<NewsType,Integer>  impl
 		dto.setTypeName(newsType.getTypeName());
 		dto.setCreateDate(newsType.getCreateDate());
 		dto.setUpdateDate(newsType.getUpdateDate());
+		dto.setSort(newsType.getSort());
 		return dto;
 	}
 	

@@ -1,9 +1,7 @@
 
 $(function(){
-	
-	var reqUrl = "/news/search/by/page";
+	var reqUrl = "/product/search/by/page";
 	var limit = 10;
-	
 	//	初始化分页参数
 	initPageUrl(reqUrl,limit);
 	

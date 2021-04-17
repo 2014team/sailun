@@ -6,8 +6,7 @@
 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
 	
 	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
-	<script type="text/javascript" src="/web/sailun/js/news.js"></script>
-	<script type="text/javascript" src="/web/sailun/js/page.js?t=<%=new java.util.Date().getTime() %>"></script>
+	<script type="text/javascript" src="/web/sailun/js/page.js"></script>
 
 </head>
 
@@ -35,8 +34,8 @@
 							</div>
 							<div class="search-area">
 								<div class="container">
-									<input type="text" placeholder="输入要搜索的新闻">
-									<button>搜索新闻</button>
+									<input type="text" placeholder="输入要搜索的新闻" id="searchValue" name="searchValue">
+									<button id="search_id">搜索新闻</button>
 								</div>
 							</div>
 						</li>
@@ -62,6 +61,9 @@
 
 		<!-- js -->
 		<%@include file="/WEB-INF/page/web/common/js.jsp" %>
+		<script type="text/javascript" src="/web/sailun/js/news.js"></script>
+		
+		<dc
 </body>
 
 <!-- Mirrored from valino.jp/company.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Apr 2021 06:45:11 GMT -->

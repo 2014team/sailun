@@ -7,6 +7,8 @@ public enum PageConfigEnum {
 	INDEX_BANNER(100, "banner"), // 首页Banner
 	INDEX_PRODUCT(200, "product"),// 首页产品
 	DRIVER_DRIVER(300, "driver"),// 车手
+	NEW_NEWSTYPE(400, "newsType"),// 新闻类别
+	PRODUCTTYPE(500, "productType"),// 产品类别
 	PAGECREATE(1000, "pageCreate"),
 	;
 	private int value;

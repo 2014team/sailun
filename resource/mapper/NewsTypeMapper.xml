@@ -6,6 +6,7 @@
 	<resultMap type="com.sailun.domain.entity.NewsType" id="resultMap">
 		<result property="newsTypeId" column="news_type_id" />
 		<result property="typeName" column="typeName" />
+		<result property="sort" column="sort" />
 		<result property="createDate" column="create_date" />
 		<result property="updateDate" column="update_date" />
 	</resultMap>
@@ -14,12 +15,14 @@
 	<insert id="save" parameterType="com.sailun.domain.entity.NewsType" useGeneratedKeys="true" keyProperty="newsTypeId">
 		insert into t_news_type (
 			typeName
+			sort
 			,create_date
 			,update_date
 		)
 		 values
 		 (
 			#{typeName}
+			#{sort}
 			,now()
 			,now()
 		)
@@ -45,6 +48,7 @@
 		update t_news_type 
 			set update_Date = now()
 				,typeName = #{typeName}
+				,sort = #{sort}
 		where news_type_id = #{newsTypeId}
 	</update>
 	
@@ -53,10 +57,11 @@
  		select 
 				news_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
 		 from t_news_type where news_type_id = #{newsTypeId} 
-		 order by news_type_id ,create_date desc limit 1;
+		 order by sort ,create_date desc limit 1;
  	</select>
  	
  	<!-- 通过Map单个查找-->
@@ -64,6 +69,7 @@
 		select 
 				news_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
 		 from
@@ -79,7 +85,7 @@
 			and update_date = #{updateDate}
 			</if> 
 		</where>
-		order by news_type_id ,create_date desc limit 1;
+		order by sort ,create_date desc limit 1;
 	</select>
 	
 	<!-- 列表查询 -->
@@ -87,6 +93,7 @@
  		select 
 				news_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
  		 from t_news_type
@@ -101,7 +108,7 @@
 			and update_date = #{updateDate}
 			</if> 
  		</where>
- 		order by news_type_id ,create_date desc;
+ 		order by sort ,create_date desc;
  	</select>
  	
  	<!-- 分页查找 -->
@@ -109,6 +116,7 @@
 		select 
 				news_type_id
 				,typeName
+				,sort
 				,create_date
 				,update_date
  		 from t_news_type
@@ -126,7 +134,7 @@
 			and update_date = #{newsTypeVo.updateDate}
 			</if> 
  		</where>
- 		order by news_type_id ,create_date desc   
+ 		order by sort ,create_date desc   
  		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
  		 limit ${page.begin} , ${page.limit};
  		 </if>
@@ -149,7 +157,7 @@
 			and update_date = #{newsTypeVo.updateDate}
 			</if> 
  		</where>
- 		order by news_type_id ,create_date desc ;
+ 		order by sort ,create_date desc ;
 	</select>
 
 </mapper>
