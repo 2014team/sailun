@@ -1,9 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
+ <head>
     <%@include file="/WEB-INF/page/web/common/meta.jsp" %>
- 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
+	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
+   	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
     <link rel="stylesheet" href="/web/css/swiper.css"><!-- Swiper -->
     <!-- 基本 -->
     <style>
@@ -30,15 +31,15 @@
 <body data-menuflag="off">
     <div id="fh5co-wrapper">
         <div id="fh5co-page">
-        
-           <!-- nav -->
+            
+            <!-- nav -->
 			<%@include file="/WEB-INF/page/web/common/nav.jsp" %>
             
             <section id="firstview">
                 <div class="sec-inner">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                       		 <!-- banner -->
+                             <!-- banner -->
                             <%@include file="/WEB-INF/page/web/common/banner.jsp" %>
                         </div>
                         <div class="swiper-button-prev swiper-button-white"></div>
@@ -62,114 +63,18 @@
                                 <span class="text-ja">产品一览</span>
                             </h2>
                             <div class="products_banner flex-box">
-                               		<%@include file="/WEB-INF/page/web/common/product.jsp" %>
+                                <%@include file="/WEB-INF/page/web/common/product.jsp" %>
                             </div>
                         </div>
-                        
                         
                         <div id="news" class="news-box flex-item">
                             <h2 class="h2Title headline-anime">
                                 <span class="text-en">NEWS</span>
                                 <span class="text-ja">新闻中心</span>
                             </h2>
-                            <div class="news_list-box">
-                                <div class="iframe">
-                                    <div id="news_wrap">
-                                        <ul id="news_list">
-                                           
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2021/02/16 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">VALINO
-                                                            D1ライセンス選考会 </a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2021/01/31 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">【準優勝】D1
-                                                            GRAND PRIX Rd.8 TSUKUBA</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2021/01/31 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">【準優勝】D1
-                                                            GRAND PRIX Rd.8 TSUKUBA 単走</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2021/01/30 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">【優勝】D1
-                                                            GRAND PRIX Rd.7 TSUKUBA</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2021/01/30 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">【単走優勝】D1
-                                                            GRAND PRIX Rd.7 TSUKUBA </a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2021/01/27 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">2021年度スカラシップのご案内
-                                                            ［2月1日］から申し込み受付開始</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2020/12/26 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">［VALINO
-                                                            TOKYO］VALINO 折り畳みコンテナBOX 発売</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2020/12/26 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">［VALINO
-                                                            TOKYO ］VALINOロングTシャツ発売</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2020/12/26 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">VALINO
-                                                            TOKYO WEB限定ショップ 1月15日・16日・17日 3日間限定オープン</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2020/12/18 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a href="ndetail.html"
-                                                            target="_parent">［新商品］武将シリーズ 最新作N820 予約開始</a> </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2020/12/12 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a href="ndetail.html"
-                                                            target="_parent">VALINO TIRES RC タイヤ&amp;ホイール 販売店一覧ページ開設</a>
-                                                    </font>
-                                                </span></li>
-                                            <li><span class="news_List_Ymd">
-                                                    <font size="3">2020/12/06 </font>
-                                                </span><br><span class="news_List_Title">
-                                                    <font size="3"><a
-                                                            href="ndetail.html">2020年
-                                                            Formula Drift Japanシリーズ VALINO TIRESが 1位・2位・3位を 独占！</a> </font>
-                                                </span></li>
-    
-    
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="scroll-btn">
-                                <a class="down-btn"></a>
-                                <a class="up-btn"></a>
-                            </div>
+                            
+                            <%@include file="/WEB-INF/page/web/new_index_list.jsp" %>
+                            
                         </div>
                     </div>
                 </div>
@@ -213,7 +118,6 @@
     <script src="/web/js/superfish.js"></script>
     <script src="/web/js/jquery.waypoints.min.js"></script>
     <script src="/web/js/jquery.flexslider-min.js"></script>
-    <script src="/web/js/main.js"></script>
     <script src="/web/js/scrollreveal.min.js"></script>
     <script src="/web/js/swiper.js"></script>
 
