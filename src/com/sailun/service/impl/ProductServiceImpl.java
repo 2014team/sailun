@@ -151,10 +151,27 @@ public class ProductServiceImpl extends BaseServiceImpl<Product,Integer>  implem
 
 		if (count > 0) {
 			List<ProductDto> dataList = productDao.findListByPage(paramMap);
+			
+			convert(dataList);
 			jsonResult.setData(dataList);
 			jsonResult.setCount(count);
 		}
 		return jsonResult;
+	}
+	
+	
+	
+
+	private void convert(List<ProductDto> dataList) {
+		if(null != dataList && dataList.size() >0){
+			for (ProductDto productDto : dataList) {
+				String coverImage = productDto.getCoverImage();
+				if(StringUtils.isNotEmpty(coverImage)){
+					productDto.setCoverImage(coverImage.replace("\\", "//"));
+				}
+			}
+		}
+		
 	}
 
 	/**

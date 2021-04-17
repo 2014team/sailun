@@ -12,6 +12,8 @@ public class NewsDto extends News{
 	private static final long serialVersionUID = 1L;
 	
 	private String typeName;
+	
+	private String createDateStr;
 
 	
 	public String getTypeName() {
@@ -21,6 +23,18 @@ public class NewsDto extends News{
 	
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
+	}
+
+
+	
+	public String getCreateDateStr() {
+		return createDateStr;
+	}
+
+
+	
+	public void setCreateDateStr(String createDateStr) {
+		this.createDateStr = createDateStr;
 	}
 	
 	

@@ -156,6 +156,34 @@ public class NewsServiceImpl extends BaseServiceImpl<News,Integer>  implements N
 		jsonResult.setCount(count);
 		return jsonResult;
 	}
+	
+	@AdminServiceLog(description="资讯发布分页查找")
+	@Override
+	public AdminResultByPage findNewsByPage(NewsVo newsVo, AdminResultByPage jsonResult) {
+		
+		//创建日期处理
+		String createDateStr = newsVo.getCreateDateStr();
+		if(StringUtils.isNotBlank(createDateStr)){
+			String[] createDateArr = createDateStr.split("~");
+			if(null != createDateArr && createDateArr.length ==2){
+				newsVo.setBeginDate(createDateArr[0]);
+				newsVo.setEndDate(createDateArr[1]);
+			}
+		}
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("newsVo", newsVo);
+		paramMap.put("page", jsonResult);
+		
+		int count = newsDao.findNewsListByPageCount(paramMap);
+		
+		if (count > 0) {
+			List<NewsDto> newsList = newsDao.findNewsListByPage(paramMap);
+			jsonResult.setData(newsList);
+		}
+		jsonResult.setCount(count);
+		return jsonResult;
+	}
 
 	/**
 	 * @Title: checkParam

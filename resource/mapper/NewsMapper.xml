@@ -374,5 +374,97 @@
  		</where>
  		order by sort ,create_date desc ;
 	</select>
+	
+ 	<!-- 分页查找 -->
+	<select id="findNewsListByPage" parameterType="Map" resultType="com.sailun.domain.dto.NewsDto">
+		select 
+				t.news_id AS newsId
+				,t.title AS title
+				<!-- ,t.cover_image AS coverImage
+				,t.`describe` AS `describe`
+				,t.status AS status
+				,t.content AS content -->
+				,t.create_date AS createDate
+				,t.update_date AS updateDate
+				,t.news_type_id  as newsTypeId
+				<!-- ,t.sort  as sort -->
+				,tt.typeName as typeName
+ 		 from t_news t left join  t_news_type tt on  t.news_type_id = tt.news_type_id
+ 		<where>
+ 			<if test="null != newsVo.newsId ">
+			t.news_id = #{newsVo.newsId} 
+			</if>	
+			<if test="null != newsVo.title and ''!= newsVo.title">
+			and t.title = #{newsVo.title}
+			</if> 
+			<if test="null != newsVo.coverImage and ''!= newsVo.coverImage">
+			and t.cover_image = #{newsVo.coverImage}
+			</if> 
+			<if test="null != newsVo.describe and ''!= newsVo.describe">
+			and t.`describe` = #{newsVo.describe}
+			</if> 
+			<if test="null != newsVo.status ">
+			and t.status = #{newsVo.status}
+			</if> 
+			<if test="null != newsVo.content ">
+			and t.content = #{newsVo.content}
+			</if> 
+			<if test="null != newsVo and  null != newsVo.createDateStr and '' != newsVo.createDateStr">
+			<![CDATA[  
+			and t.create_date >= #{newsVo.beginDate} and  t.create_date <= #{newsVo.endDate} 
+			]]>
+			</if>
+			<if test="null != newsVo.newsTypeId ">
+			and t.news_type_id = #{newsVo.newsTypeId}
+			</if> 
+			<if test="null != newsVo.searchKey and '' != newsVo.searchKey">
+			and title like '%${newsVo.searchKey}%'
+			</if> 
+ 		</where>
+ 		order by t.sort ,t.create_date desc   
+ 		<if test="null != page and '' != page and null != page.begin and null !=page.limit ">
+ 		 limit ${page.begin} , ${page.limit};
+ 		 </if>
+	</select>
+	
+	<!-- 分页查找数量 -->
+	<select id="findNewsListByPageCount" parameterType="Map" resultType="Integer">
+		select count(1)  from t_news
+ 		<where>
+ 			<if test="null != newsVo.newsId ">
+			news_id = #{newsVo.newsId} 
+			</if>	
+			<if test="null != newsVo.title and ''!= newsVo.title">
+			and title = #{newsVo.title}
+			</if> 
+			<if test="null != newsVo.coverImage and ''!= newsVo.coverImage">
+			and cover_image = #{newsVo.coverImage}
+			</if> 
+			<if test="null != newsVo.describe and ''!= newsVo.describe">
+			and `describe` = #{newsVo.describe}
+			</if> 
+			<if test="null != newsVo.status ">
+			and status = #{newsVo.status}
+			</if> 
+			<if test="null != newsVo.content ">
+			and content = #{newsVo.content}
+			</if> 
+			<if test="null != newsVo and  null != newsVo.createDateStr and '' != newsVo.createDateStr">
+			<![CDATA[  
+			and create_date >= #{newsVo.beginDate} and  create_date <= #{newsVo.endDate} 
+			]]>
+			</if>
+			<if test="null != newsVo.newsTypeId ">
+			and news_type_id = #{newsVo.newsTypeId}
+			</if> 
+			<if test="null != newsVo.searchKey and '' != newsVo.searchKey">
+			and title like '%${newsVo.searchKey}%'
+			</if> 
+ 		</where>
+ 		order by sort ,create_date desc ;
+	</select>
+	
+	
+	
 
 </mapper>

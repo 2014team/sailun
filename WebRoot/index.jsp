@@ -72,10 +72,24 @@
                                 <span class="text-en">NEWS</span>
                                 <span class="text-ja">新闻中心</span>
                             </h2>
-                            
-                            <%@include file="/WEB-INF/page/web/new_index_list.jsp" %>
-                            
-                        </div>
+
+							<div class="news_list-box">
+                                <div class="iframe">
+                                    <div id="news_wrap">
+                                        <ul id="news_list">
+                                           		<!--资讯列表  -->
+    											<%@include file="/WEB-INF/page/web/common/news_index_list.jsp" %> 
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="scroll-btn">
+                                <a class="down-btn"></a>
+                                <a class="up-btn"></a>
+                            </div>
+
+
+					</div>
                     </div>
                 </div>
             </section>
@@ -120,6 +134,8 @@
     <script src="/web/js/jquery.flexslider-min.js"></script>
     <script src="/web/js/scrollreveal.min.js"></script>
     <script src="/web/js/swiper.js"></script>
+    
+
 
 	<!--Swiper-->
 	<script>
@@ -160,6 +176,9 @@
         }
         ScrollReveal().reveal('.banner-anime', option2);
     </script>
+    
+        <script src="/web/sailun/js/page.js"></script>
+    	<script src="/web/sailun/js/new_index_list.js"></script>
 </body>
 
 

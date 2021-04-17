@@ -38,7 +38,7 @@ public class WebProductController {
 		
 		productVo.setStatus(StatusEnum.ON.getValue());
 		Integer page = 1;
-		Integer limit = 10;
+		Integer limit = 12;
 		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		jsonResult = productService.findByPage(productVo, jsonResult);
 		request.setAttribute("result", jsonResult);

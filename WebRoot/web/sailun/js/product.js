@@ -1,7 +1,7 @@
 
 $(function(){
 	var reqUrl = "/product/search/by/page";
-	var limit = 10;
+	var limit = 12;
 	//	初始化分页参数
 	initPageUrl(reqUrl,limit);
 	

@@ -9,6 +9,7 @@ public enum PageConfigEnum {
 	DRIVER_DRIVER(300, "driver"),// 车手
 	NEW_NEWSTYPE(400, "newsType"),// 新闻类别
 	PRODUCTTYPE(500, "productType"),// 产品类别
+	INDEX_NEWS(600, "news"),// 资讯发布
 	PAGECREATE(1000, "pageCreate"),
 	;
 	private int value;

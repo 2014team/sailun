@@ -7,28 +7,26 @@
 					<div class="sec-inner inner-width inner-mid-width">
 						<div class="h2Title-block">
 							<h2 class="h2Title headline-anime">
-								<span class="text-en">NEWS</span>
+								<span class="text-en">PRODUCTS</span>
 								<span class="text-ja">${empty productType.typeName?'产品中心' :productType.typeName }</span>
 							</h2>
 						</div>
-						<div class="onlinestore flex-box" id="list_div">
-							
-						
-						<c:forEach items="${result.data}" var="item">
+						<div class="times3-box flex-box"  id="list_div" var>
+							<c:forEach items="${result.data}" var="item">
 								<div class="flex-item banner-anime">
-								<a href="/news/detail/${item.productId}" target="_blank">
-									<div class="image">
-										<img src="${item.coverImage }" alt="${item.coverImage }">
-									</div>
-									<div class="text">
-										<h4>${item.title }</h4>
-										<p>${item.describe }</p>
-									</div>
-								</a>
-							</div>
-						</c:forEach>
-							
+									<a href="product/detail/${item.productId}">
+										<div class="image-wrap">
+											<div class="image-times" style="background-image:url('${item.coverImage }');"></div>
+										</div>
+										<div class="text">
+											<h4>${item.title }</h4>
+											<p>${item.describe }</p>
+										</div>
+									</a>
+								</div>
+							</c:forEach>	
 						</div>
+						
 					</div>
 				</section>
 			</div>

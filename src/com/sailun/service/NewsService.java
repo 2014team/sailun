@@ -77,6 +77,7 @@ public interface NewsService extends BaseService<News,Integer>{
 	 * @return
 	 */
 	public AdminResultByPage findByPage(NewsVo newsVo, AdminResultByPage jsonResult);
+	public AdminResultByPage findNewsByPage(NewsVo newsVo, AdminResultByPage jsonResult);
 
 	/**
 	 * @Title: checkParam

@@ -117,6 +117,21 @@ public class WebNewsController {
 		return "/web/news_list";
 	}
 	
+	@RequestMapping("/news/search/index")
+	public String newsForIndex(NewsVo newsVo, HttpServletRequest request,AdminResultByPage resultByPage){
+		newsVo.setStatus(StatusEnum.ON.getValue());
+		resultByPage = newsService.findNewsByPage(newsVo, resultByPage);
+		request.setAttribute("result", resultByPage);
+		
+		if(null != newsVo.getNewsTypeId()){
+			NewsType newsType = newsTypeService.get(Integer.valueOf(newsVo.getNewsTypeId()));
+			
+			request.setAttribute("newsType", newsType);
+		}
+	
+		return "/web/news_index_list";
+	}
+	
 	
 
 	

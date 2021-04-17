@@ -91,6 +91,12 @@
 			<mvc:mapping path="/admin/center/productType/update" />
 			<mvc:mapping path="/admin/center/productType/batch/delete" />
 			
+			<!-- productType -->
+			<mvc:mapping path="/admin/center/news/save" />
+			<mvc:mapping path="/admin/center/news/delete" />
+			<mvc:mapping path="/admin/center/news/update" />
+			<mvc:mapping path="/admin/center/news/batch/delete" />
+			
 			<bean class="com.sailun.interceptor.CreateFileInterceptor"></bean>
 		</mvc:interceptor> 
 		

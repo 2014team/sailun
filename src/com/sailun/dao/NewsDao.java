@@ -18,7 +18,10 @@ import com.sailun.domain.entity.News;
 @Repository
 public interface NewsDao extends BaseDao<News,Integer>{
 
-public List<NewsDto> findListByPage(Map<String,Object> paramMap);
+	public List<NewsDto> findListByPage(Map<String,Object> paramMap);
+	
+	public Integer findNewsListByPageCount(Map<String,Object> paramMap);
+	public List<NewsDto> findNewsListByPage(Map<String,Object> paramMap);
 	
 	public Integer findListByPageCount(Map<String,Object> paramMap);
 	
