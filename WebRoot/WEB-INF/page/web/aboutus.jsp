@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <head>
 	<%@include file="/WEB-INF/page/web/common/meta.jsp" %>
 	<%@include file="/WEB-INF/page/web/common/css.jsp" %>

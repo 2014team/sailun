@@ -2,8 +2,7 @@
 <!-- jstl -->
 <%@include file="/WEB-INF/page/web/common/com.jsp"%>
 
-<div id="fh5co-work-section">
-				<section id="onlinestore">
+<section id="times">
 					<div class="sec-inner inner-width inner-mid-width">
 						<div class="h2Title-block">
 							<h2 class="h2Title headline-anime">
@@ -29,9 +28,9 @@
 						
 					</div>
 				</section>
-			</div>
+		
 
-			<div style="text-align: center;" is="page_div">
+			<div style="text-align: center;background: #f5f5f5;" is="page_div">
 				<!-- 分页div -->
 				<%@include file="/WEB-INF/page/web/common/page_div.jsp" %>
 			</div>

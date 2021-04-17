@@ -1,11 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
  <head>
     <%@include file="/WEB-INF/page/web/common/meta.jsp" %>
 	<%@include file="/WEB-INF/page/web/common/com.jsp"%>
+	<link rel="stylesheet" href="/web/css/swiper.css">
    	<%@include file="/WEB-INF/page/web/common/css.jsp" %>
-    <link rel="stylesheet" href="/web/css/swiper.css"><!-- Swiper -->
+    <!-- Swiper -->
     <!-- 基本 -->
     <style>
         #fh5co-header-section {
@@ -104,25 +105,14 @@
         <div class="footer-inner inner-width inner-mid-width">
             <div class="footer-logo">
                 <div class="image">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="/web/images/logo_2.jpg">
                     </a>
                 </div>
             </div>
-            <!-- <p class="social-icons">
-                <a href="https://twitter.com/VALINOTIRES/"><i class="icon-twitter2"></i></a>
-                <a href="https://www.facebook.com/Valino-Tires-International-651901148493959/"><i
-                        class="icon-facebook2"></i></a>
-                <a href="https://www.instagram.com/valino_photos/"><i class="icon-instagram"></i></a>
-                <a href="https://www.youtube.com/channel/UCMtrayWAm38NYTD2m_I5svQ"><i class="icon-youtube"></i></a>
-            </p> -->
-            <p class="copyright">COPYRIGHT (C) VALINO TIRES CO., LTD. ALL RIGHTS RESERVED.</p>
-
-            <div class="brandlogo"><a href="company.html">- COMPANY PROFILE -</a></div>
-
-            <div class="brandlogo"><a href="https://valino.tires/logos/">- BRANDLOGO RESOURCES SITE -</a></div>
-
-            <div style="height:3rem"></div>
+            
+            <p class="copyright">COPYRIGHT (C) SAILUN CO., LTD. ALL RIGHTS RESERVED.</p>
+            
         </div>
     </footer>
     <script src="/web/js/smoothscroll.js"></script>
@@ -134,12 +124,14 @@
     <script src="/web/js/jquery.flexslider-min.js"></script>
     <script src="/web/js/scrollreveal.min.js"></script>
     <script src="/web/js/swiper.js"></script>
+     <script src="/web/js/main.js"></script>
     
 
 
 	<!--Swiper-->
 	<script>
-		var swiper = new Swiper('.swiper-container', {
+	$(function(){
+	var swiper = new Swiper('.swiper-container', {
 			effect: 'fade',
 			autoplay: {
 				delay: 5000,
@@ -157,6 +149,8 @@
 				type: 'bullets',
 			},
 		});
+	})
+		
 	</script>
     <script>
         ScrollReveal({ distance: '80px' });
@@ -178,7 +172,6 @@
     </script>
     
         <script src="/web/sailun/js/page.js"></script>
-    	<script src="/web/sailun/js/new_index_list.js"></script>
 </body>
 
 

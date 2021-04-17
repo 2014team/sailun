@@ -24,7 +24,7 @@
 		<form class="login-form" id="login_form_id">
 			<h2>管理登录</h2>
 			<input type="text" placeholder="用户名" value="admin" id="user_name"  />
-			<input type="password" placeholder="密码" value="123456" id="password" />
+			<input type="password" placeholder="密码" value="" id="password" />
 			<button id="login">登 录</button>
 		</form>
 	</div>

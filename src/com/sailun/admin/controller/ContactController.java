@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,7 @@ import com.sailun.util.ExcelUtil;
 @Controller
 public class ContactController {
 	
-	private static org.slf4j.Logger logger = LoggerFactory.getLogger(ContactController.class);
+	private static Logger logger = LoggerFactory.getLogger(ContactController.class);
 
 	@Autowired
 	private ContactService contactService;

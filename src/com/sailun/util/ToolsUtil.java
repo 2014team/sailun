@@ -70,15 +70,16 @@ public class ToolsUtil {
 	}
 	
 	public static String getWebRoot() {
-		String classPath = getClassPath();
-		if ( StringUtils.isEmpty(classPath)) {
-			return "";
-		}
-		int index = classPath.indexOf("WEB-INF/classes/");
-		if (index == -1) {
-			return "";
-		}
-		return classPath.substring(0, index);
+//		String classPath = getClassPath();
+//		if ( StringUtils.isEmpty(classPath)) {
+//			return "";
+//		}
+//		int index = classPath.indexOf("WEB-INF/classes/");
+//		if (index == -1) {
+//			return "";
+//		}
+//		return classPath.substring(0, index);
+		return Global.getSysRootPath();
 	}
 	
 	

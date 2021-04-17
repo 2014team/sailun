@@ -60,10 +60,12 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-	<listener>  
+	<listener>
+		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+	</listener>
+		<listener>  
 	      <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>  
-	</listener>  
+	</listener>   
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sailun.admin.controller.ContactController;
 import com.sailun.annotation.AdminServiceLog;
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.service.impl.BaseServiceImpl;
@@ -38,7 +38,7 @@ import com.sailun.service.MenuService;
 @Service
 public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements MenuService {
 	
-	private static org.slf4j.Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class);
 	@Autowired
 	private MenuDao menuDao;
 

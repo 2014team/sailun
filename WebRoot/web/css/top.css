@@ -545,9 +545,16 @@
     line-height: 1.3;
     transition:color 0.5s ease;
     font-size: 16px;
+    
+}
+#times .image-wrap + .text > h4{
+    margin-bottom:15px;
 }
 #times a:hover .image-wrap + .text > h4{
     color:#d7000f;
+}
+#times .image-wrap + .text p{
+    font-size:14px;
 }
 .times1-item h4 {
     font-weight: bold;

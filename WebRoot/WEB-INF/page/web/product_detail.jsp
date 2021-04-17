@@ -33,14 +33,11 @@
 			</aside>
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-12 pnameeng"><span>${entity.title}</span></div>
-					<div class="col-sm-2"></div>
-					<div class="col-sm-8 pnamejp" style="margin-bottom:0;"> ${entity.content}</div>
-					<div class="col-sm-2"></div>
+					<div class="col-12 pnameeng"><span>${entity.title }</span></div>
+					<div class="container" style="margin-bottom:70px">
+					${entity.content }
 				</div>
-			</div>
-			<div id="fh5co-work-section">
-				<div class="container">
+					
 				</div>
 			</div>
 			

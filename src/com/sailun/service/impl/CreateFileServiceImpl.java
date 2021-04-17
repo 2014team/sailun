@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,6 @@ import com.sailun.dao.ProductTypeDao;
 import com.sailun.domain.dto.NewsDto;
 import com.sailun.domain.entity.Banner;
 import com.sailun.domain.entity.Driver;
-import com.sailun.domain.entity.News;
 import com.sailun.domain.entity.NewsType;
 import com.sailun.domain.entity.PageCreate;
 import com.sailun.domain.entity.Product;
@@ -37,13 +37,14 @@ import com.sailun.service.CreateFileSerivce;
 import com.sailun.util.CreateFileUtil;
 import com.sailun.util.DateUtil;
 import com.sailun.util.FileUtil;
+import com.sailun.util.Global;
 import com.sailun.util.ToolsUtil;
 
 
 @Service
 public class CreateFileServiceImpl implements CreateFileSerivce{
 	
-	private static org.slf4j.Logger logger = LoggerFactory.getLogger(CreateFileServiceImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(CreateFileServiceImpl.class);
 	
 	@Autowired
 	private BannerDao bannerDao;
@@ -94,10 +95,10 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 			
 		Integer page = 1;
 		Integer limit = 12;
-	//		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
+		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		NewsVo newsVo = new NewsVo();
 		paramMap.put("newsVo", newsVo);
-//		paramMap.put("page", jsonResult);
+		paramMap.put("page", jsonResult);
 		
 		List<NewsDto> list = newsDao.findListByPage(paramMap);
 		if(null == list || list.size() < 1){
@@ -224,6 +225,9 @@ public class CreateFileServiceImpl implements CreateFileSerivce{
 		// 数据封装
 		Map<String,Object> dataMap =new HashMap<String, Object>();
 		dataMap.put("listItem", list);
+		
+		logger.info("====Global======>"+Global.getClassPath());
+		logger.info("====Global+1======>"+Global.getSysRootPath());
 		try {
 			// 模板路径
 			String templateName =  ToolsUtil.getWebRoot() + pageCreate.getTemplatePath();

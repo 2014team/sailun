@@ -129,7 +129,9 @@
 			if( $('.required').children('input#mail_address').length ){
 				var element = $('.required').children('input#mail_address');
 				if( element.val() == '' ){
-					element.nextAll('span').text('请输入车辆品牌');
+					var dt = element.parents('dd').prev('dt');
+					var dt_name = slice_method(dt);
+					element.nextAll('span').text("请输入"+dt_name);
 					error++;
 					scroll_point = compare_method(scroll_point, element.offset().top);
 				}else{

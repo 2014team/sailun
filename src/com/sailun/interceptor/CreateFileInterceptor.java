@@ -1,20 +1,17 @@
 package com.sailun.interceptor;
 
-import java.util.SortedMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sailun.constant.MenuTypeEnum;
 import com.sailun.constant.PageConfigEnum;
 import com.sailun.service.CreateFileSerivce;
-import com.sailun.util.HttpUtil;
 
 /**
  * @ClassName: IndexBannerInterceptor
@@ -28,7 +25,7 @@ public class CreateFileInterceptor implements HandlerInterceptor {
 	@Autowired
 	private CreateFileSerivce createFileSerivce;
 	
-	private static org.slf4j.Logger logger = LoggerFactory.getLogger(CreateFileInterceptor.class);
+	private static Logger logger = LoggerFactory.getLogger(CreateFileInterceptor.class);
 
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
