@@ -16,7 +16,8 @@ $(function(){
 	
 	/*实例化编辑器 */
 	ue = UE.getEditor('container', {
-		initialFrameHeight: 200
+		initialFrameHeight: 200,
+		
 	});
 	
 	

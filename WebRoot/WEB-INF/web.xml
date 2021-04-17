@@ -66,7 +66,22 @@
 		<listener>  
 	      <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>  
 	</listener>   
-
+	
+	
+	
+	<filter>
+		<filter-name>appStepFilter</filter-name>
+		<filter-class>com.sailun.filter.AppStepFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>appStepFilter</filter-name>
+		<url-pattern>/news/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>appStepFilter</filter-name>
+		<url-pattern>/product/*</url-pattern>
+	</filter-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>

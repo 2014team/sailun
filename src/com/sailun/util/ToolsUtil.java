@@ -68,21 +68,20 @@ public class ToolsUtil {
 		}
 		return ip;
 	}
-	
+
 	public static String getWebRoot() {
-//		String classPath = getClassPath();
-//		if ( StringUtils.isEmpty(classPath)) {
-//			return "";
-//		}
-//		int index = classPath.indexOf("WEB-INF/classes/");
-//		if (index == -1) {
-//			return "";
-//		}
-//		return classPath.substring(0, index);
+		// String classPath = getClassPath();
+		// if ( StringUtils.isEmpty(classPath)) {
+		// return "";
+		// }
+		// int index = classPath.indexOf("WEB-INF/classes/");
+		// if (index == -1) {
+		// return "";
+		// }
+		// return classPath.substring(0, index);
 		return Global.getSysRootPath();
 	}
-	
-	
+
 	/**
 	 * 获取classes目录路径 如:F:/email3/WebRoot/WEB-INF/classes/
 	 * 
@@ -102,13 +101,43 @@ public class ToolsUtil {
 			classPath = StringUtils.isEmpty(webRoot) ? null : (webRoot + "/WEB-INF/classes/");
 			if (StringUtils.isEmpty(classPath)) {
 				return "";
-			} else {
+			}
+			else {
 				return classPath;
 			}
 		}
 		classPath = webRootUrl.getPath().substring(1);
 		classPath = classPath.substring(0, classPath.indexOf("/WEB-INF/classes/")) + "/WEB-INF/classes/";
 		return classPath;
+	}
+
+	public static boolean judgeIsMoblie(HttpServletRequest request) {
+		boolean isMoblie = false;
+		String[] mobileAgents = { "iphone", "android", "phone", "mobile", "wap", "netfront", "java", "opera mobi",
+						"opera mini", "ucweb", "windows ce", "symbian", "series", "webos", "sony", "blackberry",
+						"dopod", "nokia", "samsung", "palmsource", "xda", "pieplus", "meizu", "midp", "cldc",
+						"motorola", "foma", "docomo", "up.browser", "up.link", "blazer", "helio", "hosin", "huawei",
+						"novarra", "coolpad", "webos", "techfaith", "palmsource", "alcatel", "amoi", "ktouch", "nexian",
+						"ericsson", "philips", "sagem", "wellcom", "bunjalloo", "maui", "smartphone", "iemobile",
+						"spice", "bird", "zte-", "longcos", "pantech", "gionee", "portalmmm", "jig browser", "hiptop",
+						"benq", "haier", "^lct", "320x320", "240x320", "176x220", "w3c ", "acs-", "alav", "alca",
+						"amoi", "audi", "avan", "benq", "bird", "blac", "blaz", "brew", "cell", "cldc", "cmd-", "dang",
+						"doco", "eric", "hipt", "inno", "ipaq", "java", "jigs", "kddi", "keji", "leno", "lg-c", "lg-d",
+						"lg-g", "lge-", "maui", "maxo", "midp", "mits", "mmef", "mobi", "mot-", "moto", "mwbp", "nec-",
+						"newt", "noki", "oper", "palm", "pana", "pant", "phil", "play", "port", "prox", "qwap", "sage",
+						"sams", "sany", "sch-", "sec-", "send", "seri", "sgh-", "shar", "sie-", "siem", "smal", "smar",
+						"sony", "sph-", "symb", "t-mo", "teli", "tim-", "tosh", "tsm-", "upg1", "upsi", "vk-v", "voda",
+						"wap-", "wapa", "wapi", "wapp", "wapr", "webc", "winw", "winw", "xda", "xda-",
+						"Googlebot-Mobile" };
+		if (request.getHeader("User-Agent") != null) {
+			for (String mobileAgent : mobileAgents) {
+				if (request.getHeader("User-Agent").toLowerCase().indexOf(mobileAgent) >= 0) {
+					isMoblie = true;
+					break;
+				}
+			}
+		}
+		return isMoblie;
 	}
 
 }

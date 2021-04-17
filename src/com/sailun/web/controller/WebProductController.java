@@ -34,12 +34,9 @@ public class WebProductController {
 	* @return
 	*/
 	@RequestMapping("/product")
-	public String index(ProductVo productVo, HttpServletRequest request,AdminResultByPage resultByPage){
+	public String index(ProductVo productVo, HttpServletRequest request,AdminResultByPage jsonResult){
 		
 		productVo.setStatus(StatusEnum.ON.getValue());
-		Integer page = 1;
-		Integer limit = 12;
-		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		jsonResult = productService.findByPage(productVo, jsonResult);
 		request.setAttribute("result", jsonResult);
 		

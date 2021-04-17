@@ -1,5 +1,7 @@
 package com.sailun.web.controller;
 
+import java.util.SortedMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
@@ -16,6 +18,7 @@ import com.sailun.domain.entity.NewsType;
 import com.sailun.domain.vo.NewsVo;
 import com.sailun.service.NewsService;
 import com.sailun.service.NewsTypeService;
+import com.sailun.util.HttpUtil;
 
 @Controller
 public class WebNewsController {
@@ -33,12 +36,9 @@ public class WebNewsController {
 	* @return
 	*/
 	@RequestMapping("/news")
-	public String detail( NewsVo newsVo, HttpServletRequest request){
+	public String detail( NewsVo newsVo, HttpServletRequest request, AdminResultByPage jsonResult){
 		
 		newsVo.setStatus(StatusEnum.ON.getValue());
-		Integer page = 1;
-		Integer limit = 10;
-		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
 		jsonResult = newsService.findByPage(newsVo, jsonResult);
 		request.setAttribute("result", jsonResult);
 		
@@ -104,6 +104,8 @@ public class WebNewsController {
 	*/
 	@RequestMapping("/news/search/by/page")
 	public String searchByPage(NewsVo newsVo, HttpServletRequest request,AdminResultByPage resultByPage){
+		SortedMap<String, Object> paramMap = HttpUtil.getRequestParams2(request);
+		
 		newsVo.setStatus(StatusEnum.ON.getValue());
 		resultByPage = newsService.findByPage(newsVo, resultByPage);
 		request.setAttribute("result", resultByPage);
