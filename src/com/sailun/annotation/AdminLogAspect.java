@@ -50,17 +50,17 @@ public class AdminLogAspect implements Ordered {
 	private LogService logService;
 
 	// Service层切点
-	@Pointcut("@annotation(com.sailun.admin.annotation.AdminServiceLog)")
+	@Pointcut("@annotation(com.sailun.annotation.AdminServiceLog)")
 	public void afterThrowingAspect() {
 	}
 
 	// Controller层切点
-	@Pointcut("@annotation(com.sailun.admin.annotation.AdminControllerLog)")
+	@Pointcut("@annotation(com.sailun.annotation.AdminControllerLog)")
 	public void beforeAspect() {
 	}
 
 	// Controller层切点
-	@Pointcut("@annotation(com.sailun.admin.annotation.AdminControllerAfterLog)")
+	@Pointcut("@annotation(com.sailun.annotation.AdminControllerAfterLog)")
 	public void afterAspect() {
 
 	}

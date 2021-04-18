@@ -1,6 +1,8 @@
 
 package com.sailun.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.common.service.BaseService;
 import com.sailun.domain.dto.UserDto;
@@ -74,7 +76,7 @@ public interface UserService extends BaseService<User, Integer> {
 	 * @param jsonResult
 	 * @return
 	 */
-	public AdminResultByPage findByPage(UserVo userVo, AdminResultByPage jsonResult);
+	public AdminResultByPage findByPage(UserVo userVo, AdminResultByPage jsonResult,HttpServletRequest request);
 
 	/**
 	 * @Title: login

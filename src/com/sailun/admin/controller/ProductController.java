@@ -22,8 +22,8 @@ import com.sailun.domain.vo.ProductVo;
 import com.sailun.service.ImageService;
 import com.sailun.service.ProductService;
 import com.sailun.service.ProductTypeService;
-import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.annotation.AdminControllerLog;
+import com.sailun.common.entity.AdminResultByPage;
 
 /**
  * @ClassName: ProductController

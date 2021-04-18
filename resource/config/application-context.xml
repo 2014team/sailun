@@ -19,12 +19,8 @@
         ">
 
 	<!-- 扫描包路径设置 -->
-	<!-- <context:component-scan base-package="com.sailun">
+	<context:component-scan base-package="com.sailun">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>  -->
-	<!-- start开启注释 -->
-	<mvc:annotation-driven />
-		<context:component-scan base-package="com.sailun">
 	</context:component-scan> 
 
 	<bean id="propertyConfigurer"

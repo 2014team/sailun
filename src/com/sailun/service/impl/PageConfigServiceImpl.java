@@ -17,8 +17,8 @@ import com.sailun.service.PageConfigService;
 import com.sailun.common.service.impl.BaseServiceImpl;
 import com.sailun.domain.vo.PageConfigVo;
 import com.sailun.domain.dto.PageConfigDto;
-import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.annotation.AdminServiceLog;
+import com.sailun.common.entity.AdminResultByPage;
 
 /**
  * @ClassName: PageConfigServiceImpl

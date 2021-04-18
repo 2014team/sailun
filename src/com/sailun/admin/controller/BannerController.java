@@ -17,8 +17,8 @@ import com.sailun.domain.dto.BannerDto;
 import com.sailun.domain.vo.BannerVo;
 import com.sailun.service.BannerService;
 import com.sailun.service.ImageService;
-import com.sailun.common.entity.AdminResultByPage;
 import com.sailun.annotation.AdminControllerLog;
+import com.sailun.common.entity.AdminResultByPage;
 
 /**
  * @ClassName: BannerController

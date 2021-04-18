@@ -23,6 +23,7 @@ import com.sailun.domain.dto.UserDto;
 import com.sailun.domain.vo.UserVo;
 import com.sailun.service.RoleService;
 import com.sailun.service.UserService;
+import com.sailun.util.SessionUtil;
 
 /**
  * @ClassName: UserController
@@ -146,7 +147,7 @@ public class UserController {
 	@AdminControllerLog(description="用户修改")
 	@ResponseBody
 	@RequestMapping(value = "/admin/center/user/update", method = { RequestMethod.GET, RequestMethod.POST })
-	public JsonResult update(UserVo userVo) {
+	public JsonResult update(UserVo userVo,HttpServletRequest request) {
 		JsonResult result = new JsonResult();
 
 		// 验证参数
@@ -158,6 +159,12 @@ public class UserController {
 		String errMsg = userService.checkParam(userVo);
 		if (StringUtils.isNotBlank(errMsg)) {
 			result.failure(errMsg);
+			return result;
+		}
+		
+		UserDto userDto = SessionUtil.getSessionUser(request);
+		if(!userDto.getUserId() .equals(userId)  && !"admin".equals(userDto.getUserName())){
+			result.failure("不能修改他人用户");
 			return result;
 		}
 
@@ -230,8 +237,9 @@ public class UserController {
 		Integer limit = Integer.valueOf(request.getParameter("limit"));
 
 		AdminResultByPage jsonResult = new AdminResultByPage(page, limit);
-
-		jsonResult = userService.findByPage(userVo, jsonResult);
+		
+		
+		jsonResult = userService.findByPage(userVo, jsonResult,request);
 
 		return jsonResult;
 	}
@@ -266,6 +274,11 @@ public class UserController {
 		// 编辑,为空新增
 		if (null != userId) {
 			UserDto userDTO = userService.getUser(userId);
+			UserDto userDto = SessionUtil.getSessionUser(request);
+			if(!userDto.getUserId() .equals(userId)  && !"admin".equals(userDto.getUserName())){
+				userDTO.setPassword("******");
+			}
+			
 			request.setAttribute("userDTO", userDTO);
 		}
 

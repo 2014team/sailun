@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,7 @@ import com.sailun.domain.entity.User;
 import com.sailun.domain.vo.UserVo;
 import com.sailun.service.UserService;
 import com.sailun.util.LogUtil;
+import com.sailun.util.SessionUtil;
 
 /**
  * @ClassName: UserServiceImpl
@@ -141,12 +144,14 @@ public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements U
 	 */
 	@AdminServiceLog(description="用户分页查找")
 	@Override
-	public AdminResultByPage findByPage(UserVo userVo, AdminResultByPage jsonResult) {
+	public AdminResultByPage findByPage(UserVo userVo, AdminResultByPage jsonResult,HttpServletRequest request) {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("userVo", userVo);
 		paramMap.put("page", jsonResult);
 
 		int count = userDao.findByPageCount(paramMap);
+		UserDto userDto = SessionUtil.getSessionUser(request);
+		
 
 		if (count > 0) {
 			List<UserDto> dataList = null;
@@ -156,6 +161,9 @@ public class UserServiceImpl extends BaseServiceImpl<User, Integer> implements U
 				for (User user : userList) {
 					// User转UserDTO
 					UserDto dto = convertUser(user);
+					if(!userDto.getUserId() .equals(user.getUserId())  && !"admin".equals(userDto.getUserName())){
+						dto.setPassword("******");
+					}
 					dataList.add(dto);
 				}
 			}
