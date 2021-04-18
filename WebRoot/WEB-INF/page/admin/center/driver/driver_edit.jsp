@@ -2,8 +2,8 @@
 <!DOCTYPE html>
   <head>
   	<%@include file="/WEB-INF/page/admin/common/head_layui.jsp" %>
-  	<script type="text/javascript" src="/js/UEditor/ueditor.config.js?t=<%=new java.util.Date().getTime() %>"></script>
-  	<script type="text/javascript" src="/js/UEditor/ueditor.all.js?t=<%=new java.util.Date().getTime() %>"></script>
+  	<script type="text/javascript" src="/js/UEditor/ueditor.config.js"></script>
+  	<script type="text/javascript" src="/js/UEditor/ueditor.all.js"></script>
   	 <script type="text/javascript" charset="utf-8" src="/js/UEditor/lang/zh-cn/zh-cn.js"></script>
   	<script type="text/javascript" src="/admin/js/driver_edit.js?t=<%=new java.util.Date().getTime() %>"></script>
   </head>

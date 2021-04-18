@@ -85,16 +85,6 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 
 		] ]
 		  ,id: 'tableId'
-		, done: function (res, curr, count) {
-			   var that = this.elem.next();
-			   res.data.forEach(function (item, index) {
-					var tr = that.find(".layui-table-box tbody tr[data-index='" + index + "']");
-		            tr.attr({"ligId":res.data[index].logId});
-					   if(res.data[index].logType == 1){
-					       $("tr[ligId="+res.data[index].logId+"]").css("color","red")
-					  }
-			   });
-			}
 	});
 	
 	//监听行工具条 
