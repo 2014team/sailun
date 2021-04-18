@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!-- jstl -->
-<%@include file="/WEB-INF/page/web/common/com.jsp"%>
 
 	<input type="hidden" value="${result.page}" name="page" id="page">
 	

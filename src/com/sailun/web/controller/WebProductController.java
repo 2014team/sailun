@@ -35,7 +35,7 @@ public class WebProductController {
 	*/
 	@RequestMapping("/product")
 	public String index(ProductVo productVo, HttpServletRequest request,AdminResultByPage jsonResult){
-		
+		jsonResult.setLimit(12);
 		productVo.setStatus(StatusEnum.ON.getValue());
 		jsonResult = productService.findByPage(productVo, jsonResult);
 		request.setAttribute("result", jsonResult);
@@ -100,6 +100,7 @@ public class WebProductController {
 	*/
 	@RequestMapping("/product/search/by/page")
 	public String searchByPage(ProductVo productVo, HttpServletRequest request,AdminResultByPage resultByPage){
+		resultByPage.setLimit(12);
 		productVo.setStatus(StatusEnum.ON.getValue());
 		resultByPage = productService.findByPage(productVo, resultByPage);
 		request.setAttribute("result", resultByPage);

@@ -5,11 +5,14 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sailun.common.entity.PageBean;
+import com.sailun.util.HttpUtil;
 import com.sailun.util.ToolsUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
  
 public class AppStepFilter implements Filter {
  
@@ -25,15 +28,14 @@ public class AppStepFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
-		Map map = new HashMap();
+		SortedMap<String, Object> paramMap = HttpUtil.getRequestParams2(httpRequest);
 		
 		//判断是否手机
 		boolean judgeIsMoblie = ToolsUtil.judgeIsMoblie(httpRequest);
 		if(judgeIsMoblie){
-			map.put("step", "3");
-			
+			paramMap.put("step", 4);
 		}
-		ParameterRequestWrapper bodyReaderHttpServletRequestWrapper = new ParameterRequestWrapper(httpRequest,map);
+		ParameterRequestWrapper bodyReaderHttpServletRequestWrapper = new ParameterRequestWrapper(httpRequest,paramMap);
 		 //继续向后传递修改后的request,拦截器不能实现。
         chain.doFilter(bodyReaderHttpServletRequestWrapper, response);
  

@@ -103,8 +103,9 @@
 	<select id="findByPage" parameterType="Map" resultMap="resultMap">
 		select user_id,user_name,password,role_id,valid_Flag,sort_id,create_date,update_date from `t_admin_user`
 		<where>
+			<![CDATA[ user_name <> 'admin']]>
 			<if test="userVo.userName != null and '' != userVo.userName">
-				user_name=#{userVo.userName}
+				and user_name=#{userVo.userName}
 			</if>
 			<if test="userVo.roleId != null and '' != userVo.roleId">
 				and role_id=#{userVo.roleId}
@@ -120,9 +121,11 @@
 	<!-- 分页查找数量 -->
 	<select id="findByPageCount" parameterType="Map" resultType="Integer">
 		select count(1) from `t_admin_user`
+		   
 		<where>
+		    <![CDATA[ user_name <> 'admin']]>
 			<if test="userVo.userName != null and '' != userVo.userName">
-				user_name=#{userVo.userName}
+				and user_name=#{userVo.userName}
 			</if>
 			<if test="userVo.roleId != null and '' != userVo.roleId">
 				and role_id=#{userVo.roleId}
