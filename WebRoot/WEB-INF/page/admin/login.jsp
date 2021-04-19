@@ -3,11 +3,11 @@
 <html>
 <head>
 <title>登录</title>
-<link rel="stylesheet" type="text/css" href="/admin/css/login.css?t=<%=new java.util.Date().getTime() %>">
+<link rel="stylesheet" type="text/css" href="/admin/css/login.css">
 <script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/url_map.js?t=<%=new java.util.Date().getTime() %>"></script>
-<script type="text/javascript" src="/js/http_util.js?t=<%=new java.util.Date().getTime() %>"></script>
-<script type="text/javascript" src="/admin/js/login.js?t=<%=new java.util.Date().getTime() %>"></script>
+<script type="text/javascript" src="/js/url_map.js"></script>
+<script type="text/javascript" src="/js/http_util.js"></script>
+<script type="text/javascript" src="/admin/js/login.js"></script>
 </head>
 
 <script type="text/javascript">
@@ -23,7 +23,7 @@
 	<div id="login_form" class="form">
 		<form class="login-form" id="login_form_id">
 			<h2>管理登录</h2>
-			<input type="text" placeholder="用户名" value="admin" id="user_name"  />
+			<input type="text" placeholder="用户名" value="sailun" id="user_name"  />
 			<input type="password" placeholder="密码" value="" id="password" />
 			<button id="login">登 录</button>
 		</form>

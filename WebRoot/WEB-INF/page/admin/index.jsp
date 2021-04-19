@@ -9,7 +9,7 @@
   <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="index.html">L-admin v2.0</a></div>
+        <div class="logo"><a href="index.html">Sailun管理后台</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont" style="font-size: 20px;">&#xe668;</i>
         </div>
