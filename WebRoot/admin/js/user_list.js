@@ -65,10 +65,10 @@ layui.use([ 'table', 'form', 'laydate' ], function() {
 			, {
 				field : 'password',
 				title : '密码'
-			}, {
+			},/* {
 				field : 'roleName',
 				title : '角色'
-			},{
+			},*/{
 				field : 'createDate',
 				title : '创建日期',
 				templet : function(d) {
@@ -239,6 +239,11 @@ function batchDel() {
 				},function(){
 					layui.table.reload('tableId');
 					layer.close(index);	
+				});
+			}else{
+				layer.msg(result.msg, {
+					icon : 2,
+					time : 1000
 				});
 			}
 			

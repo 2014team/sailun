@@ -272,10 +272,10 @@ public class UserController {
 	@RequestMapping(value = "/admin/center/user/edit", method = { RequestMethod.GET, RequestMethod.POST })
 	public String edit(Integer userId, HttpServletRequest request) {
 		// 编辑,为空新增
+		UserDto sessionUser  = SessionUtil.getSessionUser(request);
 		if (null != userId) {
 			UserDto userDTO = userService.getUser(userId);
-			UserDto userDto = SessionUtil.getSessionUser(request);
-			if(!userDto.getUserId() .equals(userId)  && !"admin".equals(userDto.getUserName())){
+			if(!sessionUser.getUserId() .equals(userId)  && !"admin".equals(sessionUser.getUserName())){
 				userDTO.setPassword("******");
 			}
 			
@@ -286,6 +286,9 @@ public class UserController {
 		paramMap.put("validFlag", ValidFlagEnum.ON.ordinal());
 		List<RoleDto> roleatoList = roleService.selectList(paramMap);
 		request.setAttribute("roleatoList", roleatoList);
+		
+		
+		request.setAttribute("sessionUser", sessionUser);
 
 		return "/admin/center/user/user_edit";
 	}

@@ -46,7 +46,7 @@
 	<delete id="deleteByBatch"  parameterType="java.util.List">
 		delete from
 		t_driver
-		where sort in
+		where driver_id in
 		<foreach collection="list" item="item" open="(" close=")" separator=",">
 			#{item}
 		</foreach>

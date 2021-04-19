@@ -46,8 +46,9 @@
 				 </select>  
 			  </div>
 		  </div>	
-		  
-          <div class="layui-form-item">
+		  <c:choose>
+		  		<c:when test="${sessionUser.userId eq 1}">
+		  			<div class="layui-form-item">
               <label for="L_repass" class="layui-form-label">
                   <span class="x-red">*</span>角色
               </label>
@@ -59,7 +60,16 @@
 		                 </c:forEach>
 		              </select>
 			  </div>
-		  </div>	
+		  </div>	 
+		  		</c:when>
+		  		<c:otherwise>
+		  			<input type="hidden" name="roleId" id="roleId" value="${userDTO.roleId}">
+		  		</c:otherwise>
+		  </c:choose>
+         
+		  
+		  
+		  
 		  
 		  
 		  <div class="layui-form-item">

@@ -208,6 +208,11 @@ function batchDel() {
 					layui.table.reload('tableId');
 					layer.close(index);	
 				});
+			}else{
+				layer.msg(result.msg, {
+					icon : 2,
+					time : 1000
+				});
 			}
 			
 		}, function(e) {

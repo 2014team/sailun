@@ -1,17 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <div class="flex-item banner-anime">
-	<a href="/driver/detail/6" target="_blank">
-		<div class="image">
-			<img src="/upload/driver\742EB9314D134E9BD216184770803621.jpg" alt="VALINO BASE">
-		</div>
-		<div class="text">
-			<p>
-				<p>VALINO BASE</p>
-			</p>
-		</div>
-	</a>
-</div>
-<div class="flex-item banner-anime">
 	<a href="/driver/detail/2" target="_blank">
 		<div class="image">
 			<img src="/upload/driver\742EB9314D134E9BD216184770803621.jpg" alt="VALINO BASE">
