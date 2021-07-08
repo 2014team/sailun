@@ -133,6 +133,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 				m.setMenuType(MenuTypeEnum.BUTtON.getValue());
 				m.setParentId(menu.getMenuId()+"");
 				m.setSortId(menu.getSortId());
+				 m.setValidFlag(ValidFlagEnum.ON.ordinal());
 				Integer save =  menuDao.save(m);
 				logger.info("修改子菜单save="+save);
 			}else{
@@ -141,6 +142,7 @@ public class MenuServiceImpl extends BaseServiceImpl<Menu, Integer> implements M
 				m.setMenuType(MenuTypeEnum.BUTtON.getValue());
 				m.setParentId(menu.getMenuId()+"");
 				m.setSortId(menu.getSortId());
+				 m.setValidFlag(menu.getValidFlag());
 				Integer save =  menuDao.update(m);
 				
 				logger.info("修改子菜单");
