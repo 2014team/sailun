@@ -30,8 +30,8 @@
 				,#{description}
 				,#{validFlag}
 				,#{sortId}
-				,#{createDate}
-				,#{updateDate}
+				,now()
+				,now()
 		)
 	</insert>
 	
@@ -59,8 +59,7 @@
 				,menu_id = #{menuId}
 				,valid_flag = #{validFlag}
 				,sort_id = #{sortId}
-				,create_date = #{createDate}
-				,update_date = #{updateDate}
+				,update_date = now()
 		where role_id = #{roleId}
 	</update>
 	
