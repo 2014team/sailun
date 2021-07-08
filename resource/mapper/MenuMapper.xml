@@ -91,6 +91,7 @@
 				,update_flag = #{updateFlag}
 				,add_flag = #{addFlag}
 				,batch_delete_flag = #{batchDeleteFlag}
+				,update_date = now()
 		where menu_id = #{menuId}
 	</update>
 	
