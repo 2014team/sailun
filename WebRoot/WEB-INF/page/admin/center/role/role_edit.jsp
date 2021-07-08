@@ -51,7 +51,7 @@
 							class="x-red">*</span>排序
 						</label>
 						<div class="layui-input-inline">
-							<input type="text" name="sortId" onclic="" value="${(empty userDTO.sortId or userDTO.sortId eq 0) ? 1:  userDTO.sortId }" maxlength="10"
+							<input type="text" name="sortId" onclic="" value="${(empty roleDTO.sortId or roleDTO.sortId eq 0) ? 1:  roleDTO.sortId }" maxlength="10"
 								lay-verify="required|integer" autocomplete="off"
 								class="layui-input">
 						</div>
