@@ -22,18 +22,18 @@ public enum MenuTypeEnum {
 	}
 
 	public static String getNameByValue(Integer value) {
-		PageConfigEnum type = getByValue(value);
+		MenuTypeEnum type = getByValue(value);
 		return null == type ? "" : type.name();
 	}
 
 	public static String getDisplayNameByValue(Integer value) {
-		PageConfigEnum type = getByValue(value);
+		MenuTypeEnum type = getByValue(value);
 		return null == type ? "" : type.getDisplayName();
 	}
 
-	public static PageConfigEnum getByValue(Integer value) {
+	public static MenuTypeEnum getByValue(Integer value) {
 		if (null != value) {
-			for (PageConfigEnum type : PageConfigEnum.values()) {
+			for (MenuTypeEnum type : MenuTypeEnum.values()) {
 				if (type.getValue() == value) {
 					return type;
 				}
