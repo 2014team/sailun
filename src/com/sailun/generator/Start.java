@@ -19,9 +19,9 @@ public class Start {
 			
 			//mysql
 			DataBaseUtil.jdbc_driver = "com.mysql.jdbc.Driver";
-			DataBaseUtil.jdbc_url = "jdbc:mysql://1.116.68.119:3306/sailun_dev?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
-			DataBaseUtil.jdbc_user = "sailun_dev";
-			DataBaseUtil.jdbc_password = "sailun@";
+			DataBaseUtil.jdbc_url = "jdbc:mysql://127.0.0.1:3306/sailun_dev?useUnicode=true&characterEncoding=utf8&autoReconnect=true";
+			DataBaseUtil.jdbc_user = "**";
+			DataBaseUtil.jdbc_password = "**";
 			
 			
 			//sqlserver
